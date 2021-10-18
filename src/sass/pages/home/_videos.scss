@@ -1,7 +1,7 @@
 .home{
 	&-videos {
 		//padding: 11vmin 4.5vmin 0;
-		padding: 11vmin 0 0;
+		margin: 11vmin 0 0;
 		display: flex;
 		flex-direction: column;
 		height: calc(100vh - 50px);
@@ -20,16 +20,28 @@
 					&:hover{
 						transform: translateY(10vmin);
 					}
+					&.is{
+						&-fixed {
+							transform: translateY(0) !important;
+								.home-video {
+									transform: translateY(0) !important;
+										&:not(.is-starting) {
+											opacity: 0;
+											pointer-events: none;
+										}
+								}
+						}
+					}
 			}
 	}
 	&-video{
 		height: 33.33%;
 		width: 100%;
-		transition: transform var(--transform-duration) var(--transform-ease);
+		transition: transform var(--transform-duration) var(--transform-ease), opacity var(--opacity-duration) var(--opacity-ease), z-index var(--opacity-ease) var(--opacity-duration);
 		position: relative;
 			&-title{
 				position: absolute;
-				top: 12.5%;
+				top: 11.5%;
 				left: 8.2%;
 				font-family: var(--font-title-extra);
 				font-size: 100px;
@@ -62,9 +74,6 @@
 						pointer-events: none;
 						z-index: 1;
 					}
-					&.is-playing{
-						clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-					}
 			}
 			&.__1{
 				.home-video{
@@ -81,6 +90,9 @@
 								&:before {
 									border-color: transparent transparent transparent var(--color-grey-100);
 								}
+								&:after{
+									background-color: var(--color-grey-100);
+								}
 						}
 				}
 			}
@@ -95,13 +107,16 @@
 						}
 					}
 					.video{
-					&-btn{
-						border-color: var(--color-grey);
-							&:before{
-								border-color: transparent transparent transparent var(--color-grey);
-							}
+						&-btn{
+							border-color: var(--color-grey);
+								&:before{
+									border-color: transparent transparent transparent var(--color-grey);
+								}
+								&:after{
+									background-color: var(--color-grey);
+								}
+						}
 					}
-				}
 					&:hover{
 						.video{
 							&-thumbnail{
@@ -126,6 +141,9 @@
 								&:before{
 									border-color: transparent transparent transparent var(--color-grey-300);
 								}
+								&:after{
+									background-color: var(--color-grey-300);
+								}
 						}
 					}
 					&:hover{
@@ -138,16 +156,85 @@
 					}
 			}
 			.video{
-				&-thumbnail{
-					opacity: 0;
+				opacity: 0;
+				transition: opacity var(--opacity-duration) var(--opacity-ease);
+					&-box{
+						cursor: none;
+					}
+					&-thumbnail{
+						opacity: 0;
+					}
+			}
+			&.is{
+				&-starting{
+					.home-video{
+						&-item{
+							transition-delay: .7s;
+							clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+						}
+					}
+					.video{
+							&-thumbnail{
+								opacity: .1;
+							}
+					}
+				}
+				&-playing{
+					.home-video{
+						&-title{
+							opacity: 0;
+							pointer-events: none;
+						}
+					}
+					.video{
+						opacity: 1;
+						cursor: none;
+							//&-thumbnail{
+							//	opacity: 0 !important;
+							//}
+							&-btn{
+								opacity: 1;
+									&-icon{
+										&:before{
+											width: 3px;
+											height: 100%;
+											border: none;
+											background-color: var(--color-grey-100);
+										}
+										&:after{
+											opacity: 1;
+										}
+									}
+							}
+					}
+				}
+				&-hidden-poster{
+					&.is-playing{
+						.video{
+							opacity: 1 !important;
+						}
+					}
+					.video{
+						opacity: 0;
+					}
+					.video{
+						&-thumbnail{
+							opacity: 0 !important;
+						}
+					}
+					&:hover{
+						.video{
+							opacity: .5;
+						}
+					}
 				}
 			}
-			&:hover{
+			&:not(.is-starting):hover{
 				transform: translateY(-17vmin);
-					.home-video-title{
-						opacity: 1;
-						z-index: 1;
-					}
+					//.home-video-title{
+					//	opacity: 1;
+					//	z-index: 1;
+					//}
 					.video{
 						&-btn{
 							opacity: 1;
@@ -158,6 +245,12 @@
 						}
 					}
 			}
+			&:not(.is-starting):not(.is-hidden-poster):hover{
+				.home-video-title{
+					opacity: 1;
+					z-index: 1;
+				}
+			}
 	}
 }
 
@@ -166,4 +259,16 @@
 		.section-content{
 			width: 100vw;
 		}
+}
+
+.vjs{
+	&-loading-spinner,
+	&-big-play-button,
+	&-control-bar{
+		display: none;
+	}
+}
+
+.vjs-hidden{
+	display: none;
 }

@@ -45,20 +45,38 @@
 			border-radius: 50%;
 			border: 1px var(--color-grey-100) solid;
 			pointer-events: none;
-			opacity: 0;
+			//opacity: 0;
 			transition: opacity var(--opacity-duration) var(--opacity-ease);
-				&:before{
-					content: '';
+				&-icon{
 					position: absolute;
 					top: 50%;
 					left: 50%;
 					transform: translate(-50%,-50%);
-					width: 0;
-					height: 0;
-					border-style: solid;
-					border-width: 7.5px 0 7.5px 12px;
-					border-color: transparent transparent transparent var(--color-grey-100);
-					pointer-events: none;
+					width: 12px;
+					height: 15px;
+						&:before{
+							content: '';
+							position: absolute;
+							top: 0;
+							left: 0;
+							width: 0;
+							height: 0;
+							border-style: solid;
+							border-width: 7.5px 0 7.5px 12px;
+							border-color: transparent transparent transparent var(--color-grey-100);
+							pointer-events: none;
+						}
+						&:after{
+							content: '';
+							position: absolute;
+							top: 0;
+							right: 0;
+							width: 3px;
+							height: 100%;
+							background-color: var(--color-grey-100);
+							opacity: 0;
+							pointer-events: none;
+						}
 				}
 		}
 		&-wrap{
