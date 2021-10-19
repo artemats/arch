@@ -53,11 +53,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	playVideos();`01`
 });
 
-locoScroll.scrollTo(document.querySelector('#home-videos'), {
-	// duration: 5,
-	// disableLerp: true,
-	callback: () => {
-		locoScroll.update();
-		console.log('scrolled');
-	}
-});
+// locoScroll.scrollTo(document.querySelector('#home-videos'), {
+// 	// duration: 5,
+// 	// disableLerp: true,
+// 	callback: () => {
+// 		locoScroll.update();
+// 		console.log('scrolled');
+// 	}
+// });

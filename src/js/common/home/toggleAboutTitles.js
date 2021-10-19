@@ -1,24 +1,26 @@
 import gsap from 'gsap';
 
 export const toggleAboutTitles = () => {
-	setTitleStyles();
-	const titles = document.querySelectorAll('.home-about-title-item');
-	const labels = document.querySelectorAll('.home-about-label-item');
-	const labelFs = getComputedStyle(labels[0]).fontSize;
+	if(document.querySelector('#home-about')) {
+		setTitleStyles();
+		const titles = document.querySelectorAll('.home-about-title-item');
+		const labels = document.querySelectorAll('.home-about-label-item');
+		const labelFs = getComputedStyle(labels[0]).fontSize;
 
-	for(let i = 0; i < titles.length; i++) {
-		const titleTl = createTimeline(titles[i]);
-		const labelTl = createTimeline(titles[i]);
+		for (let i = 0; i < titles.length; i++) {
+			const titleTl = createTimeline(titles[i]);
+			const labelTl = createTimeline(titles[i]);
 
-		titleTl.to(titles[i], {
-			yPercent: -100,
-			fontSize: labelFs,
-		});
+			titleTl.to(titles[i], {
+				yPercent: -100,
+				fontSize: labelFs,
+			});
 
-		labelTl.to(labels[i], {
-			y: 0,
-			delay: 0.5,
-		});
+			labelTl.to(labels[i], {
+				y: 0,
+				delay: 0.5,
+			});
+		}
 	}
 };
 
