@@ -1,5 +1,6 @@
-import { TweenLite } from 'gsap';
+import gsap, { TweenLite } from 'gsap';
 import {transitionConstants} from "../constants/transition";
+import {switchSlicedText} from "./content/switchSlicedText";
 
 export const switchMotorcycles = (obj) => {
 
@@ -7,6 +8,7 @@ export const switchMotorcycles = (obj) => {
 	const motorcycleDescriptions = document.querySelectorAll('.motorcycle-description');
 	const motorcycleCircles = document.querySelectorAll('.motorcycle-item-border');
 	const motorcycleBgs = document.querySelectorAll('.motorcycles-bg-slide');
+	const motorcycleNav = document.querySelectorAll('.section-nav-box');
 
 	if(!!obj.el.id) {
 
@@ -15,12 +17,14 @@ export const switchMotorcycles = (obj) => {
 				showBg(motorcycleBgs[i], motorcycles[i]);
 				showMotorcycle(motorcycles[i]);
 				drawCircle(motorcycleCircles[i]);
-				showDescription(motorcycleDescriptions[i]);
+				switchSlicedText(motorcycleDescriptions[i], true, 2,2.5);
+				switchMotorcycleNav(motorcycleNav[i], true);
 			} else {
 				hideBg(motorcycleBgs[i]);
 				eraseCircle(motorcycleCircles[i]);
 				hideMotorcycle(motorcycles[i]);
-				hideDescription(motorcycleDescriptions[i]);
+				switchSlicedText(motorcycleDescriptions[i], false);
+				switchMotorcycleNav(motorcycleNav[i], false);
 			}
 		}
 
@@ -29,7 +33,8 @@ export const switchMotorcycles = (obj) => {
 			eraseCircle(motorcycleCircles[i]);
 			hideBg(motorcycleBgs[i]);
 			hideMotorcycle(motorcycles[i]);
-			hideDescription(motorcycleDescriptions[i]);
+			switchSlicedText(motorcycleDescriptions[i], false);
+			switchMotorcycleNav(motorcycleNav[i], false);
 		}
 	}
 };
@@ -104,55 +109,23 @@ const hideBg = (bg) => {
 	});
 };
 
-const showDescription = (description) => {
-	let btn = description.querySelector('.btn');
-	TweenLite.set(description, {
-		opacity: 1,
-	});
-	let letters = description.querySelectorAll('.word');
-	TweenLite.to(letters, {
-		delay: 1.5,
-		opacity: 1,
-		y: 0,
-		duration: transitionConstants.text.duration,
-		ease: transitionConstants.text.ease,
-		stagger: 0.01,
-	});
-	// show button //
-	if(!!btn) {
-		TweenLite.to(btn, {
-			opacity: 1,
-			delay: 2,
-			y: 0,
-			duration: transitionConstants.text.duration,
-			ease: transitionConstants.text.ease,
+const switchMotorcycleNav = (nav, status) => {
+	if(!!nav) {
+		TweenLite.to(nav, {
+			opacity: status ? 1 : 0,
+			delay: 0.5,
+			duration: transitionConstants.opacity.duration,
+			ease: transitionConstants.opacity.ease,
+		});
+		gsap.timeline({
+			repeat: -1,
+		})
+			.to(nav, {
+				delay: 0.5,
+				y: status ? -(nav.clientWidth - window.innerHeight) : 0,
+				rotate: -90,
+				duration: status ? 100 : 0,
+				ease: 'none',
 		});
 	}
-};
-
-const hideDescription = (description) => {
-	let btn = description.querySelector('.btn');
-	let letters = description.querySelectorAll('.word');
-	TweenLite.to(letters, {
-		opacity: 0,
-		y: 10,
-		duration: transitionConstants.text.duration,
-		ease: transitionConstants.text.ease,
-		stagger: 0.01,
-		onComplete: () => {
-			TweenLite.set(description, {
-				opacity: 0,
-				duration: 0,
-			})
-		}
-	});
-	// hide button //
-	if(!!btn) {
-		TweenLite.to(btn, {
-			opacity: 0,
-			y: 10,
-			duration: transitionConstants.text.duration,
-			ease: transitionConstants.text.ease,
-		});
-	}
-};
+}

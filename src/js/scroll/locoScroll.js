@@ -4,10 +4,14 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 
 const scrollContainer = document.querySelector('#scroll-container');
 gsap.registerPlugin(ScrollTrigger);
+
 export const locoScroll = new LocomotiveScroll({
 	el: scrollContainer,
 	smooth: true,
 	direction: 'horizontal',
+	gestureDirection: 'vertical',
+	reloadOnContextChange: true,
+	resetNativeScroll: false,
 	// lerp: 0.07,
 	tablet: {
 		smooth: true,

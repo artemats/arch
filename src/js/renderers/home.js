@@ -1,8 +1,14 @@
 import Highway from '@dogstudio/highway';
+import {loadHomeHeroContent} from "../common/home/loadHomeHeroContent";
 
 class HomeRenderer extends Highway.Renderer {
 	onEnter() {
-		console.log('enter to home');
+		document.documentElement.classList.add('has-scroll-smooth');
+		if(!document.querySelector('.preloader')) {
+			loadHomeHeroContent();
+			console.log('enter to home');
+		}
+
 	}
 }
 

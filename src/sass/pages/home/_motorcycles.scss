@@ -63,6 +63,12 @@
 		.section.__motorcycle{
 			min-width: 150vw;
 		}
+		.video{
+			opacity: 0;
+				.video{
+					opacity: 1;
+				}
+		}
 }
 
 .motorcycle{
@@ -111,13 +117,6 @@
 					margin-bottom: 2.3vmin;
 						.btn{
 							margin-top: 1.7vmin;
-							opacity: 0;
-							transform: translateY(10px);
-						}
-						.word{
-							opacity: 0;
-							transform: translateY(10px);
-							display: inline-block;
 						}
 				}
 		}

@@ -6,10 +6,19 @@ import AboutRenderer from "./renderers/about";
 import {scrollListener} from "./scroll/scrollListener";
 import {loadImages} from "./common/loadImages";
 import {splittingText} from "./common/splittingText";
-import {locoScroll} from "./scroll/locoScroll";
 import {toggleAboutTitles} from "./common/home/toggleAboutTitles";
 import {followMouseButton} from "./common/followMouseButton";
 import {playVideos} from "./common/home/playVideos";
+import {preloader} from "./common/preloader";
+import {loadHomeHeroContent} from "./common/home/loadHomeHeroContent";
+import MotorcycleRenderer from "./renderers/motorcycle";
+import MotorcycleHome from "./router-transitions/motorcycle-home";
+
+/*
+Preload page
+ */
+// preloader();
+loadHomeHeroContent();
 
 /*
 Init core router transition
@@ -18,9 +27,13 @@ const H = new Highway.Core({
 	renderers: {
 		home: HomeRenderer,
 		about: AboutRenderer,
+		motorcycle: MotorcycleRenderer,
 	},
 	transitions: {
-		default: Fade
+		default: Fade,
+		contextual: {
+			motorcycleHome: MotorcycleHome,
+		}
 	}
 });
 
@@ -32,7 +45,11 @@ scrollListener();
 /*
 Load images
  */
-H.on('NAVIGATE_END', () => {
+// H.on('NAVIGATE_END', () => {
+//
+// });
+
+H.on('NAVIGATE_IN', () => {
 	loadImages();
 	splittingText();
 	toggleAboutTitles();
@@ -40,17 +57,13 @@ H.on('NAVIGATE_END', () => {
 	playVideos();
 });
 
-// H.on('NAVIGATE_IN', () => {
-// 	loadImages();
-// });
-
 
 document.addEventListener("DOMContentLoaded", function(event) {
 	loadImages();
 	splittingText();
 	toggleAboutTitles();
 	followMouseButton();
-	playVideos();`01`
+	playVideos();
 });
 
 // locoScroll.scrollTo(document.querySelector('#home-videos'), {

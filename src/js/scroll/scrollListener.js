@@ -1,9 +1,9 @@
 import { locoScroll } from "./locoScroll";
-import {hideGrid, showGrid} from "../common/switchVisibilityGrid";
 import {pauseHomeHeroVideo, playHomeHeroVideo} from "../common/home/togglePlayingHomeVideo";
 import {setDarkColorTheme, setWhiteColoTheme} from "../common/switchColorTheme";
 import {switchMotorcycles} from "../common/switchMotorcycles";
 import {switchHeaderNav} from "../common/switchHeaderNav";
+import {switchGrid} from "../common/grid/switchGrid";
 
 export const scrollListener = () => {
 
@@ -12,17 +12,15 @@ export const scrollListener = () => {
 		Detect home hero section
 		 */
 		if(func === 'homeHero' && dir === 'enter') {
-			// console.log('scroll enter to home page');
-			showGrid();
-			playHomeHeroVideo();
-			switchMotorcycles(obj);
+			// switchGrid(true);
+			// playHomeHeroVideo();
+			// switchMotorcycles(obj);
 		}
 		/*
 		Detect home motorcycle sections
 		 */
 		if(func === 'homeMotorcycle' && dir === 'enter') {
-			// console.log('scroll enter to motorcycle - ', obj);
-			hideGrid();
+			switchGrid(false);
 			pauseHomeHeroVideo();
 			switchMotorcycles(obj);
 		}
@@ -41,18 +39,18 @@ export const scrollListener = () => {
 		 */
 		if(func === 'homeAboutBanner' && dir === 'enter') {
 			switchMotorcycles(obj);
-			hideGrid();
+			switchGrid(false);
 		}
 
 		if(func === 'homeAbout' && dir === 'enter') {
-			showGrid();
+			switchGrid(true);
 		}
 
 		if(func === 'homeVideos' && dir === 'enter') {
-			hideGrid();
+			switchGrid(false);
 		}
 		if(func === 'homeVideos' && dir === 'exit') {
-			showGrid();
+			switchGrid(true);
 		}
 
 		/*

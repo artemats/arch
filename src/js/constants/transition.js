@@ -20,5 +20,9 @@ export const transitionConstants = {
 	text: {
 		duration: 1,
 		ease: Power2.easeOut,
-	}
+	},
+	grid: {
+		duration: 2,
+		ease: Power2.easeOut,
+	},
 }

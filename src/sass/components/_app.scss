@@ -34,3 +34,18 @@ body{
 			margin-right: 9px;
 		}
 }
+
+.box-split{
+	.btn{
+		opacity: 0;
+		transform: translateY(10px);
+	}
+}
+
+.text-split{
+	.word{
+		opacity: 0;
+		transform: translateY(10px);
+		display: inline-block;
+	}
+}

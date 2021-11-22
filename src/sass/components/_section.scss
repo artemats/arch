@@ -9,9 +9,10 @@
 		&-nav{
 			position: absolute;
 			top: 0;
-			right: 0;
+			left: calc(100vw - 7vmin);
 			width: 66px;
 			height: 100%;
+			z-index: 2;
 				@include mh($minHeight) {
 					width: 7vmin;
 				}
@@ -24,6 +25,7 @@
 					top: 0;
 					right: 0;
 					transform-origin: calc(100% - 66px) top;
+					opacity: 0;
 						@include mh($minHeight) {
 							transform-origin: calc(100% - 7vmin) top;
 						}
@@ -38,14 +40,6 @@
 					text-transform: uppercase;
 					margin-left: 30px;
 					cursor: pointer;
-				}
-				&-wrap{
-					display: none;
-					position: fixed;
-					top: 0;
-					left: 0;
-					width: 100vw;
-					height: 100%;
 				}
 		}
 		&-banner{
