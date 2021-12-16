@@ -17,12 +17,12 @@ class Fade extends Highway.Transition {
 	}
 	in({ from, to, done }) {
 
-		locoScroll.update();
-		locoScroll.scrollTo(0, {
-			duration: 5,
-			disableLerp: true,
-			callback: () => locoScroll.update()
-		});
+		// locoScroll.update();
+		// locoScroll.scrollTo(0, {
+		// 	duration: 5,
+		// 	disableLerp: true,
+		// 	callback: () => locoScroll.update()
+		// });
 
 		from.remove();
 		Tween.fromTo(to,

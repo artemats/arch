@@ -1,7 +1,7 @@
 import { TweenLite } from 'gsap';
 import {transitionConstants} from "../../constants/transition";
 
-export const switchGrid = (status) => {
+export const switchGrid = (status, withHorizontal = true) => {
 
 	const verticalLines = document.querySelectorAll('.grid-line-vertical');
 	const horizontalLine = document.querySelector('.grid-line-horizontal');
@@ -15,7 +15,7 @@ export const switchGrid = (status) => {
 	}
 
 	TweenLite.to(horizontalLine, {
-		width: status ? '100%' : 0,
+		width: status && withHorizontal ? '100%' : 0,
 		duration: transitionConstants.grid.duration,
 		ease: transitionConstants.grid.ease,
 	});

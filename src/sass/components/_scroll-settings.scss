@@ -1,6 +1,11 @@
 .scroll{
 		&-container{
 			display: inline-block;
+			position: relative;
+				&.__vertical{
+					z-index: 2;
+					//transform: none !important;
+				}
 		}
 }
 

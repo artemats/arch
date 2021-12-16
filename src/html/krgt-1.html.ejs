@@ -9,31 +9,19 @@
 	<%=require('./components/head.html')%>
 	<%=require('./components/header.html')%>
 	<%=require('./components/preloader.html')%>
+	<div class="page-shadow"></div>
 	<div class="grid">
 		<div class="grid-line grid-line-vertical __1"></div>
 		<div class="grid-line grid-line-vertical __2"></div>
 		<div class="grid-line grid-line-vertical __3"></div>
 		<div class="grid-line grid-line-horizontal __4"></div>
 	</div>
-	<div class="scroll-container" id="scroll-container">
-		<div data-router-wrapper>
-			<div data-router-view="motorcycle">
+	<div data-router-wrapper>
+		<div data-router-view="motorcycle">
+			<div class="scroll-container __vertical" id="vertical-scroll-container">
 				<div class="page" id="page" data-scroll-direction="vertical">
-					<section class="section">
-						<h1>Krgt-1</h1>
-					</section>
-					<section class="section">
-						<img src="https://cdn.pixabay.com/photo/2021/09/15/15/48/seals-6627197_1280.jpg" alt="">
-					</section>
-					<section class="section">
-						<img src="https://cdn.pixabay.com/photo/2021/11/05/12/27/woman-6771288_1280.jpg" alt="">
-					</section>
-					<section class="section">
-						<img src="https://cdn.pixabay.com/photo/2020/05/20/07/10/architecture-5195171_1280.jpg" alt="">
-					</section>
-					<section class="section">
-						<img src="https://cdn.pixabay.com/photo/2020/04/28/12/54/iceland-5104370_1280.jpg" alt="">
-					</section>
+					<%=require('./pages/krgt-1/hero.html')%>
+					<%=require('./pages/krgt-1/photos-1.html')%>
 				</div>
 			</div>
 		</div>

@@ -1,0 +1,22 @@
+.photos{
+	padding: 15.1vmin 0;
+		&-list{
+			position: relative;
+			height: 300px;
+				&-box{
+					position: absolute;
+					top: 0;
+					left: 0;
+					display: flex;
+					flex-wrap: nowrap;
+				}
+		}
+		&-item{
+			height: 300px;
+			width: 450px;
+			margin: 0 30px;
+				img{
+					@include imageCover(center);
+				}
+		}
+}

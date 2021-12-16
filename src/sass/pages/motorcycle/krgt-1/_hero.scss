@@ -1,0 +1,27 @@
+.hero-krgt-1{
+	.hero{
+		&-title{
+			margin-bottom: 0.8vmin;
+			padding-left: calc(34vmin + 50px);
+		}
+		&-description{
+				&.__1{
+					max-width: 35vmin;
+				}
+				&.__2{
+					max-width: 60vmin;
+				}
+		}
+		&-banner{
+			margin-top: 1.5vmin;
+			margin-bottom: 9.1vmin;
+			width: 72.1vmin;
+			height: 48vmin;
+		}
+	}
+	&.hero{
+			&-motorcycle{
+				padding-top: calc(22.2vmin + 50px);
+			}
+	}
+}

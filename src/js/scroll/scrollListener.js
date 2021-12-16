@@ -1,13 +1,14 @@
-import { locoScroll } from "./locoScroll";
+// import { locoScroll } from "./locoScroll";
 import {pauseHomeHeroVideo, playHomeHeroVideo} from "../common/home/togglePlayingHomeVideo";
 import {setDarkColorTheme, setWhiteColoTheme} from "../common/switchColorTheme";
 import {switchMotorcycles} from "../common/switchMotorcycles";
 import {switchHeaderNav} from "../common/switchHeaderNav";
 import {switchGrid} from "../common/grid/switchGrid";
+import {initHorizontalScroll} from "./horizontalScroll";
 
 export const scrollListener = () => {
 
-	locoScroll.on('call', (func, dir, obj) => {
+	initHorizontalScroll().on('call', (func, dir, obj) => {
 		/*
 		Detect home hero section
 		 */

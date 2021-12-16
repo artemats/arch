@@ -28,4 +28,16 @@
 					height: 100%;
 				}
 		}
+		&-back{
+			font-size: 12px;
+			letter-spacing: .1em;
+				.btn{
+					&-icon{
+						margin-left: 0;
+						margin-right: 20px;
+						width: 5px;
+						height: 12px;
+					}
+				}
+		}
 }

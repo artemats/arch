@@ -3,7 +3,7 @@ import '../sass/index.scss';
 import Fade from "./router-transitions/fade";
 import HomeRenderer from "./renderers/home";
 import AboutRenderer from "./renderers/about";
-import {scrollListener} from "./scroll/scrollListener";
+// import {scrollListener} from "./scroll/scrollListener";
 import {loadImages} from "./common/loadImages";
 import {splittingText} from "./common/splittingText";
 import {toggleAboutTitles} from "./common/home/toggleAboutTitles";
@@ -13,6 +13,8 @@ import {preloader} from "./common/preloader";
 import {loadHomeHeroContent} from "./common/home/loadHomeHeroContent";
 import MotorcycleRenderer from "./renderers/motorcycle";
 import MotorcycleHome from "./router-transitions/motorcycle-home";
+import {initHorizontalScroll} from "./scroll/horizontalScroll";
+// import {locoScroll} from "./scroll/locoScroll";
 
 /*
 Preload page
@@ -40,7 +42,7 @@ const H = new Highway.Core({
 /*
 Init events listener on scroll
  */
-scrollListener();
+// scrollListener();
 
 /*
 Load images
@@ -52,25 +54,31 @@ Load images
 H.on('NAVIGATE_IN', () => {
 	loadImages();
 	splittingText();
-	toggleAboutTitles();
+	// toggleAboutTitles();
 	followMouseButton();
 	playVideos();
+
+	initHorizontalScroll();
 });
 
 
 document.addEventListener("DOMContentLoaded", function(event) {
 	loadImages();
 	splittingText();
-	toggleAboutTitles();
+	// toggleAboutTitles();
 	followMouseButton();
 	playVideos();
 });
 
-// locoScroll.scrollTo(document.querySelector('#home-videos'), {
-// 	// duration: 5,
-// 	// disableLerp: true,
-// 	callback: () => {
-// 		locoScroll.update();
-// 		console.log('scrolled');
-// 	}
-// });
+// setTimeout(() => {
+//
+// 	locoScroll.scrollTo(document.querySelector('#arch-krgt-1'), {
+// 		duration: 5,
+// 		disableLerp: true,
+// 		callback: () => {
+// 			locoScroll.update();
+// 			console.log('scrolled');
+// 		}
+// 	});
+//
+// }, 5000);

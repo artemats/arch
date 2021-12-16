@@ -1,0 +1,10 @@
+.hero{
+		&-motorcycle{
+			min-height: 100vh;
+				.section-back{
+					position: absolute;
+					top: 14.2vmin;
+					left: 0;
+				}
+		}
+}

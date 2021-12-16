@@ -8,6 +8,13 @@ body{
 		}
 }
 
+/*
+Hide scrollbar
+ */
+::-webkit-scrollbar {
+	display: none;
+}
+
 #wrapper{
 	position: relative;
 	width: auto;
