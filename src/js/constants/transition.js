@@ -1,4 +1,4 @@
-import { Power2, Power4 } from 'gsap';
+import { Power1, Power2, Power4 } from 'gsap';
 
 export const transitionConstants = {
 	opacity: {
@@ -24,5 +24,13 @@ export const transitionConstants = {
 	grid: {
 		duration: 2,
 		ease: Power2.easeOut,
+	},
+	transform: {
+		duration: 0.7,
+		ease: Power2.easeOut,
+	},
+	show: {
+		duration: 2,
+		ease: Power4.easeOut,
 	},
 }

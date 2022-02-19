@@ -3,6 +3,7 @@ h1{
 	line-height: 1.2em;
 	font-family: var(--font-title-extra);
 	text-transform: uppercase;
+	overflow: hidden;
 		@include mh($minHeight){
 			font-size: 7.3vmin;
 		}
@@ -13,6 +14,7 @@ h2{
 	line-height: 1em;
 	font-family: var(--font-title-extra);
 	text-transform: uppercase;
+	overflow: hidden;
 		@include mh($minHeight){
 			font-size: 17.45vmin;
 		}
@@ -23,18 +25,20 @@ h3{
 	line-height: 1em;
 	font-family: var(--font-title-extra);
 	text-transform: uppercase;
+	overflow: hidden;
 		@include mh($minHeight){
 			font-size: 14.2vmin;
 		}
 }
 
 h4{
-	font-size: 120px;
-	line-height: 1em;
+	font-size: 80px;
+	line-height: 1.2em;
 	font-family: var(--font-title-extra);
 	text-transform: uppercase;
+	overflow: hidden;
 		@include mh($minHeight){
-			font-size: 14vmin;
+			font-size: 9.35vmin;
 		}
 }
 
@@ -45,8 +49,27 @@ h5{
 	text-transform: uppercase;
 	color: var(--color-grey);
 	font-weight: 900;
+	overflow: hidden;
 		@include mh($minHeight){
 			font-size: 3.55vmin;
+		}
+}
+
+h6{
+	font-size: 24px;
+	font-family: var(--font-title-regular);
+	color: var(--color-grey);
+	line-height: 1em;
+	overflow: hidden;
+		@include mh($minHeight){
+			font-size: 2.8vmin;
+		}
+		&.__sm{
+			font-size: 20px;
+			font-family: var(--font-title-light);
+				@include mh($minHeight){
+					font-size: 2.4vmin;
+				}
 		}
 }
 

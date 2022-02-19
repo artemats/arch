@@ -2,41 +2,56 @@ import gsap, { TweenLite } from 'gsap';
 import {transitionConstants} from "../constants/transition";
 import {switchSlicedText} from "./content/switchSlicedText";
 
-export const switchMotorcycles = (obj) => {
+export const switchMotorcycle = (obj, status) => {
 
-	const motorcycles = document.querySelectorAll('.motorcycle-item-image');
-	const motorcycleDescriptions = document.querySelectorAll('.motorcycle-description');
-	const motorcycleCircles = document.querySelectorAll('.motorcycle-item-border');
-	const motorcycleBgs = document.querySelectorAll('.motorcycles-bg-slide');
-	const motorcycleNav = document.querySelectorAll('.section-nav-box');
-
-	if(!!obj.el.id) {
-
-		for(let i = 0; i < motorcycles.length; i++) {
-			if(motorcycles[i].getAttribute('data-id') === obj.el.id) {
-				showBg(motorcycleBgs[i], motorcycles[i]);
-				showMotorcycle(motorcycles[i]);
-				drawCircle(motorcycleCircles[i]);
-				switchSlicedText(motorcycleDescriptions[i], true, 2,2.5);
-				switchMotorcycleNav(motorcycleNav[i], true);
-			} else {
-				hideBg(motorcycleBgs[i]);
-				eraseCircle(motorcycleCircles[i]);
-				hideMotorcycle(motorcycles[i]);
-				switchSlicedText(motorcycleDescriptions[i], false);
-				switchMotorcycleNav(motorcycleNav[i], false);
-			}
-		}
-
+	// console.log('obj - ', obj);
+	// console.log('obj status - ', status);
+	console.log();
+	if (status) {
+		showMotorcycle(obj.querySelector('.motorcycle-item-image'));
+		showBg(document.querySelector(`[data-motorcycle="${obj.querySelector('.section-motorcycle').getAttribute('id')}"]`));
+		drawCircle(obj.querySelector('.motorcycle-item-border'));
+		switchSlicedText(obj.querySelector('.motorcycle-description'), true, 0.5,1);
 	} else {
-		for(let i = 0; i < motorcycles.length; i++) {
-			eraseCircle(motorcycleCircles[i]);
-			hideBg(motorcycleBgs[i]);
-			hideMotorcycle(motorcycles[i]);
-			switchSlicedText(motorcycleDescriptions[i], false);
-			switchMotorcycleNav(motorcycleNav[i], false);
-		}
+		hideMotorcycle(obj.querySelector('.motorcycle-item-image'));
+		hideBg(document.querySelector(`[data-motorcycle="${obj.querySelector('.section-motorcycle').getAttribute('id')}"]`));
+		eraseCircle(obj.querySelector('.motorcycle-item-border'));
+		switchSlicedText(obj.querySelector('.motorcycle-description'), false);
 	}
+
+	// const motorcycles = document.querySelectorAll('.motorcycle-item-image');
+	// const motorcycleDescriptions = document.querySelectorAll('.motorcycle-description');
+	// const motorcycleCircles = document.querySelectorAll('.motorcycle-item-border');
+	// const motorcycleBgs = document.querySelectorAll('.motorcycles-bg-slide');
+	// const motorcycleNav = document.querySelectorAll('.section-nav-box');
+	//
+	// if(!!obj.el.id) {
+	//
+	// 	for(let i = 0; i < motorcycles.length; i++) {
+	// 		if(motorcycles[i].getAttribute('data-id') === obj.el.id) {
+	// 			showBg(motorcycleBgs[i], motorcycles[i]);
+	// 			showMotorcycle(motorcycles[i]);
+	// 			drawCircle(motorcycleCircles[i]);
+	// 			switchSlicedText(motorcycleDescriptions[i], true, 2,2.5);
+	// 			switchMotorcycleNav(motorcycleNav[i], true);
+	// 		} else {
+	// 			hideBg(motorcycleBgs[i]);
+	// 			eraseCircle(motorcycleCircles[i]);
+	// 			hideMotorcycle(motorcycles[i]);
+	// 			switchSlicedText(motorcycleDescriptions[i], false);
+	// 			switchMotorcycleNav(motorcycleNav[i], false);
+	// 		}
+	// 	}
+	//
+	// } else {
+	// 	for(let i = 0; i < motorcycles.length; i++) {
+	// 		eraseCircle(motorcycleCircles[i]);
+	// 		hideBg(motorcycleBgs[i]);
+	// 		hideMotorcycle(motorcycles[i]);
+	// 		switchSlicedText(motorcycleDescriptions[i], false);
+	// 		switchMotorcycleNav(motorcycleNav[i], false);
+	// 	}
+	// }
 };
 
 const showMotorcycle = (motorcycle) => {
@@ -44,7 +59,7 @@ const showMotorcycle = (motorcycle) => {
 		x: -100,
 	});
 	TweenLite.to(motorcycle, {
-		delay: 1,
+		// delay: 1,
 		opacity: 1,
 		x: 0,
 		duration: transitionConstants.move.duration,
@@ -55,7 +70,7 @@ const showMotorcycle = (motorcycle) => {
 const hideMotorcycle = (motorcycle) => {
 	TweenLite.to(motorcycle, {
 		opacity: 0,
-		duration: transitionConstants.move.duration,
+		duration: 0.5,
 		ease: transitionConstants.move.ease,
 	});
 };
@@ -64,7 +79,8 @@ const drawCircle = (circle) => {
 	if(!!circle) {
 		TweenLite.set(circle.querySelector('path'), {
 			opacity: 1,
-			delay: 1.5,
+			// delay: 1.5,
+			delay: 0.5,
 			onComplete: () => {
 				TweenLite.to(circle.querySelector('path'), {
 					strokeDashoffset: 0,
@@ -94,7 +110,7 @@ const showBg = (bg) => {
 	TweenLite.to(bg, {
 		opacity: 1,
 		scale: 1,
-		delay: 1,
+		// delay: 1,
 		duration: transitionConstants.draw.duration,
 		ease: transitionConstants.draw.ease,
 	});

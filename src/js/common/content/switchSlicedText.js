@@ -1,11 +1,11 @@
 import {TweenLite} from "gsap";
 import {transitionConstants} from "../../constants/transition";
 
-export const switchSlicedText = (content, status, delay = 0,btnDelay = 0) => {
-	status && !!content ? showText(content, delay, btnDelay) : hideText(content);
+export const switchSlicedText = (content, status, delay = 0,btnDelay = 0, stagger = 0.01) => {
+	status && !!content ? showText(content, delay, btnDelay, stagger) : hideText(content);
 }
 
-const showText = (description, delay, btnDelay) => {
+const showText = (description, delay, btnDelay, stagger) => {
 	let btn = description.querySelector('.btn');
 	TweenLite.set(description, {
 		opacity: 1,
@@ -17,7 +17,7 @@ const showText = (description, delay, btnDelay) => {
 		y: 0,
 		duration: transitionConstants.text.duration,
 		ease: transitionConstants.text.ease,
-		stagger: 0.01,
+		stagger,
 	});
 	// show button //
 	if(!!btn) {

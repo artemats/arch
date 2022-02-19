@@ -25,21 +25,33 @@
 .text{
     &-small{
       font-size: 12px;
-      font-size: .75em;
+        @include mh($minHeight) {
+          font-size: .75em;
+        }
     }
     &-button{
       font-size: 12px;
-      font-size: .75em;
       letter-spacing: .2em;
-      line-height: 1em;
+      line-height: 12px;
       font-family: var(--font-title);
       text-transform: uppercase;
+        @include mh($minHeight) {
+          font-size: 1.37vmin;
+          line-height: 1.6vmin;
+        }
     }
     &-nav{
       font-size: 72px;
       line-height: 1em;
         @include mh($minHeight) {
           font-size: 8.37vmin;
+        }
+    }
+    &-label{
+      font-size: 20px;
+      font-family: var(--font-title-medium);
+        @include mh($minHeight){
+          font-size: 2.4vmin;
         }
     }
 }

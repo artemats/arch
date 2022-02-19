@@ -1,5 +1,5 @@
 .header{
-	position: absolute;
+	position: fixed;
 	top: 50px;
 	left: 0;
 	width: 100%;
@@ -10,13 +10,19 @@
 			display: flex;
 			align-items: center;
 				&-social{
-
+					position: relative;
 				}
 				&-nav{
 					position: absolute;
 					left: 50%;
 					transform: translateX(-50%);
 					padding-right: 22px;
+						@include mh($minHeight){
+							padding-right: 2.7vmin;
+						}
 				}
+		}
+		&-nav{
+			display: none;
 		}
 }

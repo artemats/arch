@@ -3,9 +3,14 @@ body{
 	color: var(--color-white);
 	font-family: var(--font-body);
 	font-size: 16px;
+	overscroll-behavior: none;
 		@include mh($minHeight){
 			font-size: 1.86vmin;
 		}
+}
+
+.theme-white{
+	opacity: 0;
 }
 
 /*
@@ -50,9 +55,59 @@ Hide scrollbar
 }
 
 .text-split{
-	.word{
-		opacity: 0;
-		transform: translateY(10px);
-		display: inline-block;
-	}
+		.word{
+			opacity: 0;
+			transform: translateY(10px);
+			display: inline-block;
+		}
+		&[class*=h-4]{
+			.word{
+				transform: translateY(100px);
+			}
+		}
+}
+
+.showThumbOnScroll{
+	//overflow: hidden;
+		.section-content-image{
+			//width: 0;
+			overflow: hidden;
+			transition: transform .2s ease-out;
+				img{
+					transform-origin: center;
+					transition: inherit;
+				}
+		}
+		.photos-item{
+			overflow: hidden;
+				.section-content-image{
+					//transform: scale(1.1);
+					opacity: 0;
+				}
+		}
+}
+
+.showContentOnScroll{
+
+}
+
+.showContentOnLoad,
+.showThumbOnLoad,
+.hiddenOnLoading{
+	opacity: 0;
+		img{
+			opacity: 0;
+			transform: scale(1.2) translateY(20px);
+		}
+}
+
+.showThumbOnLoad{
+	overflow: hidden;
+}
+
+.parallaxVerticalOnScroll{
+		img{
+			transform: scale(1.3);
+			opacity: 0;
+		}
 }

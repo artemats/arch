@@ -5,15 +5,14 @@
 	cursor: pointer;
 		&-title{
 			margin-right: 12px;
-				@include mh($minHeight){
-					padding-top: 3px;
-				}
+			display: inline-block;
+				//@include mh($minHeight){
+				//	padding-top: 3px;
+				//}
 		}
 		&-box{
 			width: 16px;
-			width: 1em;
 			height: 18px;
-			height: 1.125em;
 			position: relative;
 				&-arrow{
 					position: absolute;
@@ -25,11 +24,20 @@
 						}
 						&:nth-child(2){
 							left: 50%;
-							transform: translateX(-1px);
+							margin-left: -1px;
 						}
 						&:nth-child(3){
-							right: 0;
+							left: calc(100% - 2px);
 						}
 				}
+				@include mh($minHeight) {
+					width: 1em;
+					height: 1.125em;
+				}
 		}
+		//&.is-active{
+		//		.burger-box-arrow{
+		//			color: var(--color-black);
+		//		}
+		//}
 }

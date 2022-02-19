@@ -1,10 +1,6 @@
-<svg width="400" height="407" viewBox="0 0 400 407" fill="none" xmlns="http://www.w3.org/2000/svg">
-<mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="400" height="407">
-<rect width="400" height="407" fill="#C4C4C4"/>
-</mask>
-<g mask="url(#mask0)">
+<svg width="407" height="407" viewBox="0 0 407 407" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path opacity="0.5" d="M4 3.5H3V403.5H4V3.5Z" fill="#DEDEDE"/>
-<path opacity="0.2" d="M23.552 3H22.549V404H23.552V3Z" fill="#DEDEDE"/>
+<path opacity="0.2" d="M23.5519 3H22.549V404H23.5519V3Z" fill="#DEDEDE"/>
 <path opacity="0.2" d="M43.602 3H42.599V404H43.602V3Z" fill="#DEDEDE"/>
 <path opacity="0.2" d="M63.652 3H62.649V404H63.652V3Z" fill="#DEDEDE"/>
 <path opacity="0.2" d="M83.701 3H82.699V404H83.701V3Z" fill="#DEDEDE"/>
@@ -23,11 +19,12 @@
 <path opacity="0.2" d="M344.352 3H343.349V404H344.352V3Z" fill="#DEDEDE"/>
 <path opacity="0.2" d="M364.401 3H363.398V404H364.401V3Z" fill="#DEDEDE"/>
 <path opacity="0.2" d="M384.451 3H383.449V404H384.451V3Z" fill="#DEDEDE"/>
+<path opacity="0.5" d="M404 3.5H403V403.5H404V3.5Z" fill="#DEDEDE"/>
 <path opacity="0.5" d="M403.5 3H3.5V4H403.5V3Z" fill="#DEDEDE"/>
-<path opacity="0.2" d="M404 22.5488H3V23.5518H404V22.5488Z" fill="#DEDEDE"/>
-<path opacity="0.2" d="M404 42.5986H3V43.6016H404V42.5986Z" fill="#DEDEDE"/>
-<path opacity="0.2" d="M404 62.6494H3V63.6524H404V62.6494Z" fill="#DEDEDE"/>
-<path opacity="0.2" d="M404 82.6992H3V83.7022H404V82.6992Z" fill="#DEDEDE"/>
+<path opacity="0.2" d="M404 22.5491H3V23.5521H404V22.5491Z" fill="#DEDEDE"/>
+<path opacity="0.2" d="M404 42.5991H3V43.6021H404V42.5991Z" fill="#DEDEDE"/>
+<path opacity="0.2" d="M404 62.6489H3V63.6519H404V62.6489Z" fill="#DEDEDE"/>
+<path opacity="0.2" d="M404 82.699H3V83.702H404V82.699Z" fill="#DEDEDE"/>
 <path opacity="0.5" d="M404 102.748H3V103.751H404V102.748Z" fill="#DEDEDE"/>
 <path opacity="0.2" d="M404 122.799H3V123.802H404V122.799Z" fill="#DEDEDE"/>
 <path opacity="0.2" d="M404 142.849H3V143.852H404V142.849Z" fill="#DEDEDE"/>
@@ -46,12 +43,20 @@
 <path opacity="0.5" d="M403.5 403H3.5V404H403.5V403Z" fill="#DEDEDE"/>
 <path d="M4 0H3V7H4V0Z" fill="#DEDEDE"/>
 <path d="M7 3H0V4H7V3Z" fill="#DEDEDE"/>
+<path d="M404 0H403V7H404V0Z" fill="#DEDEDE"/>
+<path d="M407 3H400V4H407V3Z" fill="#DEDEDE"/>
 <path d="M4 100H3V107H4V100Z" fill="#DEDEDE"/>
 <path d="M7 103H0V104H7V103Z" fill="#DEDEDE"/>
+<path d="M404 100H403V107H404V100Z" fill="#DEDEDE"/>
+<path d="M407 103H400V104H407V103Z" fill="#DEDEDE"/>
 <path d="M4 200H3V207H4V200Z" fill="#DEDEDE"/>
 <path d="M7 203H0V204H7V203Z" fill="#DEDEDE"/>
+<path d="M404 200H403V207H404V200Z" fill="#DEDEDE"/>
+<path d="M407 203H400V204H407V203Z" fill="#DEDEDE"/>
 <path d="M4 300H3V307H4V300Z" fill="#DEDEDE"/>
 <path d="M7 303H0V304H7V303Z" fill="#DEDEDE"/>
+<path d="M404 300H403V307H404V300Z" fill="#DEDEDE"/>
+<path d="M407 303H400V304H407V303Z" fill="#DEDEDE"/>
 <path d="M4 400H3V407H4V400Z" fill="#DEDEDE"/>
 <path d="M7 403H0V404H7V403Z" fill="#DEDEDE"/>
 <path d="M104 0H103V7H104V0Z" fill="#DEDEDE"/>
@@ -84,6 +89,8 @@
 <path d="M307 303H300V304H307V303Z" fill="#DEDEDE"/>
 <path d="M304 400H303V407H304V400Z" fill="#DEDEDE"/>
 <path d="M307 403H300V404H307V403Z" fill="#DEDEDE"/>
+<path d="M404 400H403V407H404V400Z" fill="#DEDEDE"/>
+<path d="M407 403H400V404H407V403Z" fill="#DEDEDE"/>
 <path d="M54 53H53V54H54V53Z" fill="#DEDEDE"/>
 <path d="M154 53H153V54H154V53Z" fill="#DEDEDE"/>
 <path d="M254 53H253V54H254V53Z" fill="#DEDEDE"/>
@@ -100,5 +107,4 @@
 <path d="M154 353H153V354H154V353Z" fill="#DEDEDE"/>
 <path d="M254 353H253V354H254V353Z" fill="#DEDEDE"/>
 <path d="M354 353H353V354H354V353Z" fill="#DEDEDE"/>
-</g>
 </svg>

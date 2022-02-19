@@ -1,0 +1,27 @@
+.motorcycle-video{
+	height: 200vh;
+		&-banner{
+			opacity: 0;
+			position: fixed;
+			bottom: 0;
+			right: 0;
+			width: 564px;
+			height: 377px;
+			overflow: hidden;
+			transition: width .1s ease-out, height .1s ease-out, transform .1s ease-out, opacity .1s ease-out;
+				img{
+					@include imageCover(center);
+					transition: transform .1s ease-out;
+				}
+				.video-box{
+					transition: transform .1s ease-out;
+						.video{
+							opacity: 1;
+							background-color: var(--color-black);
+								video{
+									mix-blend-mode: lighten;
+								}
+						}
+				}
+		}
+}

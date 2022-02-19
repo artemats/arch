@@ -28,7 +28,7 @@ const createTimeline = (elem) => {
 	return gsap.timeline({
 		scrollTrigger: {
 			trigger: elem,
-			scroller: '#scroll-container',
+			scroller: '#horizontal-scroll-container',
 			horizontal: true,
 			scrub: true,
 			start: 'center 350px',

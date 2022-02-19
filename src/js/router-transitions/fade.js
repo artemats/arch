@@ -1,9 +1,13 @@
 import Highway from '@dogstudio/highway';
 import Tween, { Power4 } from 'gsap';
 import {locoScroll} from "../scroll/locoScroll";
+import {pauseHomeHeroVideo} from "../common/home/togglePlayingHomeVideo";
 
 class Fade extends Highway.Transition {
 	out({ from, done }) {
+
+		pauseHomeHeroVideo();
+
 		Tween.fromTo(from,
 			{
 				opacity: 1,
@@ -17,17 +21,23 @@ class Fade extends Highway.Transition {
 	}
 	in({ from, to, done }) {
 
-		// locoScroll.update();
-		// locoScroll.scrollTo(0, {
-		// 	duration: 5,
-		// 	disableLerp: true,
-		// 	callback: () => locoScroll.update()
-		// });
+		console.log('fade, in');
 
 		from.remove();
 		Tween.fromTo(to,
 			{
 				opacity: 0,
+				onComplete: () => {
+					locoScroll.update();
+					locoScroll.scrollTo(0, {
+						duration: 0,
+						disableLerp: true,
+						callback: () => {
+							locoScroll.update();
+							console.log('scroll home to start');
+						}
+					});
+				}
 			},
 			{
 				duration: 0.5,

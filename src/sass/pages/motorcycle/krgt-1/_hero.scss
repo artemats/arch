@@ -2,7 +2,7 @@
 	.hero{
 		&-title{
 			margin-bottom: 0.8vmin;
-			padding-left: calc(34vmin + 50px);
+			padding-left: calc(28.5vmin + 50px);
 		}
 		&-description{
 				&.__1{
@@ -17,6 +17,9 @@
 			margin-bottom: 9.1vmin;
 			width: 72.1vmin;
 			height: 48vmin;
+				img{
+					width: 72.1vmin;
+				}
 		}
 	}
 	&.hero{

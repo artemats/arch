@@ -1,0 +1,30 @@
+.tailor{
+	padding: 4vmin 0;
+		&-title{
+			margin-bottom: 6.9vmin;
+		}
+		&-thumb{
+			margin-bottom: 70px;
+				@include mh($minHeight){
+					margin-bottom: 8vmin;
+				}
+		}
+		.section{
+				&-content{
+						&-label{
+							padding-left: 50px;
+							padding-top: 15px;
+							max-width: 25vmin;
+								@include mh($minHeight){
+									max-width: 25vmin;
+								}
+						}
+						&-description{
+							max-width: 430px;
+								@include mh($minHeight){
+									max-width: 50vmin;
+								}
+						}
+				}
+		}
+}

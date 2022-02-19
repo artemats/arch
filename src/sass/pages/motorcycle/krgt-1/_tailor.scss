@@ -1,0 +1,54 @@
+.tailor{
+		&-thumb{
+				&.__1{
+					width: 578px;
+					height: 324px;
+					margin-right: 70px;
+					margin-left: auto;
+					margin-bottom: 67px;
+						img{
+							width: 578px;
+								@include mh($minHeight){
+									width: 67.1vmin;
+								}
+						}
+						@include mh($minHeight){
+							margin-top: 11vmin;
+							height: 38vmin;
+							width: 67.1vmin;
+						}
+				}
+				&.__2{
+					width: 414px;
+					height: 276px;
+					margin-right: 70px;
+					margin-left: auto;
+						img{
+							width: 414px;
+								@include mh($minHeight){
+									width: 48.4vmin;
+								}
+						}
+						@include mh($minHeight){
+							height: 32.3vmin;
+							width: 48.4vmin;
+						}
+				}
+				&.__3{
+					width: 472px;
+					height: 315px;
+					margin-top: 86px;
+						img{
+							width: 472px;
+								@include mh($minHeight){
+									width: 55vmin;
+								}
+						}
+						@include mh($minHeight){
+							margin-top: 10vmin;
+							width: 55vmin;
+							height: 36.7vmin;
+						}
+				}
+		}
+}

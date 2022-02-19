@@ -20,4 +20,6 @@ export const switchGrid = (status, withHorizontal = true) => {
 		ease: transitionConstants.grid.ease,
 	});
 
+	console.log('switch grid', status);
+
 }

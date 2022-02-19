@@ -21,7 +21,7 @@ export const preloader = () => {
 					if (explosionPart(part)._targets[0].getAttribute('id') === 'preloader-item-3') {
 						connectTitle(topRow, 100);
 						connectTitle(bottomRow, -100);
-						switchBackground(0.3);
+						switchBackground(0.5);
 					}
 				}, i * 200);
 			}

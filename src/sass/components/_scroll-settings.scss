@@ -4,7 +4,11 @@
 			position: relative;
 				&.__vertical{
 					z-index: 2;
-					//transform: none !important;
+				}
+				&.__reset-loco{
+					transform: none !important;
+					position: relative;
+					//z-index: 2;
 				}
 		}
 }
@@ -12,5 +16,12 @@
 .c{
 		&-scrollbar{
 			display: none;
+		}
+}
+
+html.__reset-loco{
+	overflow: initial !important;
+		body{
+			overflow: initial !important;
 		}
 }

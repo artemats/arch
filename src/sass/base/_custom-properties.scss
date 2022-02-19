@@ -6,6 +6,9 @@
   --color-grey-100:                       #636363;
   --color-grey-200:                       #262427;
   --color-grey-300:                       #929292;
+  --color-grey-400:                       #DFDFDF;
+  --color-duration:                       .4s;
+  --color-ease:                           ease;
   --opacity-duration:                     .7s;
   --opacity-ease:                         ease;
   --transform-duration:                   .7s;
@@ -13,6 +16,8 @@
   --font-title:                           'BrutalType-Bold';
   --font-title-extra:                     'BrutalType-ExtraBold';
   --font-title-light:                     'BrutalType-Light';
+  --font-title-regular:                   'BrutalType';
+  --font-title-medium:                    'BrutalType-Medium';
   --font-body:                            'SFProDisplay-Regular';
 }
 
@@ -20,3 +25,4 @@
 $minHeight:                               500;
 $motorcycleMinHeight:                     400;
 $minDesktopWidth:                         991;
+$hoverWidth:                              991;

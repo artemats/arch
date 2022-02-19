@@ -17,36 +17,37 @@
 		<div class="grid-line grid-line-horizontal __4"></div>
 	</div>
 
-	<div data-router-wrapper>
-		<div data-router-view="home">
-			<div class="scroll-container" id="horizontal-scroll-container">
-				<div class="page" id="page">
+	<div class="scroll-container" id="horizontal-scroll-container">
+		<div data-router-wrapper>
+			<div data-router-view="home">
+				<%=require('./pages/home/motorcycles-bg.html')%>
+				<div class="page" id="page" data-scroll-direction="horizontal">
 					<div class="motorcycles" id="home-motorcycles">
 						<div class="section-nav"
 								 data-scroll
 								 data-scroll-sticky
 								 data-scroll-target="#home-motorcycles">
-							<div class="section-nav-box" data-motorcycle="home-hero">
-								<div class="section-nav-title text-nav">Krgt-1</div>
-								<div class="section-nav-title text-nav">Krgt-1</div>
-								<div class="section-nav-title text-nav">Krgt-1</div>
-								<div class="section-nav-title text-nav">Krgt-1</div>
-								<div class="section-nav-title text-nav">Krgt-1</div>
-								<div class="section-nav-title text-nav">Krgt-1</div>
-								<div class="section-nav-title text-nav">Krgt-1</div>
-								<div class="section-nav-title text-nav">Krgt-1</div>
-							</div>
 							<div class="section-nav-box" data-motorcycle="arch-krgt-1">
-								<div class="section-nav-title text-nav">Arch 1s</div>
-								<div class="section-nav-title text-nav">Arch 1s</div>
-								<div class="section-nav-title text-nav">Arch 1s</div>
-								<div class="section-nav-title text-nav">Arch 1s</div>
-								<div class="section-nav-title text-nav">Arch 1s</div>
-								<div class="section-nav-title text-nav">Arch 1s</div>
-								<div class="section-nav-title text-nav">Arch 1s</div>
-								<div class="section-nav-title text-nav">Arch 1s</div>
+								<div class="section-nav-title text-nav">Krgt-1</div>
+								<div class="section-nav-title text-nav">Krgt-1</div>
+								<div class="section-nav-title text-nav">Krgt-1</div>
+								<div class="section-nav-title text-nav">Krgt-1</div>
+								<div class="section-nav-title text-nav">Krgt-1</div>
+								<div class="section-nav-title text-nav">Krgt-1</div>
+								<div class="section-nav-title text-nav">Krgt-1</div>
+								<div class="section-nav-title text-nav">Krgt-1</div>
 							</div>
 							<div class="section-nav-box" data-motorcycle="arch-1s">
+								<div class="section-nav-title text-nav">Arch 1s</div>
+								<div class="section-nav-title text-nav">Arch 1s</div>
+								<div class="section-nav-title text-nav">Arch 1s</div>
+								<div class="section-nav-title text-nav">Arch 1s</div>
+								<div class="section-nav-title text-nav">Arch 1s</div>
+								<div class="section-nav-title text-nav">Arch 1s</div>
+								<div class="section-nav-title text-nav">Arch 1s</div>
+								<div class="section-nav-title text-nav">Arch 1s</div>
+							</div>
+							<div class="section-nav-box" data-motorcycle="arch-method-143">
 								<div class="section-nav-title text-nav">Method 143</div>
 								<div class="section-nav-title text-nav">Method 143</div>
 								<div class="section-nav-title text-nav">Method 143</div>
@@ -57,7 +58,6 @@
 								<div class="section-nav-title text-nav">Method 143</div>
 							</div>
 						</div>
-						<%=require('./pages/home/motorcycles-bg.html')%>
 						<%=require('./pages/home/hero.html')%>
 						<%=require('./pages/home/krgt-1.html')%>
 						<%=require('./pages/home/1s.html')%>

@@ -1,58 +1,86 @@
-import { gsap } from 'gsap';
-import LocomotiveScroll from 'locomotive-scroll';
-import ScrollTrigger from 'gsap/ScrollTrigger';
+import { TweenLite } from 'gsap';
 
-export const initVerticalScroll = () => {
+const html = document.documentElement;
+const body = document.body;
+let scene = null;
 
-	const scrollContainer = document.querySelector('#vertical-scroll-container');
+const scroller = {
+	target: document.querySelector('#vertical-scroll-container'),
+	ease: 0.05, // <= scroll speed
+	endY: 0,
+	y: 0,
+	resizeRequest: 1,
+	scrollRequest: 0,
+};
 
-	if(scrollContainer) {
+let requestId = null;
 
-		const verticalLocoScroll = new LocomotiveScroll({
-			el: scrollContainer,
-			smooth: true,
-			// direction: 'horizontal',
-			gestureDirection: 'vertical',
-			reloadOnContextChange: true,
-			resetNativeScroll: false,
-			lerp: 0.07,
-			tablet: {
-				smooth: true,
-				direction: 'horizontal',
-			},
-			smartphone: {
-				smooth: true,
-			},
-		});
+TweenLite.set(scroller.target, {
+	rotation: 0.01,
+	force3D: true
+});
 
-		console.log('vertical');
+export function initVerticalScroll() {
 
-		return verticalLocoScroll;
+	// back to start position //
+	scroller.ease = 0;
+	window.scrollTo(0, 0);
+	TweenLite.set(document.querySelector('#vertical-scroll-container'), {
+		y: 0,
+		onComplete: () => {
+			updateScroller();
+		}
+	});
 
-	}
+	window.focus();
+	window.addEventListener('resize', onResize);
+	document.addEventListener('scroll', onScroll);
 
 }
 
-if(!!document.querySelector('#vertical-scroll-container')) {
+function updateScroller() {
 
-	gsap.registerPlugin(ScrollTrigger);
+	scroller.ease = 0.05;
+	const resized = scroller.resizeRequest > 0;
+	scroller.target = document.querySelector('#vertical-scroll-container');
 
-	initVerticalScroll().on('scroll', ScrollTrigger.update);
+	if(resized && !!scroller.target) {
+		const height = scroller.target.clientHeight;
+		body.style.height = height + 'px';
+		scroller.resizeRequest = 0;
+	}
 
-	ScrollTrigger.scrollerProxy('#horizontal-scroll-container', {
-		scrollTop(value) {
-			return arguments.length ? initVerticalScroll().scrollTo(value, 0, 0) : initVerticalScroll().scroll.instance.scroll.y;
-		},
-		// scrollLeft(value) {
-		// 	return arguments.length ? verticalLocoScroll.scrollTo(value, 0, 0) : verticalLocoScroll.scroll.instance.scroll.x;
-		// },
-		getBoundingClientRect() {
-			return {top: 0, left: 0, width: window.innerWidth, height: window.innerHeight};
-		},
-		pinType: document.querySelector('#vertical-scroll-container').style.transform ? 'transform' : 'fixed'
+	const scrollY = window.pageYOffset || html.scrollTop || body.scrollTop || 0;
+
+	scroller.endY = scrollY;
+	scroller.y += (scrollY - scroller.y) * scroller.ease;
+
+	if (Math.abs(scrollY - scroller.y) < 0.05 || resized) {
+		scroller.y = scrollY;
+		scroller.scrollRequest = 0;
+	}
+
+	TweenLite.set(scroller.target, {
+		y: -scroller.y
 	});
 
-	ScrollTrigger.addEventListener('refresh', () => initVerticalScroll().update());
-	ScrollTrigger.refresh();
+	if (scene) {
+		scene.refresh();
+	}
 
+	requestId = scroller.scrollRequest > 0 ? requestAnimationFrame(updateScroller) : null;
+}
+
+function onScroll() {
+	scroller.scrollRequest++;
+	if (!requestId) {
+		requestId = requestAnimationFrame(updateScroller);
+	}
+}
+
+function onResize() {
+	scroller.resizeRequest++;
+	if (!requestId) {
+		requestId = requestAnimationFrame(updateScroller);
+	}
 }

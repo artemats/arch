@@ -4,7 +4,7 @@ import {transitionConstants} from "../../constants/transition";
 import videojs from 'video.js';
 
 export const playVideos = () => {
-	if(document.querySelector('#home-videos')) {
+	if(!!document.querySelector('#home-videos')) {
 		setVideosStyles();
 		const videosList = document.querySelector('.home-videos-list');
 		const videos = document.querySelectorAll('.home-video');

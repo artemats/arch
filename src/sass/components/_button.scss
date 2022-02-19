@@ -4,12 +4,12 @@
 	color: var(--color-red);
 	font-family: var(--font-title);
 	font-size: 14px;
-	font-size: .88em;
 	text-transform: uppercase;
 	letter-spacing: .3em;
 	background-color: transparent;
 	padding: 0;
 	border: none;
+	white-space: nowrap;
 		&-title{
 			display: inline-block;
 			padding-top: 3px;
@@ -19,13 +19,15 @@
 			display: inline-block;
 			width: 26px;
 			height: 26px;
-			width: 3vmin;
-			height: 3vmin;
 			margin-left: 40px;
 				svg{
 					fill: currentColor;
 					width: 100%;
 					height: 100%;
+				}
+				@include mh($minHeight) {
+					width: 3vmin;
+					height: 3vmin;
 				}
 		}
 		&-back{
@@ -37,7 +39,30 @@
 						margin-right: 20px;
 						width: 5px;
 						height: 12px;
+							@include mh($minHeight) {
+								width: .585vmin;
+								height: 1.3956vmin;
+							}
 					}
+				}
+		}
+		@include mh($minHeight) {
+			font-size: .88em;
+		}
+		&-sm{
+			font-size: 12px;
+			letter-spacing: .1em;
+			color: inherit;
+				.btn-icon{
+					width: 12px;
+					height: 12px;
+					margin-left: 25px;
+				}
+				svg{
+					color: var(--color-red);
+				}
+				@include mh($minHeight) {
+					font-size: 1.38vmin;
 				}
 		}
 }

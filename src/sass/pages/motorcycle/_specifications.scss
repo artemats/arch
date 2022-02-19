@@ -1,0 +1,61 @@
+.specifications{
+	min-height: 200vh;
+	background-color: var(--color-black);
+	padding: 17.1vmin 0 0;
+	margin-bottom: -1.1vmin;
+		&-list{
+			margin-top: 8.2vmin;
+				&-item{
+					padding: 5.2vmin 50px 4.8vmin;
+					position: relative;
+						&.is-active{
+							.specifications-label{
+								transform: scale(1.1);
+							}
+						}
+						&:last-child{
+							&:before{
+								content: '';
+								position: absolute;
+								bottom: 0;
+								left: 0;
+								width: 100%;
+								height: 1px;
+								background-color: var(--color-white);
+								opacity: .1;
+							}
+						}
+				}
+		}
+		&-label{
+			text-transform: uppercase;
+			white-space: nowrap;
+			transform-origin: left center;
+			transition: transform .4s ease-out, opacity .4s ease-out;
+				&-mask{
+					overflow: hidden;
+				}
+				&-border{
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 0;
+					height: 1px;
+					background-color: var(--color-white);
+					//opacity: .1;
+				}
+				&.text-split{
+						.word{
+							transform: translateY(50px);
+						}
+				}
+		}
+		.section{
+				&-content{
+						&-label{
+							padding-left: 50px;
+							padding-top: 15px;
+						}
+				}
+		}
+}
