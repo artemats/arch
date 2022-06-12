@@ -33,7 +33,6 @@ class ContactRenderer extends Highway.Renderer {
 		switchHeaderFooterLogo(true);
 		if (!!document.querySelector('[data-scroll-direction="horizontal"]')) {
 			document.body.classList.remove('is-dark');
-			switchHeaderNav(1);
 		}
 		/*
 			Show content
@@ -41,6 +40,7 @@ class ContactRenderer extends Highway.Renderer {
 		setTimeout(() => {
 			showContentOnLoad();
 			showHiddenElements();
+			switchHeaderNav(1);
 		}, 100);
 	}
 }

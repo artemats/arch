@@ -36,7 +36,6 @@ class AboutRenderer extends Highway.Renderer {
 			horizontalScene();
 			resetParallaxMoving();
 			document.body.classList.remove('is-dark');
-			switchHeaderNav(1);
 		}
 		/*
 			Show content
@@ -44,6 +43,7 @@ class AboutRenderer extends Highway.Renderer {
 		setTimeout(() => {
 			showContentOnLoad();
 			showHiddenElements();
+			switchHeaderNav(1);
 		}, 100);
 	}
 }

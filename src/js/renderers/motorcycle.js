@@ -34,13 +34,13 @@ class MotorcycleRenderer extends Highway.Renderer {
 			switchTopShadow(true);
 			verticalScene();
 			motorcycleScene();
-			switchHeaderNav(1);
 			/*
 			Show content
 			 */
 			setTimeout(() => {
 				showContentOnLoad();
 				showHiddenElements();
+				switchHeaderNav(1);
 			}, 100);
 		}
 	}

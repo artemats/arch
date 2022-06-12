@@ -26,13 +26,13 @@ class BuildsRenderer extends Highway.Renderer {
 		locoScroll.init();
 		switchHeaderFooterLogo(true);
 		initVerticalNavCarousel();
-		switchHeaderNav(1);
 		/*
 			Show content
 			 */
 		setTimeout(() => {
 			showContentOnLoad();
 			showHiddenElements();
+			switchHeaderNav(1);
 			updateBodyHeight();
 		}, 100);
 	}
