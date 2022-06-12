@@ -19,4 +19,5 @@ export const disableHorizontalScroll = () => {
 export const enableHorizontalScroll = () => {
 	document.documentElement.classList.remove('__reset-loco');
 	document.querySelector('#horizontal-scroll-container').classList.remove('__reset-loco');
+	document.body.style.height = document.querySelector('#horizontal-scroll-container').clientHeight + 'px';
 }

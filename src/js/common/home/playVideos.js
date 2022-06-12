@@ -1,35 +1,23 @@
 import { TweenLite } from 'gsap';
 import {locoScroll} from "../../scroll/locoScroll";
 import {transitionConstants} from "../../constants/transition";
-import videojs from 'video.js';
+import Player from '@vimeo/player';
 
 export const playVideos = () => {
 	if(!!document.querySelector('#home-videos')) {
 		setVideosStyles();
 		const videosList = document.querySelector('.home-videos-list');
 		const videos = document.querySelectorAll('.home-video');
+		const iframes = document.querySelectorAll('.vimeo-player');
 
-		if (videos.length) {
-			for (let i = 0; i < videos.length; i++) {
+		if (!!iframes.length) {
+			for (let i = 0; i < iframes.length; i++) {
+
+				const player = new Player(iframes[i]);
 
 				videos[i].addEventListener('click', () => {
 
 					let video = videos[i].querySelector('.home-video-item');
-					let videoElem = video.querySelector('video');
-
-					const options = {
-						responsive: true,
-						muted: false,
-						controls: false,
-						loop: false,
-						preload: 'auto',
-					};
-
-					const player = videojs(videoElem.getAttribute('id'), options, function onPlayerReady() {
-						this.on('ended', function () {
-							alert('Awww...over so soon?!');
-						});
-					});
 
 					if (videosList.classList.contains('is-fixed')) {
 						videos[i].classList.remove('is-starting');
@@ -37,37 +25,20 @@ export const playVideos = () => {
 						exitPlayer(video, videos[i], player);
 					} else {
 						videos[i].classList.add('is-starting');
+						videos[i].classList.add('is-disabled');
 						videosList.classList.add('is-fixed');
 						enterPlayer(video, videos[i], player);
 					}
 
 				});
 
-				videos[i].addEventListener('mousemove', () => {
-					TweenLite.set(videos[i].querySelector('.video-btn'), {
-						opacity: 1,
-						duration: transitionConstants.opacity.duration,
-						ease: transitionConstants.opacity.ease,
-						onComplete: () => {
-							if (videos[i].classList.contains('is-playing')) {
-								setTimeout(() => {
-									TweenLite.to(videos[i].querySelector('.video-btn'), {
-										opacity: 0,
-										duration: transitionConstants.opacity.duration,
-										ease: transitionConstants.opacity.ease,
-									});
-								}, 1000);
-							}
-						}
-					});
-				});
+				showPlayPauseButtonOnMove(videos[i]);
+				hidePlayPauseButtonOnMove(videos[i]);
 
-				videos[i].addEventListener('mouseleave', () => {
-					TweenLite.set(videos[i].querySelector('.video-btn'), {
-						opacity: 0,
-						duration: transitionConstants.opacity.duration,
-						ease: transitionConstants.opacity.ease,
-					});
+				player.on('play', () => {
+					setTimeout(() => {
+						videos[i].classList.remove('is-disabled');
+					}, 1000)
 				});
 			}
 		}
@@ -112,6 +83,7 @@ const enterPlayer = (video, videoItem, player) => {
 const exitPlayer = (video, videoItem, player) => {
 	player.pause();
 	videoItem.classList.remove('is-playing');
+	videoItem.classList.remove('is-hidden-poster');
 	setTimeout(() => {
 		// show header //
 		switchHeader(1);
@@ -140,9 +112,44 @@ const switchHeader = (status) => {
 }
 
 const setVideosStyles = () => {
-	const videosWrapHeight = document.querySelector('.home-videos').getBoundingClientRect().height;
-	const videosWrapTitleHeight = document.querySelector('.home-videos-title').getBoundingClientRect().height;
-	const videosList = document.querySelector('.home-videos-list');
+	const videosWrapTitle = document.querySelector('.home-videos-title');
+	const videosWrap = document.querySelector('.home-videos');
+	if (!!videosWrapTitle && !!videosWrap) {
+		const videosWrapHeight = videosWrap.getBoundingClientRect().height;
+		const videosWrapTitleHeight = videosWrapTitle.getBoundingClientRect().height;
+		const videosList = document.querySelector('.home-videos-list');
 
-	videosList.style.height = `calc(${(videosWrapHeight - videosWrapTitleHeight)}px - 11vmin)`;
+		videosList.style.height = `calc(${(videosWrapHeight - videosWrapTitleHeight)}px - 11vmin)`;
+	}
 };
+
+export const showPlayPauseButtonOnMove = (box) => {
+	box.addEventListener('mousemove', () => {
+		TweenLite.set(box.querySelector('.video-btn'), {
+			opacity: 1,
+			duration: transitionConstants.opacity.duration,
+			ease: transitionConstants.opacity.ease,
+			onComplete: () => {
+				if (box.classList.contains('is-playing')) {
+					setTimeout(() => {
+						TweenLite.to(box.querySelector('.video-btn'), {
+							opacity: 0,
+							duration: transitionConstants.opacity.duration,
+							ease: transitionConstants.opacity.ease,
+						});
+					}, 1000);
+				}
+			}
+		});
+	});
+}
+
+export const hidePlayPauseButtonOnMove = (box) => {
+	box.addEventListener('mouseleave', () => {
+		TweenLite.set(box.querySelector('.video-btn'), {
+			opacity: 0,
+			duration: transitionConstants.opacity.duration,
+			ease: transitionConstants.opacity.ease,
+		});
+	});
+}

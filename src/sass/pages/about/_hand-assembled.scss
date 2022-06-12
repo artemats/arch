@@ -1,0 +1,35 @@
+.about{
+		&-title{
+			&.__2{
+				max-width: 100vmin;
+			}
+		}
+		&-image{
+			&.__2{
+				margin-top: -50px;
+				width: 86vmin;
+				height: 44.6vmin;
+				margin-bottom: 5.4vmin;
+				margin-left: -11.5vmin;
+			}
+			&.__3{
+				width: 56vmin;
+				height: 81vmin;
+				margin-left: 14vmin;
+				margin-top: 7.6vmin;
+				margin-right: 11.3vmin;
+			}
+		}
+		&-description{
+			&.__4{
+				width: 45vmin;
+				margin-left: auto;
+				margin-right: -0.5vmin;
+			}
+			&.__5{
+				width: 54vmin;
+				margin-top: 7.4vmin;
+				margin-right: 50vmin;
+			}
+		}
+}

@@ -4,6 +4,7 @@
 	left: 0;
 	width: 100%;
 	height: 100%;
+	background-color: var(--color-black);
 		&-box{
 			position: relative;
 			width: 100%;
@@ -23,11 +24,28 @@
 			transform: translateY(-3vmin);
 			transition: opacity var(--opacity-duration) var(--opacity-ease), transform var(--transform-duration) var(--transform-ease);
 			pointer-events: none;
-				img{
-					width: 100%;
-					height: 100%;
-					object-fit: cover;
-					object-position: center;
+				&:not(.parallaxHorizontalScroll):not(.parallaxVerticalOnScroll){
+					img{
+						width: 100%;
+						height: 100%;
+						object-fit: cover;
+						object-position: center;
+					}
+				}
+				&.parallaxHorizontalScroll,
+				&.parallaxVerticalOnScroll{
+					overflow: hidden;
+						img{
+							max-width: none;
+							max-height: none;
+							width: 120%;
+							height: auto;
+							min-height: 100%;
+							min-width: 100%;
+								&[data-scroll-speed*="-"]{
+									margin-left: -50px;
+								}
+						}
 				}
 		}
 		&-mask{
@@ -84,6 +102,15 @@
 		}
 		video{
 			@extend .video;
+			object-fit: cover;
+			object-position: center;
+		}
+		iframe{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
 			object-fit: cover;
 			object-position: center;
 		}

@@ -1,0 +1,29 @@
+.hero-1s{
+	margin-bottom: 25vmin;
+	padding-top: calc(22.2vmin + 50px);
+		.hero{
+			&-title{
+				position: absolute;
+				top: calc(22.2vmin + 50px);
+				left: calc(106.3vmin + 50px);
+			}
+			&-description{
+				margin-right: -9vmin;
+					&.__1{
+						margin-top: 1.7vmin;
+						max-width: 50vmin;
+						margin-bottom: 9.4vmin;
+					}
+					&.__2{
+						max-width: 37vmin;
+					}
+			}
+			&-banner{
+				margin-left: auto;
+				margin-top: .8vmin;
+				width: 71.4vmin;
+				height: 49vmin;
+				margin-right: 6.6vmin;
+			}
+		}
+}

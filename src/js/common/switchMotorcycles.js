@@ -1,57 +1,26 @@
-import gsap, { TweenLite } from 'gsap';
+import { TweenLite } from 'gsap';
 import {transitionConstants} from "../constants/transition";
 import {switchSlicedText} from "./content/switchSlicedText";
+import {switchVerticalAnchorNav} from "./home/switchVerticalNav";
 
 export const switchMotorcycle = (obj, status) => {
 
-	// console.log('obj - ', obj);
-	// console.log('obj status - ', status);
-	console.log();
+	let motorcycleId = obj.querySelector('.section-motorcycle').getAttribute('id');
+
 	if (status) {
-		showMotorcycle(obj.querySelector('.motorcycle-item-image'));
-		showBg(document.querySelector(`[data-motorcycle="${obj.querySelector('.section-motorcycle').getAttribute('id')}"]`));
+		// showMotorcycle(obj.querySelector('.motorcycle-item-image'));
+		// showBg(document.querySelector(`[data-motorcycle="${motorcycleId}"]`));
+		switchMotorcycleBg(obj.querySelectorAll('.motorcycle-bg'), true);
 		drawCircle(obj.querySelector('.motorcycle-item-border'));
-		switchSlicedText(obj.querySelector('.motorcycle-description'), true, 0.5,1);
+		switchSlicedText(obj.querySelector('.motorcycle-description'), true, 0.1,1);
+		switchVerticalAnchorNav(motorcycleId);
 	} else {
-		hideMotorcycle(obj.querySelector('.motorcycle-item-image'));
-		hideBg(document.querySelector(`[data-motorcycle="${obj.querySelector('.section-motorcycle').getAttribute('id')}"]`));
+		// hideMotorcycle(obj.querySelector('.motorcycle-item-image'));
+		// hideBg(document.querySelector(`[data-motorcycle="${motorcycleId}"]`));
+		switchMotorcycleBg(obj.querySelectorAll('.motorcycle-bg'), false);
 		eraseCircle(obj.querySelector('.motorcycle-item-border'));
 		switchSlicedText(obj.querySelector('.motorcycle-description'), false);
 	}
-
-	// const motorcycles = document.querySelectorAll('.motorcycle-item-image');
-	// const motorcycleDescriptions = document.querySelectorAll('.motorcycle-description');
-	// const motorcycleCircles = document.querySelectorAll('.motorcycle-item-border');
-	// const motorcycleBgs = document.querySelectorAll('.motorcycles-bg-slide');
-	// const motorcycleNav = document.querySelectorAll('.section-nav-box');
-	//
-	// if(!!obj.el.id) {
-	//
-	// 	for(let i = 0; i < motorcycles.length; i++) {
-	// 		if(motorcycles[i].getAttribute('data-id') === obj.el.id) {
-	// 			showBg(motorcycleBgs[i], motorcycles[i]);
-	// 			showMotorcycle(motorcycles[i]);
-	// 			drawCircle(motorcycleCircles[i]);
-	// 			switchSlicedText(motorcycleDescriptions[i], true, 2,2.5);
-	// 			switchMotorcycleNav(motorcycleNav[i], true);
-	// 		} else {
-	// 			hideBg(motorcycleBgs[i]);
-	// 			eraseCircle(motorcycleCircles[i]);
-	// 			hideMotorcycle(motorcycles[i]);
-	// 			switchSlicedText(motorcycleDescriptions[i], false);
-	// 			switchMotorcycleNav(motorcycleNav[i], false);
-	// 		}
-	// 	}
-	//
-	// } else {
-	// 	for(let i = 0; i < motorcycles.length; i++) {
-	// 		eraseCircle(motorcycleCircles[i]);
-	// 		hideBg(motorcycleBgs[i]);
-	// 		hideMotorcycle(motorcycles[i]);
-	// 		switchSlicedText(motorcycleDescriptions[i], false);
-	// 		switchMotorcycleNav(motorcycleNav[i], false);
-	// 	}
-	// }
 };
 
 const showMotorcycle = (motorcycle) => {
@@ -62,7 +31,7 @@ const showMotorcycle = (motorcycle) => {
 		// delay: 1,
 		opacity: 1,
 		x: 0,
-		duration: transitionConstants.move.duration,
+		duration: transitionConstants.opacity.duration,
 		ease: transitionConstants.move.ease,
 	});
 };
@@ -106,42 +75,16 @@ const eraseCircle = (circle) => {
 	}
 };
 
-const showBg = (bg) => {
-	TweenLite.to(bg, {
-		opacity: 1,
-		scale: 1,
-		// delay: 1,
-		duration: transitionConstants.draw.duration,
-		ease: transitionConstants.draw.ease,
-	});
-};
-
-const hideBg = (bg) => {
-	TweenLite.to(bg, {
-		opacity: 0,
-		scale: 1.1,
-		duration: transitionConstants.opacity.duration,
-		ease: transitionConstants.opacity.ease,
-	});
-};
-
-const switchMotorcycleNav = (nav, status) => {
-	if(!!nav) {
-		TweenLite.to(nav, {
+export const switchMotorcycleBg = (bg, status) => {
+	TweenLite.fromTo(bg,
+		{
+			opacity: status ? 0 : 1,
+			filter: `blur(${status ? 10 : 0}px)`,
+		},
+		{
 			opacity: status ? 1 : 0,
-			delay: 0.5,
+			filter: `blur(${status ? 0 : 10}px)`,
 			duration: transitionConstants.opacity.duration,
 			ease: transitionConstants.opacity.ease,
 		});
-		gsap.timeline({
-			repeat: -1,
-		})
-			.to(nav, {
-				delay: 0.5,
-				y: status ? -(nav.clientWidth - window.innerHeight) : 0,
-				rotate: -90,
-				duration: status ? 100 : 0,
-				ease: 'none',
-		});
-	}
-}
+};

@@ -5,8 +5,13 @@ import { TweenMax, TimelineMax } from 'gsap';
 import * as ScrollMagic from 'scrollmagic';
 
 import Fade from "./router-transitions/fade";
+import MotorcycleHome from "./router-transitions/motorcycle-home";
+import NextMotorcycle from "./router-transitions/next-motorcycle";
+import MenuTransition from "./router-transitions/menu";
 import HomeRenderer from "./renderers/home";
 import AboutRenderer from "./renderers/about";
+import ContactRenderer from "./renderers/contact";
+import BuildsRenderer from "./renderers/builds";
 import {loadImages} from "./common/loadImages";
 import {splittingText} from "./common/splittingText";
 import {toggleAboutTitles} from "./common/home/toggleAboutTitles";
@@ -15,11 +20,11 @@ import {playVideos} from "./common/home/playVideos";
 import {preloader} from "./common/preloader";
 import {loadHomeHeroContent} from "./common/home/loadHomeHeroContent";
 import MotorcycleRenderer from "./renderers/motorcycle";
-import MotorcycleHome from "./router-transitions/motorcycle-home";
 import {scrollListener} from "./scroll/scrollListener";
 import {ScrollMagicPluginGsap, ScrollMagicPluginIndicator} from "scrollmagic-plugins";
 import {locoScroll} from "./scroll/locoScroll";
 import './common/nav/switchNavOnBurgerClick';
+import {updateBodyHeight} from "./common/updateBodyHeight";
 
 /*
 Preload page
@@ -35,11 +40,15 @@ const H = new Highway.Core({
 		home: HomeRenderer,
 		about: AboutRenderer,
 		motorcycle: MotorcycleRenderer,
+		contact: ContactRenderer,
+		builds: BuildsRenderer,
 	},
 	transitions: {
 		default: Fade,
 		contextual: {
 			motorcycleHome: MotorcycleHome,
+			nextMotorcycle: NextMotorcycle,
+			menu: MenuTransition,
 		}
 	}
 });
@@ -47,16 +56,16 @@ const H = new Highway.Core({
 /*
 Toggle active class on navigation
  */
-const links = document.querySelectorAll('.nav-link');
-H.on('NAVIGATE_IN', ({ to, location }) => {
-	for (let i = 0; i < links.length; i++) {
-		const link = links[i];
-		link.classList.remove('is-current');
-		if (link.href === location.href) {
-			link.classList.add('is-current');
-		}
-	}
-});
+// const links = document.querySelectorAll('.nav-link');
+// H.on('NAVIGATE_IN', ({ to, location }) => {
+// 	for (let i = 0; i < links.length; i++) {
+// 		const link = links[i];
+// 		link.classList.remove('is-current');
+// 		if (link.href === location.href) {
+// 			link.classList.add('is-current');
+// 		}
+// 	}
+// });
 
 /*
 Init events listener on scroll
@@ -69,6 +78,10 @@ H.on('NAVIGATE_IN', () => {
 	followMouseButton();
 });
 
+// H.on('NAVIGATE_END', () => {
+// 	document.querySelector('.burger').classList.contains('is-active') ? switchMainNav(false) : null;
+// });
+
 document.addEventListener("DOMContentLoaded", function(event) {
 	loadImages();
 	splittingText();
@@ -78,25 +91,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
 ScrollMagicPluginIndicator(ScrollMagic);
 ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);
 
-
-// setTimeout(() => {
-//
-// 	locoScroll.scrollTo(document.querySelector('#arch-method-143'), {
-// 		duration: 5,
-// 		disableLerp: true,
-// 		callback: () => {
-// 			locoScroll.update();
-// 			console.log('scrolled');
-// 		}
-// 	});
-//
-// }, 1000);
-
-// document.querySelector('.advantages-box-title').addEventListener('click', () => {
-// 	const cloneSpots = document.querySelectorAll('.spot img');
-// 	for(let i = 0; i < cloneSpots.length; i++) {
-// 		setTimeout(() => {
-// 			cloneSpots[i].style.opacity = 1;
-// 		}, i*100);
-// 	}
-// });
+window.addEventListener('resize', () => {
+	updateBodyHeight();
+});

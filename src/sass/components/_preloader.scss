@@ -10,7 +10,7 @@
 			text-align: center;
 			opacity: 0;
 				img{
-					max-height: 100%;
+					@include imageContain(center bottom)
 				}
 		}
 		&-box{
@@ -20,7 +20,7 @@
 			transform: translate(-50%,-50%);
 				&-row{
 					display: flex;
-					padding: 2vmin 0;
+					padding: 1.2vmin 0;
 				}
 				&-item{
 					padding: 0 .6vmin;

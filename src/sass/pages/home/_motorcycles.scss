@@ -21,29 +21,29 @@
 								object-position: center 60%;
 							}
 						}
-						&[data-motorcycle="arch-1s"]{
-							background-color: var(--color-white);
-								&:after{
-									content: '';
-									position: absolute;
-									inset: 0;
-									background-image: url(../images/noise.png);
-									background-repeat: repeat;
-									background-size: 100px;
-									opacity: .15;
-								}
-								&:before{
-									content: '';
-									position: absolute;
-									top: 0;
-									left: 0;
-									width: 100%;
-									height: 47.1%;
-									background-image: url(../images/grid-system.svg);
-									background-repeat: repeat-x;
-									background-size: contain;
-								}
-						}
+						//&[data-motorcycle="arch-1s"]{
+						//	background-color: var(--color-white);
+						//		&:after{
+						//			content: '';
+						//			position: absolute;
+						//			inset: 0;
+						//			background-image: url(../images/noise.png);
+						//			background-repeat: repeat;
+						//			background-size: 100px;
+						//			opacity: .15;
+						//		}
+						//		&:before{
+						//			content: '';
+						//			position: absolute;
+						//			top: 0;
+						//			left: 0;
+						//			width: 100%;
+						//			height: 47.1%;
+						//			background-image: url(../images/grid-system.svg);
+						//			background-repeat: repeat-x;
+						//			background-size: contain;
+						//		}
+						//}
 						&[data-motorcycle="arch-method-143"]{
 							.motorcycles-bg-image{
 								object-position: center 75%;
@@ -75,6 +75,20 @@
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
+		&-bg{
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100vw;
+			height: 100vh;
+			opacity: 0;
+			pointer-events: none;
+				&-item{
+					position: absolute;
+					inset: 0;
+					@include imageCover(center bototm);
+				}
+		}
 		&-item{
 			position: fixed;
 			top: 50vh;
@@ -102,6 +116,8 @@
 		}
 		&-title{
 			position: absolute;
+			opacity: 0;
+			transition: opacity var(--opacity-duration) var(--opacity-ease);
 		}
 		&-description{
 			position: absolute;
@@ -109,9 +125,24 @@
 			z-index: 1;
 			width: 100vw;
 			//opacity: 0;
+			max-width: 80vmin;
+			left: 7.3%;
+			//bottom: -28%;
+			top: calc(100% + 36px);
+			justify-content: space-between;
 				&-item{
 					flex: 1;
 					margin-bottom: 2.3vmin;
+					////
+					//top: 51.8vh;
+					//left: 52.4vw;
+						////
+						&:nth-child(1){
+							max-width: 45%;
+						}
+						&:nth-child(2){
+							max-width: 41.3%;
+						}
 						.btn{
 							margin-top: 1.7vmin;
 						}
@@ -119,6 +150,7 @@
 		}
 		&-advantages{
 			background-color: var(--color-white);
+			pointer-events: none;
 				&:after{
 					content: '';
 					position: absolute;
@@ -127,6 +159,7 @@
 					background-repeat: repeat;
 					background-size: 100px;
 					opacity: .15;
+					pointer-events: none;
 				}
 				&:before{
 					content: '';
@@ -139,6 +172,7 @@
 					background-image: url(../images/grid-system-y.svg);
 					background-repeat: repeat-y;
 					background-size: 407px 400px;
+					pointer-events: none;
 				}
 		}
 }
@@ -158,29 +192,11 @@
 }
 
 .arch-1s{
-	width: 824px;
-	height: 412px;
-	margin-top: -206px;
-	margin-left: -412px;
-		@include mh($motorcycleMinHeight){
-			width: 95.5vmin;
-			height: 47.7vmin;
-			margin-left: -47.75vmin;
-			margin-top: -23.85vmin;
-		}
+	@extend .arch-krgt-1;
 }
 
 .arch-method-143{
-	width: 822px;
-	height: 412px;
-	margin-top: -206px;
-	margin-left: -411px;
-		@include mh($motorcycleMinHeight){
-			width: 95.5vmin;
-			height: 47.8vmin;
-			margin-left: -47.75vmin;
-			margin-top: -23.9vmin;
-		}
+	@extend .arch-krgt-1;
 }
 
 // motorcycles boxes //
@@ -190,67 +206,14 @@
 				top: 22.2vmin;
 				left: 28.5vmin;
 			}
-			&-item{
-				//top: 54.7vh;
-				//left: 52.7vw;
-				top: 51.8vh;
-				left: 52.4vw;
-					&-border{
-						bottom: 3.5%;
-						width: 103%;
-							path{
-								stroke-dasharray: 1670;
-								stroke-dashoffset: 1670;
-							}
-					}
-			}
-			&-description{
-				//opacity: 0;
-				max-width: 80vmin;
-				left: 3%;
-				bottom: -28%;
-				justify-content: space-between;
-					&-item{
-						&:nth-child(1){
-							max-width: 45%;
-						}
-						&:nth-child(2){
-							max-width: 41.3%;
-						}
-					}
-			}
 	}
 }
 
 #arch-1s{
 	.motorcycle{
 		&-title{
+			top: 22.2vmin;
 			left: 106.3vmin;
-			top: 25.5vmin;
-		}
-		&-item{
-			top: 54.5vh;
-			left: 50.1vw;
-				&-border{
-					path{
-						stroke: var(--color-red);
-					}
-				}
-		}
-		&-description{
-			flex-direction: column;
-			max-width: 40vmin;
-			left: -22.6%;
-			top: -31%;
-			justify-content: space-between;
-				&-item{
-					&:nth-child(1){
-						max-width: 87%;
-					}
-					&:nth-child(2){
-						max-width: 85%;
-					}
-				}
 		}
 	}
 }
@@ -258,26 +221,8 @@
 #arch-method-143{
 	.motorcycle{
 		&-title{
+			top: 22.2vmin;
 			left: 24.7vmin;
-			top: 27vmin;
-		}
-		&-item{
-			top: 62.6vh;
-			left: 51.2vw;
-		}
-		&-description{
-			max-width: 80vmin;
-			left: -7.8%;
-			top: -48%;
-			justify-content: space-between;
-				&-item{
-					&:nth-child(1){
-						max-width: 48%;
-					}
-					&:nth-child(2){
-						max-width: 35.5%;
-					}
-				}
 		}
 	}
 }

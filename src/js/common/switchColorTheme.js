@@ -1,7 +1,7 @@
 import { TweenLite } from 'gsap';
 import {transitionConstants} from "../constants/transition";
 
-export const setWhiteColorTheme = (status = false) => {
+export const setWhiteColorTheme = (status = false, where) => {
 	TweenLite.to(document.body, {
 		color: status ? '#111111' : '#FFFFFF',
 		backgroundColor: status ? '#FFFFFF' : '#111111',
@@ -9,6 +9,7 @@ export const setWhiteColorTheme = (status = false) => {
 		ease: transitionConstants.color.ease,
 	});
 	switchThemeElements(status);
+	console.log('switch theme', where);
 }
 
 const switchThemeElements = (status) => {
@@ -19,7 +20,7 @@ const switchThemeElements = (status) => {
 		TweenLite.to(themeDarkElements[i], {
 			opacity: status ? 0 : 1,
 			pointerEvents: status ? 'none' : 'auto',
-			duration: 0.2,
+			duration: transitionConstants.color.duration,
 			ease: transitionConstants.color.ease,
 		});
 	}
@@ -28,7 +29,7 @@ const switchThemeElements = (status) => {
 		TweenLite.to(themeWhiteElements[i], {
 			opacity: status ? 1 : 0,
 			pointerEvents: status ? 'auto' : 'none',
-			duration: 0.2,
+			duration: transitionConstants.color.duration,
 			ease: transitionConstants.color.ease,
 		});
 	}

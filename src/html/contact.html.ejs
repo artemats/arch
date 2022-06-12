@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+
+    <title>Contact - ARCH Motorcycle</title>
+
+    <%=require('./components/head.html')%>
+    <%=require('./components/header.html')%>
+    <div class="page-shadow"></div>
+    <div class="motor is-hidden">
+        <img data-src="../images/pages/motorcycle/motor.png" alt="ARCH motorcycles motor"/>
+    </div>
+    <div class="grid">
+        <div class="grid-line grid-line-vertical __1"></div>
+        <div class="grid-line grid-line-vertical __2"></div>
+        <div class="grid-line grid-line-vertical __3"></div>
+        <div class="grid-line grid-line-horizontal __4"></div>
+    </div>
+
+    <div class="scroll-container" id="horizontal-scroll-container">
+        <div data-router-wrapper>
+            <div data-router-view="contact">
+                <div class="page" id="page" data-scroll-direction="horizontal">
+                    <section class="section contact">
+                        <div class="section-content-row">
+                            <div class="section-content-box">
+                                <div class="contact-nav">
+                                    <div class="contact-nav-images"
+                                         data-scroll
+                                         data-scroll-speed="-1">
+                                        <img data-src="../images/pages/contact/banner.jpg" alt="Contact"/>
+                                    </div>
+                                    <div class="contact-nav-title">
+                                        <h1 class="h-3">Contact</h1>
+                                        <div class="contact-nav-pagination">
+                                            <button class="btn btn-back">
+			                                <span class="btn-icon">
+                                                <svg viewBox="0 0 5 12">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M5 0.226501L0 6L5 11.7735V10.246L1.32288 6L5 1.75403V0.226501Z"/>
+                                                </svg>
+                                            </span>
+                                                <span class="btn-title">Back</span>
+                                            </button>
+                                            <button class="btn btn-next">
+                                                <span class="btn-title">Next</span>
+                                                <span class="btn-icon">
+                                                <svg viewBox="0 0 5 12">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M5 0.226501L0 6L5 11.7735V10.246L1.32288 6L5 1.75403V0.226501Z"/>
+                                                </svg>
+                                            </span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="contact-nav-message">
+                                        <p class="text-22">Your data has been sent successfully</p>
+                                        <a href="index.html" class="btn">
+                                            <span class="btn-title">Go Back Home</span>
+                                            <span class="btn-icon">
+                                              <svg width="26" height="27" viewBox="0 0 26 27">
+                                                  <path fill-rule="evenodd" clip-rule="evenodd" d="M7.91901 0V2H23.919V18H25.919V2V0H23.919H7.91901Z" />
+                                                  <rect y="24.5967" width="33.3707" height="2" transform="rotate(-45 0 24.5967)" />
+                                              </svg>
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <div class="contact-nav-follow">
+                                        <a href="#" class="h-6">Privacy Policy & Terms</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="section-content-box">
+                                <div class="contact-form">
+                                    <form id="contact-form">
+                                        <div class="splide contact-form-item" id="contact-form-box">
+                                            <div class="splide__track">
+                                                <div class="splide__list">
+                                                    <div class="splide__slide">
+                                                        <label class="input-container">
+                                                            <input type="text" name="firstName" class="input" required/>
+                                                            <span class="input-label">first name*</span>
+                                                            <span class="input-border"></span>
+                                                            <span class="input-message __wrong">This field is required!</span>
+                                                        </label>
+                                                        <label class="input-container">
+                                                            <input type="text" name="lastName" class="input" required/>
+                                                            <span class="input-label">last name*</span>
+                                                            <span class="input-border"></span>
+                                                            <span class="input-message __wrong">This field is required!</span>
+                                                        </label>
+                                                        <label class="input-container">
+                                                            <input type="text" name="city" class="input" required/>
+                                                            <span class="input-label">City*</span>
+                                                            <span class="input-border"></span>
+                                                            <span class="input-message __wrong">This field is required!</span>
+                                                        </label>
+                                                        <label class="input-container">
+                                                            <input type="text" name="street" class="input"/>
+                                                            <span class="input-label">Street</span>
+                                                            <span class="input-border"></span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="splide__slide">
+                                                        <label class="input-container input-container-select">
+                                                            <select class="select" name="country" id="country"></select>
+                                                            <span class="input-label">country*</span>
+                                                            <span class="input-border"></span>
+                                                            <span class="input-message __wrong">This field is required!</span>
+                                                        </label>
+                                                        <label class="input-container input-container-select">
+                                                            <select class="select" name="state" id="state"></select>
+                                                            <span class="input-label">state*</span>
+                                                            <span class="input-border"></span>
+                                                            <span class="input-message __wrong">This field is required!</span>
+                                                        </label>
+                                                        <label class="input-container">
+                                                            <input type="text" name="email" class="input" required/>
+                                                            <span class="input-label">email address*</span>
+                                                            <span class="input-border"></span>
+                                                            <span class="input-message __wrong">This field is required!</span>
+                                                        </label>
+                                                        <label class="input-container">
+                                                            <input type="tel" name="phone" class="input"/>
+                                                            <span class="input-label">phone number</span>
+                                                            <span class="input-border"></span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="splide__slide">
+                                                        <label class="input-container">
+                                                            <input type="number" name="motorcycleOwnCount" class="input"/>
+                                                            <span class="input-label">How many Motorcycle do you own?</span>
+                                                            <span class="input-border"></span>
+                                                        </label>
+                                                        <label class="input-container">
+                                                            <input type="text" name="comment" class="input"/>
+                                                            <span class="input-label">Additional comments</span>
+                                                            <span class="input-border"></span>
+                                                        </label>
+                                                        <button class="btn">
+                                                            <span class="btn-title">Submit</span>
+                                                            <span class="btn-icon">
+                                                              <svg width="26" height="27" viewBox="0 0 26 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                  <path fill-rule="evenodd" clip-rule="evenodd" d="M7.91901 0V2H23.919V18H25.919V2V0H23.919H7.91901Z" />
+                                                                  <rect y="24.5967" width="33.3707" height="2" transform="rotate(-45 0 24.5967)" />
+                                                              </svg>
+                                                            </span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="section">
+                        <div class="section-content">
+                            <div class="section-content-box __pt">
+                                <p class="h-5 section-content-subtitle"
+                                   data-scroll
+                                   data-scroll-call="showContentOnHorizontalScroll">or write to us</p>
+                                <a href="mailto:archmotorcycle@gmail.com" class="h-3 section-content-title contact-title __2"
+                                   data-scroll
+                                   data-scroll-call="showContentOnHorizontalScroll">archmotorcycle<span class="red">@</span>gmail.com</a>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+<%=require('./components/scripts.html')%>

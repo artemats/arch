@@ -1,0 +1,69 @@
+.contact{
+		&-nav{
+			height: 100%;
+			width: 50vw;
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			justify-content: center;
+			padding: 50px 50px 60px;
+				&-images{
+					position: absolute;
+					inset: 0;
+					pointer-events: none;
+					overflow: hidden;
+					z-index: -1;
+					margin-left: -15vw;
+						img{
+							max-width: none;
+							height: 100%;
+						}
+						&:after{
+							content: '';
+							position: absolute;
+							inset: 0;
+							background-color: var(--color-black);
+							mix-blend-mode: multiply;
+							opacity: .8;
+						}
+				}
+				&-pagination{
+					display: inline-flex;
+					align-items: center;
+					justify-content: space-between;
+					width: 100%;
+					margin-top: 5vmin;
+				}
+				&-follow{
+					position: absolute;
+					bottom: 50px;
+					left: 50px;
+						[class*=h]{
+							color: var(--color-white);
+						}
+				}
+				&-message{
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%,-50%);
+					text-align: center;
+					opacity: 0;
+						.btn{
+							margin-top: 2vmin;
+						}
+				}
+		}
+		&-form{
+			width: 50vw;
+			height: 100%;
+			padding-top: 22.7vmin;
+			padding-left: 15.7vmin;
+			background-color: var(--color-black);
+				&-item{
+					width: 100%;
+					max-width: 35vw;
+				}
+		}
+}

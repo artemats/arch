@@ -24,5 +24,10 @@
 		}
 		&-nav{
 			display: none;
+				&[style="display: block;"]{
+					& ~ .header-panel{
+						color: var(--color-white);
+					}
+				}
 		}
 }

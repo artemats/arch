@@ -1,22 +1,49 @@
 .photos{
 	padding: 15.1vmin 0;
 	width: 100vw;
+	cursor: none;
 		&-list{
 			position: relative;
-				&-box{
-					//position: absolute;
-					//top: 0;
-					//left: 0;
-					//display: flex;
-					//flex-wrap: nowrap;
+				&:hover{
+					.photos-cursor{
+						opacity: .5;
+					}
 				}
 		}
 		&-item{
 			height: 35vmin;
 			width: 52.3vmin;
 			margin: 0 15px;
+			pointer-events: none;
 				img{
 					@include imageCover(center);
+				}
+		}
+		&-lg{
+			background-color: var(--color-black);
+				&-item{
+					width: 100vw;
+					height: 100vh;
+					overflow: hidden;
+						img{
+							@include imageCover(center);
+							transition: transform .2s ease-out, opacity .2s ease-out;
+						}
+				}
+		}
+		&-cursor{
+			position: absolute;
+			width: 104px;
+			height: 60px;
+			z-index: 1;
+			color: var(--color-white);
+			opacity: 0;
+			top: 0;
+			left: 0;
+			pointer-events: none;
+				@include mh($minHeight){
+					width: 10.6545vmin;
+					height: 6.146vmin;
 				}
 		}
 }

@@ -2,6 +2,10 @@
 		&-container{
 			display: inline-block;
 			position: relative;
+				&-vertical{
+					width: 100vw;
+					min-height: 100vh;
+				}
 				&.__vertical{
 					z-index: 2;
 				}
@@ -21,7 +25,8 @@
 
 html.__reset-loco{
 	overflow: initial !important;
-		body{
+		body,
+		#wrapper{
 			overflow: initial !important;
 		}
 }

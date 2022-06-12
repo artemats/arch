@@ -1,0 +1,94 @@
+.input{
+	width: 100%;
+	font-size: 30px;
+	font-family: var(--font-title-regular);
+	background-color: transparent;
+	border: none;
+	color: var(--color-white);
+	letter-spacing: .1em;
+	height: 5vmin;
+	padding: 0;
+		&-container{
+			display: block;
+			position: relative;
+			padding-top: 3.8vmin;
+			transition: margin-bottom var(--transform-duration) var(--transform-ease);
+				&-select{
+					margin-bottom: 6.9vmin;
+						&:before{
+							content: '';
+							position: absolute;
+							bottom: 23%;
+							right: 0;
+							width: 1.05vmin;
+							height: 1.05vmin;
+							background-repeat: no-repeat;
+							background-position: center;
+							background-image: url(../images/arrow-down.svg);
+						}
+						.input-border{
+							width: 100%;
+						}
+				}
+				&.is-focused{
+					padding-bottom: 0.8vmin;
+						&:not(:last-child){
+							margin-bottom: 6.9vmin;
+						}
+						.input-border{
+							width: 100%;
+						}
+				}
+				&.is-error{
+					.input-message{
+						opacity: 1;
+					}
+				}
+		}
+		&-label{
+			display: inline-block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			text-transform: capitalize;
+			font-family: var(--font-title-regular);
+			letter-spacing: .1em;
+			font-size: 14px;
+			color: #828282;
+			white-space: nowrap;
+				@include mh($minHeight){
+					font-size: 1.63vmin;
+				}
+		}
+		&-border{
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			height: 1px;
+			width: 0;
+			background-color: var(--color-white);
+			transition: width var(--transform-duration) var(--transform-ease);
+		}
+		&-message{
+			@extend .text-small;
+			position: absolute;
+			top: 2vmin;
+			left: 0;
+			opacity: 0;
+			transition: opacity var(--opacity-duration) var(--opacity-ease);
+				&.__wrong{
+					color: var(--color-red);
+				}
+		}
+		&:focus{
+			outline: none;
+		}
+		@include mh($minHeight){
+			font-size: 3.55vmin;
+		}
+}
+
+.select{
+	@extend .input;
+	padding-right: 30px;
+}

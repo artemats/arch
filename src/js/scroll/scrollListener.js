@@ -6,6 +6,9 @@ import {locoScroll} from "./locoScroll";
 import {changeZIndex} from "../common/scrollContainer/changeZIndex";
 import {showContentOnScroll} from "../common/content/showContentOnScroll";
 import {parallaxImagesOnScroll} from "../common/content/parallaxImagesOnScroll";
+import {switchVerticalAnchorNav} from "../common/home/switchVerticalNav";
+import {switchTopShadow} from "../common/switchTopShadow";
+import {switchSlicedText} from "../common/content/switchSlicedText";
 
 export const scrollListener = () => {
 
@@ -14,15 +17,15 @@ export const scrollListener = () => {
 		Detect home hero section
 		 */
 		if (func === 'homeHero' && dir === 'enter') {
-			// playHomeHeroVideo();
-			// switchMotorcycles(obj);
 			switchGrid(true);
 			changeZIndex(0);
 			playHomeHeroVideo();
+			switchVerticalAnchorNav('arch');
 		}
 		if (func === 'homeHero' && dir === 'exit') {
 			changeZIndex(2);
 			pauseHomeHeroVideo();
+			switchGrid(false);
 		}
 		/*
 		Detect home motorcycle sections
@@ -36,10 +39,12 @@ export const scrollListener = () => {
 		Switch color theme
 		 */
 		if (func === 'switchToWhiteColorTheme' && dir === 'enter') {
-			setWhiteColorTheme(true);
+			setWhiteColorTheme(true, 'listener');
+			switchTopShadow(false);
 		}
 		if (func === 'switchToWhiteColorTheme' && dir === 'exit') {
-			setWhiteColorTheme(false);
+			setWhiteColorTheme(false, 'listener');
+			switchTopShadow(true);
 		}
 
 		/*
@@ -47,6 +52,7 @@ export const scrollListener = () => {
 		 */
 		if (func === 'homeAboutBanner' && dir === 'enter') {
 			switchGrid(false);
+			switchSlicedText(document.querySelector('.section-motorcycle.is-inview').querySelector('.motorcycle-description'), false);
 		}
 
 		if (func === 'homeAbout' && dir === 'enter') {
@@ -63,12 +69,12 @@ export const scrollListener = () => {
 		/*
 		Switch header nav with footer visible on scroll
 		 */
-		if (func === 'footer' && dir === 'enter') {
-			switchHeaderNav(0);
-		}
-		if(func === 'footer' && dir === 'exit') {
-			switchHeaderNav(1)
-		}
+		// if (func === 'footer' && dir === 'enter') {
+		// 	switchHeaderNav(0);
+		// }
+		// if(func === 'footer' && dir === 'exit') {
+		// 	switchHeaderNav(1);
+		// }
 
 		/*
 		Show content on horizontal scroll

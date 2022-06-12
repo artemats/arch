@@ -6,7 +6,7 @@
 		&-list{
 			margin-top: 8.2vmin;
 				&-item{
-					padding: 5.2vmin 50px 4.8vmin;
+					padding: 5.2vmin 0 4.8vmin 50px;
 					position: relative;
 						&.is-active{
 							.specifications-label{
@@ -29,7 +29,7 @@
 		}
 		&-label{
 			text-transform: uppercase;
-			white-space: nowrap;
+			//white-space: nowrap;
 			transform-origin: left center;
 			transition: transform .4s ease-out, opacity .4s ease-out;
 				&-mask{

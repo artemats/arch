@@ -54,6 +54,18 @@
           font-size: 2.4vmin;
         }
     }
+    &-22{
+      font-size: 22px;
+        @include mh($minHeight){
+          font-size: 2.55vmin;
+        }
+    }
+    &-title{
+      font-family: var(--font-title-regular);
+        &-light{
+          font-family: var(--font-title-light);
+        }
+    }
 }
 
 .red{
@@ -70,4 +82,8 @@
       flex-direction: column;
       justify-content: space-between;
     }
+}
+
+.is-hidden{
+  opacity: 0 !important;
 }

@@ -2,6 +2,8 @@ import {switchGrid} from "../grid/switchGrid";
 import {switchSlicedText} from "../content/switchSlicedText";
 import {playHomeHeroVideo} from "./togglePlayingHomeVideo";
 import {switchHeaderFooterLogo} from "../content/switchHeaderFooterLogo";
+import {initVerticalNavCarousel, switchVerticalNav} from "./switchVerticalNav";
+import {scrollListener} from "../../scroll/scrollListener";
 
 export const loadHomeHeroContent = () => {
 	const preloaderDOM = document.querySelector('#preloader');
@@ -10,11 +12,13 @@ export const loadHomeHeroContent = () => {
 		preloaderDOM.remove();
 	}
 	switchGrid(true);
-	setTimeout(() => switchSlicedText(hero, true), 1000);
-	setTimeout(() => playHomeHeroVideo(), 1500);
-	setTimeout(() => switchHeaderFooterLogo(true), 2000);
-
-	// switchGrid(true);
-	console.log('load home content');
+	setTimeout(() => switchHeaderFooterLogo(true), 500);
+	setTimeout(() => {
+		playHomeHeroVideo();
+		switchSlicedText(hero, true);
+		switchVerticalNav(true);
+		scrollListener();
+		initVerticalNavCarousel();
+	}, 1000);
 
 }

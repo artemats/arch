@@ -5,11 +5,11 @@ let moving = true;
 
 export const followMouseButton = () => {
 
-	const boxes = document.querySelectorAll('.video-wrap');
+	const boxes = document.querySelectorAll('.mouseFollow-wrap');
 
 	for(let i = 0; i < boxes.length; i++){
 
-		const link = boxes[i].querySelector('.video-btn');
+		const link = boxes[i].querySelector('.mouseFollow-item');
 		const linkWidth = link.clientWidth;
 		const linkHeight = link.clientHeight;
 

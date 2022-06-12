@@ -1,0 +1,43 @@
+.about{
+		&-description{
+				&.__1{
+					max-width: 58vmin;
+					margin-left: 36vmin;
+					margin-top: 8vmin;
+				}
+				&.__2{
+					width: 41.8vmin;
+					margin-top: 28.8vmin;
+					padding-right: 6vmin;
+				}
+				&.__3{
+					width: 38vmin;
+				}
+		}
+		&-image{
+				&.__1{
+					width: 52.3vmin;
+					height: 77.6vmin;
+					margin-top: -50px;
+					margin-bottom: 3.1vmin;
+					margin-right: 18.9vmin;
+				}
+		}
+		&-abstract{
+			&.__1{
+				width: 69vmin;
+				height: 67vmin;
+				background-color: var(--color-black);
+					img{
+						mix-blend-mode: multiply;
+					}
+			}
+		}
+}
+
+[data-router-view="about"]{
+	.motor{
+		right: -19%;
+		top: -7%;
+	}
+}

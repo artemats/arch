@@ -10,6 +10,7 @@
 	padding: 0;
 	border: none;
 	white-space: nowrap;
+	transition: color var(--color-duration) var(--color-ease);
 		&-title{
 			display: inline-block;
 			padding-top: 3px;
@@ -20,6 +21,7 @@
 			width: 26px;
 			height: 26px;
 			margin-left: 40px;
+			transition: transform var(--color-duration) var(--color-ease);
 				svg{
 					fill: currentColor;
 					width: 100%;
@@ -30,7 +32,8 @@
 					height: 3vmin;
 				}
 		}
-		&-back{
+		&-back,
+		&-next{
 			font-size: 12px;
 			letter-spacing: .1em;
 				.btn{
@@ -45,9 +48,33 @@
 							}
 					}
 				}
+				@include hover($hoverWidth) {
+					&:hover {
+						color: var(--color-white);
+					}
+				}
+		}
+		&-next{
+				.btn{
+					&-icon{
+						margin-left: 20px;
+						margin-right: 0;
+						transform: scaleX(-1);
+					}
+				}
 		}
 		@include mh($minHeight) {
 			font-size: .88em;
+		}
+		&:not(.btn-back):not(.btn-next){
+			@include hover($hoverWidth) {
+				&:hover{
+					color: var(--color-white);
+					.btn-icon{
+						transform: rotate(45deg);
+					}
+				}
+			}
 		}
 		&-sm{
 			font-size: 12px;

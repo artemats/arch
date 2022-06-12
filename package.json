@@ -15,6 +15,7 @@
     "@babel/preset-env": "^7.14.5",
     "@dogstudio/highway": "^2.2.1",
     "@splidejs/splide": "^3.6.9",
+    "@vimeo/player": "^2.17.0",
     "autoprefixer": "^10.2.6",
     "babel-loader": "^8.2.2",
     "babel-plugin-transform-class-properties": "^6.24.1",

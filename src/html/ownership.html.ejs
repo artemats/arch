@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+
+    <title>About - ARCH Motorcycle</title>
+
+    <%=require('./components/head.html')%>
+    <%=require('./components/header.html')%>
+    <div class="page-shadow"></div>
+    <div class="motor is-hidden">
+        <img data-src="../images/pages/motorcycle/motor.png" alt="ARCH motorcycles motor"/>
+    </div>
+    <div class="grid">
+        <div class="grid-line grid-line-vertical __1"></div>
+        <div class="grid-line grid-line-vertical __2"></div>
+        <div class="grid-line grid-line-vertical __3"></div>
+        <div class="grid-line grid-line-horizontal __4"></div>
+    </div>
+
+    <div class="scroll-container" id="horizontal-scroll-container">
+        <div data-router-wrapper>
+            <div data-router-view="about">
+                <div class="page" id="page" data-scroll-direction="horizontal">
+                    <section class="section">
+                        <div class="section-content">
+                            <div class="section-content-row">
+                                <div class="section-content-box __pt">
+                                    <h1 class="h-3 section-content-title ownership-title __1 showContentOnLoad text-split">Ownership</h1>
+                                    <div class="section-content-description ownership-description __1 showContentOnLoad">
+                                        <p class="text-split">ARCH ownership is an experience, a connection which continues long after delivery. The same obsession and attention to detail expressed in <span class="red">ARCH Motorcycle</span> continues with the connection to our owners.</p>
+                                    </div>
+                                </div>
+                                <div class="section-content-box">
+                                    <div class="ownership-image __1">
+                                        <div class="section-content-image parallaxHorizontalScroll">
+                                            <img
+                                                    data-src="./images/pages/ownership/ownership-1.jpg"
+                                                    data-scroll
+                                                    data-scroll-speed="-0.5"
+                                                    alt="Ownership"/>
+                                        </div>
+                                    </div>
+                                    <div class="section-content-description ownership-description __2 showContentOnLoad">
+                                        <p class="text-split">With <span class="red">ARCH SUPPORT</span> our owners receive a concierge style, one on one relationship to provide service, support or simply answer questions… from anywhere in the world.</p>
+                                    </div>
+                                </div>
+                                <div class="section-content-box"
+                                     data-scroll
+                                     data-scroll-speed="-1">
+                                    <div class="section-content-description ownership-description __3 showContentOnLoad">
+                                        <p class="text-split">In partnership with the Michelin Guide, <span class="red">ARCH OWNERS’ EVENTS</span> allow us the opportunity to share a passion for riding. Creating community, friendships and memories… bringing together ARCH owners to experience amazing rides, locations and cuisine..</p>
+                                    </div>
+                                    <div class="ownership-image __2">
+                                        <div class="section-content-image parallaxHorizontalScroll">
+                                            <img
+                                                    data-src="./images/pages/ownership/ownership-2.jpg"
+                                                    data-scroll
+                                                    data-scroll-speed="-0.5"
+                                                    alt="Ownership"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="section">
+                        <div class="section-content">
+                            <div class="section-content-row">
+                                <div class="section-content-box __pt">
+                                    <p class="h-5 section-content-subtitle"
+                                       data-scroll
+                                       data-scroll-call="showContentOnHorizontalScroll">Receive your own personalized</p>
+                                    <p class="h-3 section-content-title ownership-title __2"
+                                       data-scroll
+                                       data-scroll-call="showContentOnHorizontalScroll">ARCH <span class="red">owner's</span> case</p>
+                                    <div class="section-content-description ownership-description __4 showContentOnScroll"
+                                         data-scroll
+                                         data-scroll-speed="0.5"
+                                         data-scroll-call="showContentOnHorizontalScroll">
+                                        <p>After delivery each <span class="red">ARCH KRGT-1</span> owner receives their personalized <span class="red">OWNERS’ CASE</span>.</p>
+                                        <p>Designed and manufactured in-house the billet aluminum case opens to reveal details matching their motorcycle. Included is a personalized ID Plate commemorating the date of manufacture, serial number and owners name.</p>
+                                    </div>
+                                </div>
+                                <div class="section-content-box">
+                                    <div class="section-content-video about-video ownership-video toggle-video" id="ownership-video">
+                                        <div class="video-box video-wrap mouseFollow-wrap">
+                                            <div class="video">
+                                                <iframe
+                                                        data-src="https://vimeo.com/719615281"
+                                                        frameborder="0"
+                                                        webkitallowfullscreen
+                                                        mozallowfullscreen
+                                                        data-ready="true"
+                                                        allow="autoplay; encrypted-media"
+                                                        class="vimeo-player"></iframe>
+                                            </div>
+                                            <div class="video-thumbnail parallaxHorizontalScroll">
+                                                <img data-src="images/pages/ownership/ownership-3.jpg"
+                                                     data-scroll
+                                                     data-scroll-speed="-0.5"
+                                                     alt="Whats the story" />
+                                            </div>
+                                            <div class="video-btn mouseFollow-item">
+                                                <div class="video-btn-icon"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="section-content-box">
+                                    <div class="ownership-image __3">
+                                        <div class="section-content-image parallaxHorizontalScroll">
+                                            <img
+                                                    data-src="./images/pages/ownership/ownership-4.jpg"
+                                                    data-scroll
+                                                    data-scroll-speed="-0.5"
+                                                    alt="Ownership"/>
+                                        </div>
+                                    </div>
+                                    <div class="section-content-description ownership-description __5 showContentOnScroll"
+                                         data-scroll
+                                         data-scroll-call="showContentOnHorizontalScroll">
+                                        <p>Also included are a Special Tool Kit, Master Key, Upholstered Panel and an Owners’ Book celebrating the design, build and assembly of their <span class="red">ARCH KRGT-1</span> motorcycle, featuring studio photography.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <%=require('./components/footer.html')%>
+                </div>
+            </div>
+        </div>
+    </div>
+<%=require('./components/scripts.html')%>

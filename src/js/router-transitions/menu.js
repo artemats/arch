@@ -1,0 +1,51 @@
+import Highway from '@dogstudio/highway';
+import Tween, { Power4 } from 'gsap';
+import {locoScroll} from "../scroll/locoScroll";
+import {switchMainNav} from "../common/nav/switchMainNav";
+
+class MenuTransition extends Highway.Transition {
+	out({ from, done }) {
+
+		Tween.fromTo(from,
+			{
+				opacity: 1,
+			},
+			{
+				duration: 0.5,
+				opacity: 0,
+				ease: Power4.easeOut,
+				onComplete: () => {
+					document.querySelector('.burger').classList.contains('is-active') ? switchMainNav(false) : null;
+					done();
+				},
+			});
+	}
+	in({ from, to, done }) {
+
+		from.remove();
+		Tween.fromTo(to,
+			{
+				opacity: 0,
+				onComplete: () => {
+					locoScroll.update();
+					locoScroll.scrollTo(0, {
+						duration: 0,
+						disableLerp: true,
+						callback: () => {
+							locoScroll.update();
+						}
+					});
+				}
+			},
+			{
+				duration: 0.5,
+				opacity: 1,
+				ease: Power4.easeOut,
+				onComplete: () => {
+					setTimeout(() => done(), 1000);
+				},
+			});
+	}
+}
+
+export default MenuTransition;

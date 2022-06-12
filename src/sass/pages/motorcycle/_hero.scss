@@ -1,10 +1,25 @@
 .hero{
 		&-motorcycle{
 			min-height: 100vh;
+			//padding-top: calc(22.2vmin + 50px);
+			padding-top: calc(40.5vmin + 50px);
 				.section-back{
 					position: absolute;
 					top: 14.2vmin;
 					left: 0;
+				}
+				.hero{
+						&-title{
+							position: absolute;
+							left: 0;
+							top: calc(22.2vmin + 50px);
+							width: 100%;
+						}
+						&-description{
+								p:not(:last-child){
+									margin-bottom: 4.5vmin;
+								}
+						}
 				}
 		}
 }

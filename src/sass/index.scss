@@ -32,9 +32,14 @@ Components
 @import "components/video";
 @import "components/burger";
 @import "components/link";
+@import "components/input";
 
 /*
 Pages
  */
 @import "pages/home/index";
 @import "pages/motorcycle/index";
+@import "pages/about/index";
+@import "pages/ownership/index";
+@import "pages/contact/index";
+@import "pages/builds/index";

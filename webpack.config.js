@@ -5,7 +5,7 @@ const webpack = require('webpack');
 const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
-    entry: ["babel-polyfill", "./src/js/index.js"],
+    entry: ['babel-polyfill', './src/js/index.js'],
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'app.js',
@@ -109,41 +109,7 @@ module.exports = {
             allChunks: true,
             disable: false
         }),
-        new HtmlWebpackPlugin({
-            filename: 'index.html',
-            template: path.resolve(__dirname, 'src/html', 'index.html.ejs'),
-            minify: {
-                collapseWhitespace: false
-            },
-        }),
-        new HtmlWebpackPlugin({
-            filename: 'about.html',
-            template: path.resolve(__dirname, 'src/html', 'about.html.ejs'),
-            minify: {
-                collapseWhitespace: false
-            },
-        }),
-        new HtmlWebpackPlugin({
-            filename: 'krgt-1.html',
-            template: path.resolve(__dirname, 'src/html', 'krgt-1.html.ejs'),
-            minify: {
-                collapseWhitespace: false
-            },
-        }),
-        new HtmlWebpackPlugin({
-            filename: 'arch-1s.html',
-            template: path.resolve(__dirname, 'src/html', 'arch-1s.html.ejs'),
-            minify: {
-                collapseWhitespace: false
-            },
-        }),
-        new HtmlWebpackPlugin({
-            filename: 'method-143.html',
-            template: path.resolve(__dirname, 'src/html', 'method-143.html.ejs'),
-            minify: {
-                collapseWhitespace: false
-            },
-        }),
+        ...buildHTML(['index', 'about', 'krgt-1', 'arch-1s', 'method-143', 'ownership', 'contact', 'builds']),
     ],
     // mode: 'production',
     optimization: {
@@ -158,3 +124,19 @@ module.exports = {
         ],
     },
 };
+
+function buildHTML(list) {
+    const arr = [];
+    for (let i = 0; i < list.length; i++) {
+        arr.push(
+          new HtmlWebpackPlugin({
+              filename: `${list[i]}.html`,
+              template: path.resolve(__dirname, 'src/html', `${list[i]}.html.ejs`),
+              minify: {
+                  collapseWhitespace: false
+              },
+          })
+        );
+    }
+    return arr;
+}

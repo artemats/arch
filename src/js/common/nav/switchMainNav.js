@@ -2,7 +2,7 @@ import gsap, { TweenLite, TimelineMax } from 'gsap';
 import {transitionConstants} from "../../constants/transition";
 import Splide  from "@splidejs/splide";
 
-let row1, row2, row3, row4, row5, row6;
+let row1, row2, row3, row4, row5, row6, row7, row8;
 
 export const switchMainNav = (status) => {
 
@@ -10,21 +10,17 @@ export const switchMainNav = (status) => {
 	const burger = document.querySelector('.burger');
 
 	if (!!nav && !!burger && status) {
-		burger.classList.add('is-active');
 		toggleNav(true, burger);
-		collapseBurgerArrows();
+		collapseBurgerArrows(burger);
 		initNavLinkMoving();
-		console.log('open nav');
 	} else if (!!nav && !!burger) {
-		burger.classList.remove('is-active');
 		toggleNav(false, burger);
-		unCollapseBurgerArrows();
-		console.log('close nav');
+		unCollapseBurgerArrows(burger);
 	}
 
 };
 
-const collapseBurgerArrows = () => {
+const collapseBurgerArrows = (burger) => {
 	const arrows = document.querySelectorAll('.burger-box-arrow');
 	TweenLite.to(arrows, {
 		left: '50%',
@@ -35,13 +31,13 @@ const collapseBurgerArrows = () => {
 			TweenLite.set(arrows[1], { opacity: 0 });
 			TweenLite.to(arrows[2], { transform: 'rotate(-45deg)', duration: 0.2 });
 			setTimeout(() => {
-				TweenLite.to(arrows, { color: '#111111' });
+				burger.classList.add('is-active');
 			}, 500);
 		}
 	});
 };
 
-const unCollapseBurgerArrows = () => {
+const unCollapseBurgerArrows = (burger) => {
 	const arrows = document.querySelectorAll('.burger-box-arrow');
 	TweenLite.to(arrows, {
 		transform: 'none',
@@ -51,7 +47,7 @@ const unCollapseBurgerArrows = () => {
 			TweenLite.set(arrows[1], { opacity: 1 });
 			TweenLite.to(arrows[2], { left: 'calc(100% - 2px)', marginLeft: 0 });
 			setTimeout(() => {
-				TweenLite.to(arrows, { color: '#FFFFFF' });
+				burger.classList.remove('is-active');
 			}, 500);
 		}
 	});
@@ -139,7 +135,7 @@ const initNavLinkMoving = () => {
 		rewind: true,
 		arrows: false,
 		pagination: false,
-		speed: 20000,
+		speed: 15000,
 		easing: 'linear',
 		autoWidth: true,
 		autoplay: true,
@@ -171,9 +167,17 @@ const initNavLinkMoving = () => {
 		row6 = new Splide(linkRows[5], {
 			...settings,
 			direction: 'rtl',
-			speed: 18000,
+			speed: 12000,
 		}).mount();
-		console.log('init nav');
+		row7 = new Splide(linkRows[6], {
+			...settings,
+			speed: 13000,
+		}).mount();
+		row8 = new Splide(linkRows[7], {
+			...settings,
+			direction: 'rtl',
+			speed: 11500,
+		}).mount();
 	} else {
 		row1.Components.Autoplay.play();
 		row2.Components.Autoplay.play();
@@ -181,7 +185,8 @@ const initNavLinkMoving = () => {
 		row4.Components.Autoplay.play();
 		row5.Components.Autoplay.play();
 		row6.Components.Autoplay.play();
-		console.log('move nav');
+		row7.Components.Autoplay.play();
+		row8.Components.Autoplay.play();
 	}
 
 }
@@ -193,5 +198,6 @@ const stopNavLinkMoving = () => {
 	row4.destroy();
 	row5.destroy();
 	row6.destroy();
-	console.log('pause nav');
+	row7.destroy();
+	row8.destroy();
 }

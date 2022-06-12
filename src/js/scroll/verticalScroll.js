@@ -21,13 +21,13 @@ TweenLite.set(scroller.target, {
 });
 
 export function initVerticalScroll() {
-
 	// back to start position //
 	scroller.ease = 0;
 	window.scrollTo(0, 0);
 	TweenLite.set(document.querySelector('#vertical-scroll-container'), {
 		y: 0,
 		onComplete: () => {
+			body.style.height = document.querySelector('#vertical-scroll-container').clientHeight + 'px';
 			updateScroller();
 		}
 	});
