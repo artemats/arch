@@ -16,10 +16,10 @@ import {loadVimeoPlayer} from "../common/loadVimeoPlayer";
 class HomeRenderer extends Highway.Renderer {
 	onEnter() {
 		/* prod */
-		// preloader();
-		// if(!document.querySelector('.preloader')) {
-		// 	loadHomeHeroContent();
-		// }
+		preloader();
+		if(!document.querySelector('.preloader')) {
+			loadHomeHeroContent();
+		}
 		/* end prod */
 		loadVimeoPlayer();
 		enableHorizontalScroll();
@@ -32,7 +32,7 @@ class HomeRenderer extends Highway.Renderer {
 	}
 	onEnterCompleted() {
 		/* dev */
-		loadHomeHeroContent();
+		// loadHomeHeroContent();
 		/* end dev */
 		locoScroll.init();
 		if (!!document.querySelector('[data-scroll-direction="horizontal"]')) {
