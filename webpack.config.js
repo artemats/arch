@@ -93,7 +93,15 @@ module.exports = {
             },
             {
                 test: /\.(mp4|webm)(\?v=\d+\.\d+\.\d+)?$/,
-                use: 'file-loader?name=video/[name].[ext]',
+                use: [
+                    {
+                        loader: 'file-loader?name=video/[name].[ext]',
+                        options: {
+                            outputPath: 'video/',
+                            publicPath: '../video/',
+                        }
+                    }
+                ],
             }
         ]
     },
