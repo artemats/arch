@@ -98,8 +98,8 @@ module.exports = {
                         loader: 'file-loader?name=video/[name].[ext]',
                         options: {
                             name: '[name].[ext]',
-                            outputPath: 'video/',
-                            publicPath: '../video/',
+                            outputPath: '../video/',
+                            publicPath: 'video/',
                             useRelativePath: true,
                             esModule: false
                         }
