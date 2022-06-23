@@ -12,9 +12,11 @@ export const loadHomeHeroContent = () => {
 		preloaderDOM.remove();
 	}
 	switchGrid(true);
-	setTimeout(() => switchHeaderFooterLogo(true), 500);
 	setTimeout(() => {
+		switchHeaderFooterLogo(true);
 		playHomeHeroVideo();
+	}, 500);
+	setTimeout(() => {
 		switchSlicedText(hero, true);
 		switchVerticalNav(true);
 		scrollListener();
