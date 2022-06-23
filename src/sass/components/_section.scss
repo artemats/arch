@@ -43,6 +43,9 @@
 							transform-origin: calc(100% - 66px) top;
 							right: 0;
 						}
+						@include d($sm){
+							transform: rotate(0);
+						}
 				}
 				&-title{
 					font-family: var(--font-title-extra);
@@ -61,6 +64,13 @@
 				@include d($minDesktopWidth){
 					left: calc(100vw - 30px);
 					width: 50px;
+				}
+				@include d($sm){
+					left: 0;
+					width: 100%;
+					top: auto;
+					bottom: 0;
+					height: 50px;
 				}
 		}
 		&-banner{
