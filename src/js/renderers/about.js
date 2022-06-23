@@ -13,20 +13,19 @@ import {toggleVideo} from "../common/about/toggleVideo";
 import {switchHeaderNav} from "../common/switchHeaderNav";
 import {switchTopShadow} from "../common/switchTopShadow";
 import {loadVimeoPlayer} from "../common/loadVimeoPlayer";
+import {breakpoints} from "../constants/breakpoints";
 
 class AboutRenderer extends Highway.Renderer {
 	onEnter() {
-		console.log('enter to about');
 		loadVimeoPlayer();
 		setWhiteColorTheme(false);
 		enableHorizontalScroll();
 		locoScroll.destroy();
 		changeZIndex(2);
 		switchGrid(true);
-		switchTopShadow(0);
+		switchTopShadow(window.innerWidth < breakpoints.width.minDesktop);
 	}
 	onEnterCompleted() {
-		console.log('enter to about completed');
 		setWhiteColorTheme(false);
 		toggleVideo();
 		locoScroll.init();

@@ -21,8 +21,6 @@ class Fade extends Highway.Transition {
 	}
 	in({ from, to, done }) {
 
-		console.log('fade, in');
-
 		from.remove();
 		Tween.fromTo(to,
 			{

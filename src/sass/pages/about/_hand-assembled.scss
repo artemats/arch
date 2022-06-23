@@ -11,6 +11,11 @@
 				height: 44.6vmin;
 				margin-bottom: 5.4vmin;
 				margin-left: -11.5vmin;
+					@include d($minDesktopWidth){
+						margin: 0;
+						width: 100%;
+						height: auto;
+					}
 			}
 			&.__3{
 				width: 56vmin;
@@ -18,6 +23,11 @@
 				margin-left: 14vmin;
 				margin-top: 7.6vmin;
 				margin-right: 11.3vmin;
+					@include d($minDesktopWidth){
+						margin: 0;
+						width: 100%;
+						height: auto;
+					}
 			}
 		}
 		&-description{
@@ -25,11 +35,19 @@
 				width: 45vmin;
 				margin-left: auto;
 				margin-right: -0.5vmin;
+					@include d($minDesktopWidth){
+						width: 100%;
+						margin: 0;
+					}
 			}
 			&.__5{
 				width: 54vmin;
 				margin-top: 7.4vmin;
 				margin-right: 50vmin;
+					@include d($minDesktopWidth){
+						width: 100%;
+						margin: 0;
+					}
 			}
 		}
 }

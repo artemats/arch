@@ -2,6 +2,9 @@
 		&-title{
 			&.__1{
 				margin-top: 9vmin;
+					@include d($minDesktopWidth){
+						margin-top: 0;
+					}
 			}
 		}
 		&-description{
@@ -9,15 +12,29 @@
 				width: 45vmin;
 				margin-top: 7.8vmin;
 				margin-left: 36vmin;
+					@include d($minDesktopWidth){
+						width: 100%;
+						margin-top: 0;
+						margin-left: 0;
+					}
 			}
 			&.__2{
 				width: 45vmin;
 				margin-left: 24.5vmin;
+					@include d($minDesktopWidth){
+						width: 100%;
+						margin-left: 0;
+					}
 			}
 			&.__3{
 				width: 56vmin;
 				margin-top: 22vmin;
 				margin-left: 20.5vmin;
+					@include d($minDesktopWidth){
+						width: 100%;
+						margin-top: 0;
+						margin-left: 0;
+					}
 			}
 		}
 		&-image{
@@ -25,6 +42,11 @@
 				width: 53.5vmin;
 				height: 45vmin;
 				margin: 18.4vmin 0 5.2vmin 24.5vmin;
+					@include d($minDesktopWidth){
+						width: 100%;
+						height: auto;
+						margin: 0;
+					}
 			}
 			&.__2{
 				width: 73.2vmin;
@@ -32,6 +54,11 @@
 				margin-left: 20.5vmin;
 				margin-top: 5vmin;
 				margin-right: 30vmin;
+					@include d($minDesktopWidth){
+						width: 100%;
+						height: auto;
+						margin: 0;
+					}
 			}
 		}
 }

@@ -32,10 +32,15 @@
 						transition-delay: 3s;
 					}
 				}
+				@include d($minDesktopWidth){
+					position: relative;
+					top: 0;
+					left: 0;
+					transform: none;
+				}
 		}
 		&-row{
 			display: flex;
-			flex-wrap: nowrap;
 				&-item{
 					width: 72.559vmin;
 					height: 41.862vmin;
@@ -66,7 +71,11 @@
 									transition-delay: 0s;
 									cursor: default;
 									pointer-events: none;
-									//transition-delay: 1s;
+										@include d($sm){
+											margin-left: 0;
+											height: 50%;
+											padding-right: 50px;
+										}
 								}
 								&-list{
 									opacity: 1;
@@ -79,11 +88,45 @@
 								}
 							}
 						}
+						@include d($minDesktopWidth){
+							margin: 15px;
+						}
+						@include d($md){
+							margin: 0 15px;
+							width: calc(100% - 30px);
+							height: 60vw;
+						}
+				}
+				@include m($minDesktopWidth + 1){
+					flex-wrap: nowrap;
+				}
+				@include d($md){
+					flex-direction: column;
+				}
+		}
+		&-title{
+			@include d($minDesktopWidth){
+				display: none;
+			}
+		}
+		&-header{
+			padding: 0 15px;
+				.h-5{
+					margin-bottom: 30px;
+				}
+				@include m($minDesktopWidth + 1){
+					display: none;
 				}
 		}
 		.section{
 				&-nav{
 					transition: opacity var(--opacity-duration) var(--opacity-ease);
 				}
+		}
+		@include d($minDesktopWidth){
+			padding-top: 145px;
+		}
+		@include d($xs){
+			padding-top: 25vw;
 		}
 }

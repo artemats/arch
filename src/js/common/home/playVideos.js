@@ -2,6 +2,7 @@ import { TweenLite } from 'gsap';
 import {locoScroll} from "../../scroll/locoScroll";
 import {transitionConstants} from "../../constants/transition";
 import Player from '@vimeo/player';
+import {breakpoints} from "../../constants/breakpoints";
 
 export const playVideos = () => {
 	if(!!document.querySelector('#home-videos')) {
@@ -27,7 +28,19 @@ export const playVideos = () => {
 						videos[i].classList.add('is-starting');
 						videos[i].classList.add('is-disabled');
 						videosList.classList.add('is-fixed');
-						enterPlayer(video, videos[i], player);
+						if (window.innerWidth >= breakpoints.width.minDesktop) {
+							enterPlayer(video, videos[i], player);
+						} else {
+							videos[i].classList.add('is-hidden-poster');
+							videos[i].classList.add('is-playing');
+							player.play();
+							// hide play pause button //
+							TweenLite.to(videos[i].querySelector('.video-btn'), {
+								opacity: 0,
+								duration: transitionConstants.opacity.duration,
+								ease: transitionConstants.opacity.ease,
+							});
+						}
 					}
 
 				});
@@ -91,7 +104,7 @@ const exitPlayer = (video, videoItem, player) => {
 			y: 0,
 			x: 0,
 			width: '100%',
-			height: '250%',
+			height: window.innerWidth >= breakpoints.width.minDesktop ? '250%' : '100%',
 			onComplete: () => {
 				videoItem.classList.remove('is-starting');
 			},

@@ -9,9 +9,6 @@
     <%=require('./components/head.html')%>
     <%=require('./components/header.html')%>
     <div class="page-shadow"></div>
-    <div class="motor is-hidden">
-        <img data-src="../images/pages/motorcycle/motor.png" alt="ARCH motorcycles motor"/>
-    </div>
     <div class="grid">
         <div class="grid-line grid-line-vertical __1"></div>
         <div class="grid-line grid-line-vertical __2"></div>
@@ -24,6 +21,10 @@
             <div data-router-view="builds">
                 <div class="page" id="page" data-scroll-direction="horizontal">
                     <section class="section builds">
+                        <div class="builds-header">
+                            <h6 class="h-5">Browse through <span class="red">ARCH KRGT-1</span></h6>
+                            <h1 class="h-3">Previous builds</h1>
+                        </div>
                         <div class="builds-wrap">
                             <div class="builds-wrap-item">
                                 <div class="builds-row">
@@ -101,7 +102,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="builds-row-item">
+                                    <div class="builds-row-item builds-title">
                                         <h6 class="h-5">Browse through <span class="red">ARCH KRGT-1</span></h6>
                                         <h1 class="h-3">Previous builds</h1>
                                     </div>

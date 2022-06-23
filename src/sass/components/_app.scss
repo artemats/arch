@@ -7,6 +7,12 @@ body{
 		@include mh($minHeight){
 			font-size: 1.86vmin;
 		}
+		@include d($minDesktopWidth){
+			font-size: 16px;
+		}
+		@include d($sm){
+			font-size: 14px;
+		}
 }
 
 .theme-white{
@@ -43,6 +49,9 @@ Hide scrollbar
 	position: relative;
 	width: auto;
 	overflow: hidden;
+		@include d($minDesktopWidth){
+			width: 100%;
+		}
 }
 
 .container{
@@ -64,12 +73,19 @@ Hide scrollbar
 			display: inline-block;
 			margin-right: 9px;
 		}
+		@include d($xs){
+			font-size: 36px;
+		}
 }
 
 .box-split{
 	.btn{
 		opacity: 0;
 		transform: translateY(10px);
+			@include d($minDesktopWidth){
+				opacity: 1;
+				transform: none;
+			}
 	}
 }
 
@@ -78,10 +94,17 @@ Hide scrollbar
 			opacity: 0;
 			transform: translateY(10px);
 			display: inline-block;
+				//@include d($minDesktopWidth){
+				//	opacity: 1 !important;
+				//	transform: none !important;
+				//}
 		}
 		&[class*=h-4]{
 			.word{
 				transform: translateY(100px);
+					//@include d($minDesktopWidth){
+					//	transform: none !important;
+					//}
 			}
 		}
 }
@@ -144,7 +167,7 @@ Hide scrollbar
 }
 
 img{
-	transition: opacity .1s var(--opacity-ease);
+	//transition: opacity .1s var(--opacity-ease);
 		&[data-src]{
 			opacity: 0;
 		}

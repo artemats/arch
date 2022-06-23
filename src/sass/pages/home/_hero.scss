@@ -13,16 +13,73 @@
 							@include mh($minHeight){
 								max-width: 60vmin;
 							}
+							@include d($minDesktopWidth){
+								max-width: 100%;
+							}
 							&-title{
 
 							}
 							&-description{
 								max-width: 73%;
+									@include d($minDesktopWidth){
+										max-width: 90%;
+									}
+									@include d($xs){
+										max-width: 100%;
+									}
 							}
 							&-action{
 								margin: 6vmin 0 7vmin;
+									@include d($minDesktopWidth){
+										margin: 50px 0;
+									}
 							}
 					}
+				}
+				@include d($minDesktopWidth){
+					padding: 15px;
+					min-height: 910px;
+					height: 100vh;
+					justify-content: center;
+						&:before{
+							content: '';
+							position: absolute;
+							bottom: 0;
+							left: 0;
+							width: 100%;
+							height: 100px;
+							background: linear-gradient(180deg, rgba(6, 6, 8, 0) 0%, var(--color-black) 100%);
+							pointer-events: none;
+						}
+				}
+				@include d($md){
+					min-height: 850px;
+				}
+				@include d($sm){
+					min-height: 750px;
+				}
+				@include d($xs){
+					min-height: 450px;
+				}
+		}
+		&-content{
+				&-title{
+					@include d($minDesktopWidth){
+						max-width: 850px;
+						margin-bottom: 51px;
+					}
+					@include d($md){
+						max-width: 740px;
+					}
+					@include d($sm){
+						max-width: 550px;
+					}
+					@include d($xs){
+						max-width: 90%;
+					}
+				}
+				@include d($minDesktopWidth){
+					padding-top: 35px;
 				}
 		}
 		&-footer{
@@ -37,6 +94,23 @@
 					width: 178px;
 					height: 42px;
 					margin: 0 auto;
+						@include d($minDesktopWidth){
+							margin: 0;
+							width: 28vw;
+							height: auto;
+							text-align: left;
+						}
 				}
+				@include d($minDesktopWidth){
+					display: none;
+				}
+		}
+		@include d($minDesktopWidth){
+			.box-split {
+				.btn {
+					opacity: 0;
+					transform: translateY(10px);
+				}
+			}
 		}
 }

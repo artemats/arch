@@ -4,6 +4,7 @@ import {transitionConstants} from "../../constants/transition";
 import { countryCodes } from '../../constants/country-codes';
 import { countryStates } from '../../constants/country-states';
 import {locoScroll} from "../../scroll/locoScroll";
+import {breakpoints} from "../../constants/breakpoints";
 
 export const initFormCarousel = () => {
 	const formCarousel = document.querySelector('#contact-form-box');
@@ -30,13 +31,26 @@ export const initFormCarousel = () => {
 			});
 		});
 
-		document.querySelector('.contact-nav-pagination .btn-next').addEventListener('click', () => {
-			stepIsValidate() ? splide.go('>') : null;
-		});
+		const nextBtns = document.querySelectorAll('.contact-nav-pagination .btn-next');
+		const prevBtns = document.querySelectorAll('.contact-nav-pagination .btn-back');
 
-		document.querySelector('.contact-nav-pagination .btn-back').addEventListener('click', () => {
-			splide.go('<');
-		});
+		for (let i = 0; i < nextBtns.length; i++) {
+			nextBtns[i].addEventListener('click', () => {
+				stepIsValidate() ? splide.go('>') : null;
+				Tween.to(window, {
+					scrollTo: 0
+				});
+			});
+		}
+
+		for (let i = 0; i < prevBtns.length; i++) {
+			prevBtns[i].addEventListener('click', () => {
+				splide.go('<');
+				Tween.to(window, {
+					scrollTo: 0
+				});
+			});
+		}
 
 		const countriesSelect = document.querySelector('#country');
 		if (!!countryCodes.length) {
@@ -61,7 +75,7 @@ export const initFormCarousel = () => {
 		const form = document.querySelector('#contact-form');
 		form.addEventListener('submit', (e) => {
 			e.preventDefault();
-			successSubmit();
+			window.innerWidth >= breakpoints.width.minDesktop ? successSubmit() : successPhoneSubmit();
 		});
 	}
 };
@@ -127,3 +141,8 @@ const successSubmit = () => {
 		},
 	});
 };
+
+const successPhoneSubmit = () => {
+	const wrap = document.querySelector('.contact');
+	wrap.classList.add('is-success');
+}

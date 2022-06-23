@@ -10,7 +10,10 @@
 			text-align: center;
 			opacity: 0;
 				img{
-					@include imageContain(center bottom)
+					@include imageContain(center bottom);
+						@include d($md){
+							@include imageCover(center);
+						}
 				}
 		}
 		&-box{
@@ -28,6 +31,15 @@
 							stroke-dasharray: 330, 330;
 							stroke-dashoffset: 0;
 						}
+				}
+				@include d($md){
+					transform: translate(-50%,-50%) scale(.8);
+				}
+				@include d($sm){
+					transform: translate(-50%,-50%) scale(.65);
+				}
+				@include d($xs){
+					transform: translate(-50%,-50%) scale(.45);
 				}
 		}
 }

@@ -25,6 +25,15 @@
 								opacity: .1;
 							}
 						}
+						@include d($minDesktopWidth){
+							padding: 35px 45px;
+						}
+						@include d($sm){
+							padding: 25px 15px;
+						}
+						@include d($xs){
+							padding: 15px;
+						}
 				}
 		}
 		&-label{
@@ -55,7 +64,29 @@
 						&-label{
 							padding-left: 50px;
 							padding-top: 15px;
+								@include d($minDesktopWidth){
+									padding: 15px 0;
+								}
 						}
 				}
+		}
+		.h-4{
+			@include d($xs){
+				font-size: 11vw;
+			}
+		}
+		@include d($minDesktopWidth){
+			padding: 100px 0 0;
+			margin-bottom: 0;
+			min-height: 0;
+		}
+		@include d($md){
+			padding-top: 80px;
+		}
+		@include d($sm){
+			padding-top: 60px;
+		}
+		@include d($xs){
+			padding-top: 50px;
 		}
 }

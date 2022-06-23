@@ -1,7 +1,5 @@
 .motorcycles{
 	height: 100%;
-	//display: inline-block;
-	display: flex;
 		&-bg{
 			position: absolute;
 			top: 0;
@@ -62,9 +60,27 @@
 				#home-hero-video{
 					opacity: 0;
 				}
+				@include d($minDesktopWidth){
+					height: 100vh;
+					min-height: 910px;
+				}
+				@include d($md){
+					min-height: 850px;
+				}
+				@include d($sm){
+					min-height: 750px;
+				}
+				@include d($xs){
+					min-height: 450px;
+				}
 		}
 		.section.__motorcycle{
-			min-width: 150vw;
+			@include m($minDesktopWidth + 1){
+				min-width: 150vw;
+			}
+		}
+		@include m($minDesktopWidth + 1){
+			display: flex;
 		}
 }
 
@@ -85,8 +101,54 @@
 			pointer-events: none;
 				&-item{
 					position: absolute;
-					inset: 0;
-					@include imageCover(center bototm);
+					transition: none;
+						@include m($minDesktopWidth + 1){
+							inset: 0;
+							@include imageCover(center);
+						}
+						@include d($minDesktopWidth){
+							max-width: none;
+							height: 100%;
+							//right: -50%;
+							right: -190px;
+						}
+				}
+				@include d($minDesktopWidth){
+					position: relative;
+					width: 100%;
+					overflow: hidden;
+				}
+				&-mask{
+					@include d($minDesktopWidth){
+						position: absolute;
+							&:after{
+								content: '';
+								position: absolute;
+								height: 100px;
+								left: 0;
+								width: 100%;
+								z-index: 1;
+								pointer-events: none;
+								bottom: 0;
+								background: linear-gradient(180deg, rgba(6, 6, 8, 0) 0%, var(--color-black) 100%);
+							}
+					}
+				}
+				&:not(.motorcycle-bg-mask){
+					@include d($minDesktopWidth){
+						&:before,
+						&:after{
+							content: '';
+							position: absolute;
+							height: 100px;
+							left: 0;
+							width: 100%;
+							z-index: 1;
+							pointer-events: none;
+							top: 0;
+							background: linear-gradient(180deg, var(--color-black) 0%, rgba(6, 6, 8, 0) 100%);
+						}
+					}
 				}
 		}
 		&-item{
@@ -113,6 +175,12 @@
 							stroke-dashoffset: 1670;
 						}
 				}
+				@include d($minDesktopWidth){
+					position: relative;
+					top: 0;
+					left: 0;
+					padding: 15px;
+				}
 		}
 		&-title{
 			position: absolute;
@@ -133,19 +201,35 @@
 				&-item{
 					flex: 1;
 					margin-bottom: 2.3vmin;
-					////
-					//top: 51.8vh;
-					//left: 52.4vw;
-						////
 						&:nth-child(1){
 							max-width: 45%;
+								@include d($minDesktopWidth){
+									max-width: 100%;
+								}
 						}
 						&:nth-child(2){
 							max-width: 41.3%;
+								@include d($minDesktopWidth){
+									max-width: 92%;
+								}
 						}
 						.btn{
 							margin-top: 1.7vmin;
+								@include d($minDesktopWidth){
+									margin-top: 30px;
+								}
 						}
+						@include d($minDesktopWidth){
+							margin-bottom: 20px;
+						}
+				}
+				@include d($minDesktopWidth){
+					width: auto;
+					left: 0;
+					max-width: 100%;
+					top: 0;
+					flex-direction: column;
+					position: relative;
 				}
 		}
 		&-advantages{
@@ -175,6 +259,10 @@
 					pointer-events: none;
 				}
 		}
+		@include d($minDesktopWidth){
+			margin-left: -15px;
+			width: calc(100% + 30px);
+		}
 }
 
 // motorcycles photos //
@@ -188,6 +276,13 @@
 			height: 57.5vmin;
 			margin-left: -47.75vmin;
 			margin-top: -28.75vmin;
+		}
+		@include d($minDesktopWidth){
+			width: 100%;
+			height: auto;
+			margin-top: 0;
+			margin-left: 0;
+			margin-top: -124px;
 		}
 }
 
@@ -205,6 +300,13 @@
 			&-title{
 				top: 22.2vmin;
 				left: 28.5vmin;
+					@include d($minDesktopWidth){
+						left: 0;
+						top: 115px;
+						width: 100%;
+						padding: 0 15px;
+						font-size: 22vw;
+					}
 			}
 	}
 }
@@ -214,6 +316,13 @@
 		&-title{
 			top: 22.2vmin;
 			left: 106.3vmin;
+				@include d($minDesktopWidth){
+					left: 0;
+					top: 115px;
+					width: 100%;
+					padding: 0 15px;
+					font-size: 34vw;
+				}
 		}
 	}
 }
@@ -223,6 +332,13 @@
 		&-title{
 			top: 22.2vmin;
 			left: 24.7vmin;
+				@include d($minDesktopWidth){
+					left: 0;
+					top: 155px;
+					width: 100%;
+					padding: 0 15px;
+					font-size: 15vw;
+				}
 		}
 	}
 }

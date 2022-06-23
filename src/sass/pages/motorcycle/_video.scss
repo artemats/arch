@@ -27,5 +27,9 @@
 					right: auto;
 					left: 0;
 				}
+				@include d($md){
+					width: 50vw;
+					height: 35vw;
+				}
 		}
 }

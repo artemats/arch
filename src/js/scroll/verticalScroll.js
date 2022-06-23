@@ -1,4 +1,5 @@
 import { TweenLite } from 'gsap';
+import {breakpoints} from "../constants/breakpoints";
 
 const html = document.documentElement;
 const body = document.body;
@@ -22,20 +23,21 @@ TweenLite.set(scroller.target, {
 
 export function initVerticalScroll() {
 	// back to start position //
-	scroller.ease = 0;
-	window.scrollTo(0, 0);
-	TweenLite.set(document.querySelector('#vertical-scroll-container'), {
-		y: 0,
-		onComplete: () => {
-			body.style.height = document.querySelector('#vertical-scroll-container').clientHeight + 'px';
-			updateScroller();
-		}
-	});
+	if (window.innerWidth >= breakpoints.width.minDesktop) {
+		scroller.ease = 0;
+		window.scrollTo(0, 0);
+		TweenLite.set(document.querySelector('#vertical-scroll-container'), {
+			y: 0,
+			onComplete: () => {
+				body.style.height = document.querySelector('#vertical-scroll-container').clientHeight + 'px';
+				updateScroller();
+			}
+		});
 
-	window.focus();
-	window.addEventListener('resize', onResize);
-	document.addEventListener('scroll', onScroll);
-
+		window.focus();
+		window.addEventListener('resize', onResize);
+		document.addEventListener('scroll', onScroll);
+	}
 }
 
 function updateScroller() {

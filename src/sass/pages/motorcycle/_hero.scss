@@ -7,6 +7,12 @@
 					position: absolute;
 					top: 14.2vmin;
 					left: 0;
+						@include d($minDesktopWidth){
+							top: 180px;
+						}
+						@include d($xs){
+							top: 25vw;
+						}
 				}
 				.hero{
 						&-title{
@@ -14,12 +20,23 @@
 							left: 0;
 							top: calc(22.2vmin + 50px);
 							width: 100%;
+								@include d($minDesktopWidth){
+									top: 0;
+									position: relative;
+								}
 						}
 						&-description{
 								p:not(:last-child){
 									margin-bottom: 4.5vmin;
 								}
 						}
+				}
+				@include d($minDesktopWidth){
+					padding-top: 245px;
+					min-height: 0;
+				}
+				@include d($xs){
+					padding-top: 41vw;
 				}
 		}
 }

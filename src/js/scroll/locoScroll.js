@@ -1,6 +1,7 @@
 import { gsap } from 'gsap';
 import LocomotiveScroll from 'locomotive-scroll';
 import ScrollTrigger from 'gsap/ScrollTrigger';
+import {breakpoints} from "../constants/breakpoints";
 
 const scrollContainer = document.querySelector('#horizontal-scroll-container');
 gsap.registerPlugin(ScrollTrigger);
@@ -8,18 +9,18 @@ gsap.registerPlugin(ScrollTrigger);
 export const locoScroll = new LocomotiveScroll({
 	el: scrollContainer,
 	smooth: true,
-	direction: 'horizontal',
-	gestureDirection: 'vertical',
+	direction: window.innerWidth >= breakpoints.width.minDesktop ? 'horizontal' : 'vertical',
 	reloadOnContextChange: true,
 	resetNativeScroll: false,
 	lerp: 0.07,
-	// multiplier: 0.8,
 	tablet: {
 		smooth: true,
-		direction: 'horizontal',
+		direction: window.innerWidth >= breakpoints.width.minDesktop ? 'horizontal' : 'vertical',
 	},
 	smartphone: {
-		smooth: true,
+		smooth: false,
+		resetNativeScroll: false,
+		direction: 'vertical',
 	},
 });
 

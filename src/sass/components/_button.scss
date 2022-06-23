@@ -31,6 +31,10 @@
 					width: 3vmin;
 					height: 3vmin;
 				}
+				@include d($minDesktopWidth){
+					width: 26px;
+					height: 26px;
+				}
 		}
 		&-back,
 		&-next{
@@ -45,6 +49,10 @@
 							@include mh($minHeight) {
 								width: .585vmin;
 								height: 1.3956vmin;
+							}
+							@include d($minDesktopWidth){
+								width: 18px;
+								height: 18px;
 							}
 					}
 				}
@@ -65,6 +73,18 @@
 		}
 		@include mh($minHeight) {
 			font-size: .88em;
+		}
+		@include d($minDesktopWidth){
+			font-size: 20px;
+		}
+		@include d($md){
+			font-size: 18px;
+		}
+		@include d($sm){
+			font-size: 16px;
+		}
+		@include d($xs) {
+			font-size: 14px;
 		}
 		&:not(.btn-back):not(.btn-next){
 			@include hover($hoverWidth) {

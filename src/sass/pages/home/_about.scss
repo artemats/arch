@@ -2,6 +2,9 @@
 	//padding-left: 90px;
 		.section-content-title{
 			white-space: nowrap;
+				@include d($minDesktopWidth){
+					white-space: normal;
+				}
 		}
 		&-content{
 			display: flex;
@@ -24,6 +27,9 @@
 				span{
 					display: inline-block;
 				}
+				@include d($minDesktopWidth){
+					display: none;
+				}
 		}
 		&-label{
 			position: fixed;
@@ -33,6 +39,13 @@
 				[data-id]{
 					display: inline-block;
 					transform: translateY(100%);
+						@include d($minDesktopWidth){
+							transform: none;
+						}
+				}
+				@include d($minDesktopWidth){
+					position: relative;
+					padding-left: 0;
 				}
 		}
 		&-description{
@@ -45,18 +58,34 @@
 								p{
 									&:nth-child(1){
 										max-width: 80%;
+											@include d($minDesktopWidth){
+												font-size: 100%;
+											}
 									}
+								}
+								@include d($minDesktopWidth){
+									margin: 0;
+									max-width: 100%;
 								}
 						}
 				}
 				&.__1{
 					padding-top: 8.7vmin;
+						@include d($minDesktopWidth){
+							padding-top: 0;
+						}
 				}
 				&.__2{
 					max-width: 60vmin;
 					width: 60vmin;
 					padding-top: 4.3vmin;
 					padding-left: 0.7vmin;
+						@include d($minDesktopWidth){
+							max-width: 100%;
+							width: 100%;
+							padding-top: 0;
+							padding-left: 0;
+						}
 				}
 		}
 		&-image{
@@ -66,22 +95,45 @@
 					right: -19.3vmin;
 					width: 44.2vmin;
 					height: 55.3vmin;
+						@include d($minDesktopWidth){
+							top: 0;
+							right: 0;
+							width: 100%;
+							height: auto;
+						}
 				}
 				&.__2{
 					top: -50px;
 					left: -66.6vmin;
 					width: 45vmin;
 					height: 30vmin;
+						@include d($minDesktopWidth){
+							top: 0;
+							left: 0;
+							width: 100%;
+							height: auto;
+						}
 				}
 				.section-content-image{
-					width: 100%;
-					height: 100%;
+						@include m($minDesktopWidth + 1){
+							width: 100%;
+							height: 100%;
+						}
+						@include d($minDesktopWidth){
+							height: 50vh;
+						}
+				}
+				@include d($minDesktopWidth){
+					position: relative;
+					height: 80vw;
 				}
 		}
 		.section{
 			&-content{
-				padding-left: 0;
-				padding-right: 0;
+					@include m($minDesktopWidth + 1){
+						padding-left: 0;
+						padding-right: 0;
+					}
 			}
 		}
 }

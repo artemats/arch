@@ -18,6 +18,13 @@
 				@include mh($minHeight) {
 					width: 7vmin;
 				}
+				@include d($minDesktopWidth) {
+					position: fixed;
+					width: 50px;
+						&:not(.close-build){
+							display: none;
+						}
+				}
 				&-box{
 					transform: rotate(-90deg);
 					position: absolute;
@@ -31,6 +38,10 @@
 						}
 						@include mh($minHeight) {
 							transform-origin: calc(100% - 7vmin) top;
+						}
+						@include d($minDesktopWidth){
+							transform-origin: calc(100% - 66px) top;
+							right: 0;
 						}
 				}
 				&-title{
@@ -47,6 +58,10 @@
 				&-carousel{
 					display: flex;
 				}
+				@include d($minDesktopWidth){
+					left: calc(100vw - 30px);
+					width: 50px;
+				}
 		}
 		&-banner{
 			width: 100vw;
@@ -60,6 +75,13 @@
 					height: 100%;
 					object-fit: cover;
 					object-position: center top;
+						@include d($minDesktopWidth){
+							width: 100%;
+							object-position: 41% center;
+						}
+				}
+				@include d($minDesktopWidth){
+					height: 100vh;
 				}
 		}
 		&-content{
@@ -68,17 +90,24 @@
 			position: relative;
 			z-index: 1;
 				&-row{
-					display: flex;
-					height: 100%;
+						@include m($minDesktopWidth + 1) {
+							display: flex;
+							height: 100%;
+						}
 				}
 				&-box{
 					position: relative;
 				}
 				&-title{
-				
+						@include d($minDesktopWidth){
+							margin-bottom: 30px;
+						}
 				}
 				&-subtitle{
 					margin-bottom: 5.2vmin;
+						@include d($minDesktopWidth){
+							margin-bottom: 30px;
+						}
 				}
 				&-description{
 					position: relative;
@@ -86,12 +115,18 @@
 						p{
 							&:not(:last-child){
 								margin-bottom: 1.5vmin;
+									@include d($minDesktopWidth){
+										margin-bottom: 20px;
+									}
 							}
 						}
 						&.__vertical{
 							p{
 								&:not(:last-child){
 									margin-bottom: 4.5vmin;
+										@include d($minDesktopWidth){
+											margin-bottom: 30px;
+										}
 								}
 							}
 						}
@@ -101,7 +136,13 @@
 					display: flex;
 					justify-content: flex-start;
 						&.__end{
-							justify-content: flex-end;
+								@include m($minDesktopWidth + 1){
+									justify-content: flex-end;
+								}
+						}
+						@include d($minDesktopWidth) {
+							padding-top: 30px;
+							padding-bottom: 30px;
 						}
 				}
 				&-image{
@@ -126,20 +167,34 @@
 									width: 120%;
 									height: auto;
 									margin-left: -50px;
+										@include d($minDesktopWidth){
+											width: 100%;
+											margin-left: 0;
+										}
 								}
+						}
+						@include d($minDesktopWidth){
+							margin: 30px -15px;
+							width: calc(100% + 30px);
 						}
 				}
 				&-label{
-				
+						@include d($minDesktopWidth){
+						
+						}
 				}
 				&-abstract{
 					position: fixed;
+					pointer-events: none;
 						&.__advantages{
 							//opacity: 0;
 						}
 						&.is-hidden{
 							opacity: 0 !important;
 						}
+				}
+				@include d($minDesktopWidth){
+					padding: 15px;
 				}
 		}
 		&-motorcycle{
@@ -153,9 +208,15 @@
 							opacity: 1;
 						}
 				}
+				@include d($minDesktopWidth){
+					padding: 15px;
+				}
 		}
 		&-back{
 			padding: 0 50px;
+				@include d($minDesktopWidth){
+					padding: 0 15px;
+				}
 		}
 		&-background{
 			position: fixed;
@@ -172,6 +233,9 @@
 					margin: 0;
 					width: 100vw;
 					overflow: hidden;
+						@include d($minDesktopWidth){
+							display: none;
+						}
 				}
 		}
 		//.is-inview{
@@ -179,4 +243,8 @@
 		//		opacity: 1 !important;
 		//	}
 		//}
+		@include d($minDesktopWidth){
+			min-width: 0;
+			width: 100%;
+		}
 }

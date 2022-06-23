@@ -13,6 +13,9 @@
 				img{
 					@include imageContain(center);
 				}
+				@include d($sm){
+					transition: margin 1.5s var(--transform-ease), height 1.5s var(--transform-ease), padding 1.5s var(--transform-ease);
+				}
 		}
 		&-list{
 			position: absolute;
@@ -33,6 +36,32 @@
 						img{
 							@include imageContain(center);
 						}
+						&:last-child{
+							@include d($sm){
+								margin-right: 50px;
+							}
+						}
+						@include d($minDesktopWidth){
+							height: 35vh;
+						}
+						@include d($sm){
+							height: auto;
+							display: inline-block;
+							width: 75vw;
+						}
+				}
+				@include d($sm){
+					width: 100%;
+					height: auto;
+					top: auto;
+					bottom: 50px;
+					padding: 15px;
+					white-space: nowrap;
+					overflow-x: auto;
+					overflow-y: hidden;
 				}
 		}
+		//@include d($md){
+		//	position: relative;
+		//}
 }

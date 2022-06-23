@@ -4,6 +4,7 @@ import videojs from 'video.js';
 import Player from '@vimeo/player';
 import {switchHeaderFooterLogo} from "../content/switchHeaderFooterLogo";
 import {hidePlayPauseButtonOnMove, showPlayPauseButtonOnMove} from "../home/playVideos";
+import {breakpoints} from "../../constants/breakpoints";
 
 export const toggleVideo = () => {
 	const wrap = document.querySelectorAll('.toggle-video');
@@ -16,33 +17,32 @@ export const toggleVideo = () => {
 
 			const player = new Player(iframes[i]);
 
-			// const options = {
-			// 	responsive: true,
-			// 	muted: false,
-			// 	controls: false,
-			// 	loop: false,
-			// 	preload: 'auto',
-			// };
-			//
-			// const player = videojs(wrap[i].querySelector('video'), options, function onPlayerReady() {
-			// 	this.on('ended', function () {
-			// 		alert('Awww...over so soon?!');
-			// 	});
-			// });
-
 			box.addEventListener('click', () => {
 				if (wrap[i].classList.contains('is-fixed')) {
 					wrap[i].classList.remove('is-fixed');
-					pauseVideo(box, player);
+					if (window.innerWidth >= breakpoints.width.minDesktop) {
+						pauseVideo(box, player);
+					} else {
+						player.pause();
+						box.classList.remove('is-playing');
+					}
 				} else {
 					wrap[i].classList.add('is-fixed');
-					playVideo(box, player);
+					if (window.innerWidth >= breakpoints.width.minDesktop) {
+						playVideo(box, player);
+					} else {
+						console.log('play on mobile');
+						player.play();
+						box.classList.add('is-starting');
+						box.classList.add('is-playing');
+					}
 				}
 			});
 
-			showPlayPauseButtonOnMove(box);
-			hidePlayPauseButtonOnMove(box);
-
+			if (window.innerWidth >= breakpoints.width.minDesktop) {
+				showPlayPauseButtonOnMove(box);
+				hidePlayPauseButtonOnMove(box);
+			}
 		}
 	}
 }

@@ -86,6 +86,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	loadImages();
 	splittingText();
 	followMouseButton();
+
+	// locoScroll.scrollTo('#home-about');
+
 });
 
 ScrollMagicPluginIndicator(ScrollMagic);

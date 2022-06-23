@@ -25,6 +25,11 @@
 							background-repeat: no-repeat;
 							background-position: center;
 							background-image: url(../images/arrow-down.svg);
+								@include d($minDesktopWidth){
+									width: 20px;
+									height: 20px;
+									bottom: 9px;
+								}
 						}
 						.input-border{
 							width: 100%;
@@ -34,15 +39,24 @@
 					padding-bottom: 0.8vmin;
 						&:not(:last-child){
 							margin-bottom: 6.9vmin;
+								@include d($minDesktopWidth){
+									margin-bottom: 50px;
+								}
 						}
 						.input-border{
 							width: 100%;
+						}
+						@include d($minDesktopWidth){
+							padding-bottom: 5px;
 						}
 				}
 				&.is-error{
 					.input-message{
 						opacity: 1;
 					}
+				}
+				@include d($minDesktopWidth){
+					padding-top: 30px;
 				}
 		}
 		&-label{
@@ -58,6 +72,9 @@
 			white-space: nowrap;
 				@include mh($minHeight){
 					font-size: 1.63vmin;
+				}
+				@include d($minDesktopWidth){
+					font-size: 14px;
 				}
 		}
 		&-border{
@@ -79,12 +96,20 @@
 				&.__wrong{
 					color: var(--color-red);
 				}
+				@include d($minDesktopWidth){
+					font-size: 14px;
+					top: 15px;
+				}
 		}
 		&:focus{
 			outline: none;
 		}
 		@include mh($minHeight){
 			font-size: 3.55vmin;
+		}
+		@include d($minDesktopWidth){
+			font-size: 30px;
+			height: 36px;
 		}
 }
 

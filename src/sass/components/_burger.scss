@@ -6,9 +6,9 @@
 		&-title{
 			margin-right: 12px;
 			display: inline-block;
-				//@include mh($minHeight){
-				//	padding-top: 3px;
-				//}
+				@include d($minDesktopWidth){
+					margin-right: 10px;
+				}
 		}
 		&-box{
 			width: 16px;
@@ -34,14 +34,27 @@
 					width: 1em;
 					height: 1.125em;
 				}
+				@include d($minDesktopWidth){
+					width: 16px;
+					height: 18px;
+				}
 		}
 		&.is-active{
 				.burger{
 						&-title{
 							color: var(--color-white);
+								@include d($minDesktopWidth){
+									color: var(--color-black);
+								}
+								@include d($md){
+									color: var(--color-white);
+								}
 						}
 						&-box-arrow{
 							color: var(--color-black);
+								@include d($md){
+									color: var(--color-white);
+								}
 						}
 				}
 		}

@@ -7,6 +7,18 @@ h1{
 		@include mh($minHeight){
 			font-size: 7.3vmin;
 		}
+		@include d($minDesktopWidth){
+			font-size: 92px;
+		}
+		@include d($md){
+			font-size: 78px;
+		}
+		@include d($sm){
+			font-size: 60px;
+		}
+		@include d($xs){
+			font-size: 9.6vw;
+		}
 }
 
 h2{
@@ -17,6 +29,18 @@ h2{
 	overflow: hidden;
 		@include mh($minHeight){
 			font-size: 17.45vmin;
+		}
+		@include d($minDesktopWidth){
+			font-size: 150px;
+		}
+		@include d($md){
+			font-size: 120px;
+		}
+		@include d($sm){
+			font-size: 90px;
+		}
+		@include d($xs){
+			font-size: 15vw;
 		}
 }
 
@@ -29,6 +53,18 @@ h3{
 		@include mh($minHeight){
 			font-size: 14.2vmin;
 		}
+		@include d($minDesktopWidth){
+			font-size: 122px;
+		}
+		@include d($md){
+			font-size: 102px;
+		}
+		@include d($sm){
+			font-size: 82px;
+		}
+		@include d($xs){
+			font-size: 15vw;
+		}
 }
 
 h4{
@@ -39,6 +75,18 @@ h4{
 	overflow: hidden;
 		@include mh($minHeight){
 			font-size: 9.35vmin;
+		}
+		@include d($minDesktopWidth){
+			font-size: 80px;
+		}
+		@include d($md){
+			font-size: 72px;
+		}
+		@include d($sm){
+			font-size: 64px;
+		}
+		@include d($xs){
+			font-size: 13vw;
 		}
 }
 
@@ -53,6 +101,9 @@ h5{
 		@include mh($minHeight){
 			font-size: 3.55vmin;
 		}
+		@include d($minDesktopWidth){
+			font-size: 20px;
+		}
 }
 
 h6{
@@ -64,11 +115,17 @@ h6{
 		@include mh($minHeight){
 			font-size: 2.8vmin;
 		}
+		@include d($minDesktopWidth){
+			font-size: 24px;
+		}
 		&.__sm{
 			font-size: 20px;
 			font-family: var(--font-title-light);
 				@include mh($minHeight){
 					font-size: 2.4vmin;
+				}
+				@include d($minDesktopWidth){
+					font-size: 20px;
 				}
 		}
 }

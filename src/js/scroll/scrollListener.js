@@ -9,6 +9,7 @@ import {parallaxImagesOnScroll} from "../common/content/parallaxImagesOnScroll";
 import {switchVerticalAnchorNav} from "../common/home/switchVerticalNav";
 import {switchTopShadow} from "../common/switchTopShadow";
 import {switchSlicedText} from "../common/content/switchSlicedText";
+import {breakpoints} from "../constants/breakpoints";
 
 export const scrollListener = () => {
 
@@ -52,7 +53,9 @@ export const scrollListener = () => {
 		 */
 		if (func === 'homeAboutBanner' && dir === 'enter') {
 			switchGrid(false);
-			switchSlicedText(document.querySelector('.section-motorcycle.is-inview').querySelector('.motorcycle-description'), false);
+			if (window.innerWidth >= breakpoints.width.minDesktop) {
+				switchSlicedText(document.querySelector('.section-motorcycle.is-inview').querySelector('.motorcycle-description'), false);
+			}
 		}
 
 		if (func === 'homeAbout' && dir === 'enter') {

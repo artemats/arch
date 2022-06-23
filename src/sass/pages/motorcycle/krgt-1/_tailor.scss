@@ -11,11 +11,20 @@
 								@include mh($minHeight){
 									width: 67.1vmin;
 								}
+								@include d($minDesktopWidth){
+									width: 100%;
+								}
 						}
 						@include mh($minHeight){
 							margin-top: 11vmin;
 							height: 38vmin;
 							width: 67.1vmin;
+						}
+						@include d($minDesktopWidth){
+							margin: 0;
+							width: calc(100% + 30px);
+							height: auto;
+							display: none;
 						}
 				}
 				&.__2{
@@ -28,10 +37,19 @@
 								@include mh($minHeight){
 									width: 48.4vmin;
 								}
+								@include d($minDesktopWidth){
+									width: 100%;
+								}
 						}
 						@include mh($minHeight){
 							height: 32.3vmin;
 							width: 48.4vmin;
+						}
+						@include d($minDesktopWidth){
+							margin: 0;
+							width: calc(100% + 30px);
+							height: auto;
+							display: none;
 						}
 				}
 				&.__3{
@@ -43,11 +61,24 @@
 								@include mh($minHeight){
 									width: 55vmin;
 								}
+								@include d($minDesktopWidth){
+									width: 100%;
+								}
+						}
+						.section-content-image{
+							@include d($minDesktopWidth){
+								margin-bottom: 0;
+							}
 						}
 						@include mh($minHeight){
 							margin-top: 10vmin;
 							width: 55vmin;
 							height: 36.7vmin;
+						}
+						@include d($minDesktopWidth){
+							margin: 0;
+							width: calc(100% + 30px);
+							height: auto;
 						}
 				}
 		}

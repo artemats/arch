@@ -9,8 +9,28 @@
 		&-panel{
 			display: flex;
 			align-items: center;
+				&-logo{
+					position: relative;
+						.hero-footer-image{
+							position: relative;
+								img{
+									&:nth-child(2){
+										position: absolute;
+										top: 0;
+										left: 0;
+										opacity: 0;
+									}
+								}
+						}
+						@include m($minDesktopWidth + 1){
+							display: none;
+						}
+				}
 				&-social{
 					position: relative;
+						@include d($minDesktopWidth){
+							display: none;
+						}
 				}
 				&-nav{
 					position: absolute;
@@ -20,6 +40,15 @@
 						@include mh($minHeight){
 							padding-right: 2.7vmin;
 						}
+						@include d($minDesktopWidth){
+							position: relative;
+							left: 0;
+							padding-right: 0;
+							transform: none;
+						}
+				}
+				@include d($minDesktopWidth){
+					justify-content: space-between;
 				}
 		}
 		&-nav{
@@ -27,7 +56,38 @@
 				&[style="display: block;"]{
 					& ~ .header-panel{
 						color: var(--color-white);
+							.header-panel-logo{
+									.hero-footer-image{
+										img{
+											&:nth-child(1){
+												opacity: 1;
+											}
+											&:nth-child(2){
+												opacity: 0;
+											}
+										}
+									}
+							}
 					}
 				}
 		}
+		@include d($minDesktopWidth){
+			padding: 0 15px;
+			top: 38px;
+		}
+}
+
+[data-theme="white"]{
+	.header-panel-logo{
+		.hero-footer-image{
+			img{
+				&:nth-child(1){
+					opacity: 0;
+				}
+				&:nth-child(2){
+					opacity: 1;
+				}
+			}
+		}
+	}
 }

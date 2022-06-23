@@ -4,14 +4,26 @@
 					max-width: 58vmin;
 					margin-left: 36vmin;
 					margin-top: 8vmin;
+						@include d($minDesktopWidth){
+							max-width: 100%;
+							margin-left: 0;
+							margin-top: 30px;
+						}
 				}
 				&.__2{
 					width: 41.8vmin;
 					margin-top: 28.8vmin;
 					padding-right: 6vmin;
+						@include d($minDesktopWidth){
+							width: 100%;
+							margin: 0 0 30px;
+						}
 				}
 				&.__3{
 					width: 38vmin;
+						@include d($minDesktopWidth){
+							width: 100%;
+						}
 				}
 		}
 		&-image{
@@ -21,6 +33,12 @@
 					margin-top: -50px;
 					margin-bottom: 3.1vmin;
 					margin-right: 18.9vmin;
+						@include d($minDesktopWidth){
+							width: 100%;
+							height: auto;
+							margin: 0;
+							display: none;
+						}
 				}
 		}
 		&-abstract{
@@ -39,5 +57,24 @@
 	.motor{
 		right: -19%;
 		top: -7%;
+			@include d($minDesktopWidth){
+				display: none;
+			}
+	}
+	.h{
+			&-3{
+				@include d($minDesktopWidth){
+					font-size: 102px;
+				}
+				@include d($md){
+					font-size: 82px;
+				}
+				@include d($sm){
+					font-size: 62px;
+				}
+				@include d($xs){
+					font-size: 12vw;
+				}
+			}
 	}
 }

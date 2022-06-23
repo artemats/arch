@@ -2,6 +2,9 @@
 	&-title{
 		&.__2{
 			max-width: 120vmin;
+				@include d($minDesktopWidth){
+					max-width: 100%;
+				}
 		}
 	}
 	&-description{
@@ -9,9 +12,17 @@
 			width: 50vmin;
 			margin-top: 5.3vmin;
 			margin-left: 41.8vmin;
+				@include d($minDesktopWidth){
+					width: 100%;
+					margin-top: 0;
+					margin-left: 0;
+				}
 		}
 		&.__5{
 			width: 52vmin;
+				@include d($minDesktopWidth){
+					width: 100%;
+				}
 		}
 	}
 	&-image{
@@ -20,6 +31,13 @@
 			height: 36.8vmin;
 			margin-bottom: 5.2vmin;
 			margin-right: 33.6vmin;
+				@include d($minDesktopWidth){
+					width: 100%;
+					height: auto;
+					margin-bottom: 0;
+					margin-right: 0;
+					display: none;
+				}
 		}
 	}
 }

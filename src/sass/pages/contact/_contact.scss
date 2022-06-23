@@ -27,6 +27,9 @@
 							mix-blend-mode: multiply;
 							opacity: .8;
 						}
+						@include d($minDesktopWidth){
+							display: none;
+						}
 				}
 				&-pagination{
 					display: inline-flex;
@@ -34,6 +37,9 @@
 					justify-content: space-between;
 					width: 100%;
 					margin-top: 5vmin;
+						@include d($minDesktopWidth){
+							margin-top: 50px;
+						}
 				}
 				&-follow{
 					position: absolute;
@@ -41,6 +47,12 @@
 					left: 50px;
 						[class*=h]{
 							color: var(--color-white);
+						}
+						@include d($minDesktopWidth){
+							position: relative;
+							bottom: 0;
+							left: 0;
+							display: none;
 						}
 				}
 				&-message{
@@ -53,6 +65,23 @@
 						.btn{
 							margin-top: 2vmin;
 						}
+						@include d($minDesktopWidth){
+							pointer-events: none;
+						}
+						@include d($sm){
+							width: 100%;
+						}
+				}
+				&-title{
+					.contact-nav-pagination{
+						@include d($minDesktopWidth){
+							display: none;
+						}
+					}
+				}
+				@include d($minDesktopWidth){
+					width: 100%;
+					padding: 15px;
 				}
 		}
 		&-form{
@@ -64,6 +93,53 @@
 				&-item{
 					width: 100%;
 					max-width: 35vw;
+						@include d($minDesktopWidth){
+							max-width: 100%;
+						}
 				}
+				.contact-nav-pagination{
+					@include m($minDesktopWidth + 1){
+						display: none;
+					}
+				}
+				@include d($minDesktopWidth){
+					width: 100%;
+					padding: 30px 15px 0;
+				}
+		}
+		&-write{
+			@include d($minDesktopWidth){
+				min-height: 100vh;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+			}
+		}
+		&.is-success{
+			.contact{
+					&-nav{
+						@include d($minDesktopWidth){
+							height: calc(100vh - 175px);
+						}
+						@include d($xs){
+							height: calc(100vh - 25vw);
+						}
+						&-message{
+							opacity: 1;
+							pointer-events: auto;
+						}
+					}
+					&-nav-title,
+					&-form{
+						opacity: 0;
+						pointer-events: none;
+					}
+			}
+		}
+		@include d($minDesktopWidth){
+			padding-top: 145px;
+		}
+		@include d($xs){
+			padding-top: 25vw;
 		}
 }

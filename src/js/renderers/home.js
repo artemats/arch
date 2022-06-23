@@ -12,30 +12,31 @@ import {horizontalScene} from "../scroll/scenes/horizontalScene";
 import {resetParallaxMoving} from "../common/content/resetParallaxMoving";
 import {switchHeaderNav} from "../common/switchHeaderNav";
 import {loadVimeoPlayer} from "../common/loadVimeoPlayer";
+import {breakpoints} from "../constants/breakpoints";
 
 class HomeRenderer extends Highway.Renderer {
 	onEnter() {
 		/* prod */
-		preloader();
-		if(!document.querySelector('.preloader')) {
-			loadHomeHeroContent();
-		}
+		// preloader();
+		// if(!document.querySelector('.preloader')) {
+		// 	loadHomeHeroContent();
+		// }
 		/* end prod */
 		loadVimeoPlayer();
 		enableHorizontalScroll();
 		locoScroll.destroy();
 		changeZIndex();
-		switchTopShadow(false);
+		switchTopShadow(window.innerWidth < breakpoints.width.minDesktop);
 		toggleAboutTitles();
-		playVideos();
 		setWhiteColorTheme(false);
 	}
 	onEnterCompleted() {
 		/* dev */
-		// loadHomeHeroContent();
+		loadHomeHeroContent();
 		/* end dev */
 		locoScroll.init();
 		if (!!document.querySelector('[data-scroll-direction="horizontal"]')) {
+			playVideos();
 			horizontalScene();
 			resetParallaxMoving();
 			switchHeaderNav(1);

@@ -1,15 +1,15 @@
 import { TweenLite } from 'gsap';
 import {transitionConstants} from "../constants/transition";
 
-export const setWhiteColorTheme = (status = false, where) => {
+export const setWhiteColorTheme = (status = false, where = undefined) => {
 	TweenLite.to(document.body, {
 		color: status ? '#111111' : '#FFFFFF',
 		backgroundColor: status ? '#FFFFFF' : '#111111',
 		duration: transitionConstants.color.duration,
 		ease: transitionConstants.color.ease,
 	});
+	document.body.setAttribute('data-theme', status ? 'white' : 'dark');
 	switchThemeElements(status);
-	console.log('switch theme', where);
 }
 
 const switchThemeElements = (status) => {

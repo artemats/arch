@@ -2,6 +2,12 @@
 	padding: 4vmin 0;
 		&-title{
 			margin-bottom: 6.9vmin;
+				@include d($minDesktopWidth){
+					margin-bottom: 30px;
+				}
+				@include d($xs){
+					max-width: 85%;
+				}
 		}
 		&-thumb{
 			margin-bottom: 70px;
@@ -18,13 +24,23 @@
 								@include mh($minHeight){
 									max-width: 25vmin;
 								}
+								@include d($minDesktopWidth){
+									max-width: 215px;
+									padding: 15px 0;
+								}
 						}
 						&-description{
 							max-width: 430px;
 								@include mh($minHeight){
 									max-width: 50vmin;
 								}
+								@include d($minDesktopWidth){
+									max-width: 100%;
+								}
 						}
 				}
+		}
+		@include d($minDesktopWidth){
+			padding: 50px 0 0;
 		}
 }

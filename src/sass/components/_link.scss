@@ -7,6 +7,12 @@
 	line-height: 1em;
 	position: relative;
 	transition: color var(--color-duration) var(--color-ease);
+		@include d($minDesktopWidth){
+			font-size: 16px;
+		}
+		@include d($md){
+			font-size: 14px;
+		}
 		// sizes //
 		&-lg{
 			font-size: 24px;

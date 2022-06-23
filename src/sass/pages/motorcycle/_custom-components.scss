@@ -8,10 +8,18 @@
 						@include mh($minHeight){
 							max-width: 25vmin;
 						}
+						@include d($minDesktopWidth){
+							padding: 15px;
+							max-width: 215px;
+						}
 				}
 				&-description{
 					margin-top: 6.4vmin;
 					max-width: 50vmin;
+						@include d($minDesktopWidth){
+							max-width: 100%;
+							margin-top: 30px;
+						}
 				}
 		}
 		.motor{
@@ -21,6 +29,14 @@
 					left: auto;
 					right: 3%;
 				}
+				@include d($minDesktopWidth){
+					left: auto;
+					right: 0;
+					top: 5%;
+				}
+		}
+		@include d($minDesktopWidth){
+			padding: 50px 0 100px;
 		}
 }
 

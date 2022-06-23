@@ -10,14 +10,26 @@
 				&-title{
 					margin-bottom: 15px;
 					max-width: 70vmin;
+						@include d($minDesktopWidth){
+							max-width: 100%;
+						}
 				}
 				&-description{
 					max-width: 45vmin;
+						@include d($sm){
+							max-width: 400px;
+						}
 				}
 				&:nth-child(1){
 					.advantages-box-description{
 						max-width: 35vmin;
+							@include d($sm){
+								max-width: 400px;
+							}
 					}
+				}
+				@include d($minDesktopWidth){
+					//height: auto;
 				}
 		}
 		&-nav{
@@ -47,6 +59,9 @@
 				@include mh($minHeight){
 					max-width: 18.5vmin;
 				}
+				@include d($minDesktopWidth){
+					display: none;
+				}
 		}
 		&-banner{
 			position: absolute;
@@ -62,6 +77,14 @@
 					height: 61vmin;
 					max-width: none;
 					max-height: none;
+						@include d($minDesktopWidth){
+							width: 70vw;
+							height: 50vw;
+							@include imageContain(center);
+						}
+						@include d($sm){
+							@include imageContain(center right);
+						}
 				}
 				&-blur{
 					position: absolute;
@@ -85,6 +108,9 @@
 						}
 				}
 		}
+		@include d($minDesktopWidth){
+			padding: 100px 0;
+		}
 }
 
 .section-content-abstract{
@@ -99,6 +125,20 @@
 			@include mh($minHeight) {
 				width: 81.4vmin;
 				height: 61vmin;
+			}
+			@include d($minDesktopWidth){
+				width: 70vw;
+				height: 50vw;
+			}
+			@include d($sm){
+				top: 0;
+				transform: none;
+				width: 100vw;
+				height: 100vh;
+					.advantages-banner{
+						height: 40vh;
+						bottom: 0;
+					}
 			}
 	}
 }

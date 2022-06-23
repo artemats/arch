@@ -9,19 +9,19 @@ import {initVerticalNavCarousel} from "../common/home/switchVerticalNav";
 import {switchHeaderNav} from "../common/switchHeaderNav";
 import {switchTopShadow} from "../common/switchTopShadow";
 import {updateBodyHeight} from "../common/updateBodyHeight";
+import {enableHorizontalScroll} from "../scroll/horizontalScroll";
 
 class BuildsRenderer extends Highway.Renderer {
 	onEnter() {
-		console.log('enter to builds');
 		document.body.classList.remove('is-dark');
 		setWhiteColorTheme(true);
 		locoScroll.destroy();
 		changeZIndex(2);
 		moveBuilds();
 		switchTopShadow(false);
+		enableHorizontalScroll();
 	}
 	onEnterCompleted() {
-		console.log('enter to builds completed');
 		setWhiteColorTheme(true);
 		locoScroll.init();
 		switchHeaderFooterLogo(true);

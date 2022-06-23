@@ -14,7 +14,6 @@ import {switchHeaderNav} from "../common/switchHeaderNav";
 
 class ContactRenderer extends Highway.Renderer {
 	onEnter() {
-		console.log('enter to contact');
 		setWhiteColorTheme(false);
 		enableHorizontalScroll();
 		locoScroll.destroy();
@@ -26,7 +25,6 @@ class ContactRenderer extends Highway.Renderer {
 		switchTopShadow(false);
 	}
 	onEnterCompleted() {
-		console.log('enter to contact completed');
 		setWhiteColorTheme(false);
 		locoScroll.init();
 		scrollListener();

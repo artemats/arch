@@ -6,6 +6,13 @@
 				position: absolute;
 				top: calc(22.2vmin + 50px);
 				left: calc(106.3vmin + 50px);
+					@include d($minDesktopWidth){
+						position: relative;
+						top: 0;
+						left: 0;
+						padding-left: 15px;
+						padding-right: 15px;
+					}
 			}
 			&-description{
 				margin-right: -9vmin;
@@ -13,9 +20,20 @@
 						margin-top: 1.7vmin;
 						max-width: 50vmin;
 						margin-bottom: 9.4vmin;
+							@include d($minDesktopWidth){
+								margin-top: 30px;
+								max-width: 100%;
+								margin-bottom: 0;
+							}
 					}
 					&.__2{
 						max-width: 37vmin;
+							@include d($minDesktopWidth){
+								max-width: 100%;
+							}
+					}
+					@include d($minDesktopWidth){
+						margin-right: 0;
 					}
 			}
 			&-banner{
@@ -24,6 +42,19 @@
 				width: 71.4vmin;
 				height: 49vmin;
 				margin-right: 6.6vmin;
+					@include d($minDesktopWidth){
+						width: calc(100% + 30px);
+						height: auto;
+						margin: 30px -15px;
+					}
 			}
+		}
+		@include d($minDesktopWidth){
+			padding-top: 245px;
+			min-height: 0;
+			margin-bottom: 0;
+		}
+		@include d($xs){
+			padding-top: 41vw;
 		}
 }

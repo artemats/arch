@@ -14,6 +14,7 @@ import {showContentOnLoad, showHiddenElements} from "../common/content/showConte
 import {splittingText} from "../common/splittingText";
 import {switchMotorcycleRouterElements} from "../common/content/switchMotorcycleRouterElements";
 import {switchHeaderNav} from "../common/switchHeaderNav";
+import {breakpoints} from "../constants/breakpoints";
 
 class MotorcycleRenderer extends Highway.Renderer {
 	onEnter() {
@@ -29,7 +30,7 @@ class MotorcycleRenderer extends Highway.Renderer {
 		setWhiteColorTheme(false, 'render');
 		switchMotorcycleRouterElements(true);
 		if (!!document.querySelector('[data-router-view="motorcycle"]')) {
-			initVerticalScroll();
+			window.innerWidth >= breakpoints.width.minDesktop ? initVerticalScroll() : null;
 			switchGrid(true, false);
 			switchTopShadow(true);
 			verticalScene();

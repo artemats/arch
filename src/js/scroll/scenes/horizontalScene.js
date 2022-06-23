@@ -4,11 +4,12 @@ import Tween from "gsap";
 import {switchHeaderNav} from "../../common/switchHeaderNav";
 import {changeZIndex} from "../../common/scrollContainer/changeZIndex";
 import {pauseHomeHeroVideo} from "../../common/home/togglePlayingHomeVideo";
+import {breakpoints} from "../../constants/breakpoints";
 
 export const horizontalScene = () => {
 
 	const controller = new ScrollMagic.Controller({
-		vertical: false,
+		vertical: window.innerWidth < breakpoints.width.minDesktop,
 	});
 
 	/*
@@ -19,7 +20,7 @@ export const horizontalScene = () => {
 		new ScrollMagic.Scene({
 			triggerElement: motorcycles[i],
 			triggerHook: 0.5,
-			duration: motorcycles[i].clientWidth,
+			duration: window.innerWidth >= breakpoints.width.minDesktop ? motorcycles[i].clientWidth : window.innerHeight * 1.5,
 		})
 			.addTo(controller)
 			// .addIndicators({

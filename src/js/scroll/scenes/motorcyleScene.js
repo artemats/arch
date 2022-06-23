@@ -6,6 +6,7 @@ import {switchGrid} from "../../common/grid/switchGrid";
 import {playPauseVideo} from "../../common/motorcycle/playPauseVideo";
 import {switchSlicedText} from "../../common/content/switchSlicedText";
 import {switchTopShadow} from "../../common/switchTopShadow";
+import {breakpoints} from "../../constants/breakpoints";
 // import {moveToNextMotorcycle} from "../../common/motorcycle/moveToNextMotorcycle";
 
 export const motorcycleScene = () => {
@@ -51,35 +52,35 @@ export const motorcycleScene = () => {
 			});
 
 		// Advantages boxes //
-		for (let i = 0; i < advantagesBoxes.length; i++){
-			new ScrollMagic.Scene({
-				triggerElement: advantagesBoxes[i],
-				triggerHook: 0.5,
-				// duration: 300,
-			})
-				.addTo(controller)
-				// .addIndicators({
-				// 	name: 'advantage'
-				// })
-				.on('progress', (e) => {
-					if (!!advantagesBanners[i]) {
-						Tween.to(advantagesBanners[i], {
-							opacity: e.progress,
-							filter: `blur(${10 - ( e.progress * 10 )}px)`
-						});
-					}
+		for (let i = 0; i < advantagesBoxes.length; i++) {
+				new ScrollMagic.Scene({
+					triggerElement: advantagesBoxes[i],
+					triggerHook: 0.5,
+					// duration: 300,
 				})
-				.on('enter', () => {
-					if (!!advantagesNavLinks[i-1]){
-						showAdvantagesNavLink(advantagesNavLinks[i-1], true);
-					}
-				})
-				.on('leave', () => {
-					if (!!advantagesNavLinks[i-1]){
-						showAdvantagesNavLink(advantagesNavLinks[i-1], false);
-					}
-				})
-		}
+					.addTo(controller)
+					// .addIndicators({
+					// 	name: 'advantage'
+					// })
+					.on('progress', (e) => {
+						if (!!advantagesBanners[i]) {
+							Tween.to(advantagesBanners[i], {
+								opacity: e.progress,
+								filter: `blur(${10 - (e.progress * 10)}px)`
+							});
+						}
+					})
+					.on('enter', () => {
+						if (!!advantagesNavLinks[i - 1]) {
+							showAdvantagesNavLink(advantagesNavLinks[i - 1], true);
+						}
+					})
+					.on('leave', () => {
+						if (!!advantagesNavLinks[i - 1]) {
+							showAdvantagesNavLink(advantagesNavLinks[i - 1], false);
+						}
+					})
+			}
 	}
 
 	/*

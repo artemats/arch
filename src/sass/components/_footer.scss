@@ -14,7 +14,17 @@
 				li{
 					&:not(:last-child){
 						padding-right: 17vmin;
+							@include d($sm){
+								padding-right: 55px;
+							}
+							@include d($xs){
+								padding-right: 25px;
+							}
 					}
+				}
+				@include d($minDesktopWidth){
+					margin-bottom: 0;
+					margin-top: 60px;
 				}
 		}
 		&-social{
@@ -31,6 +41,10 @@
 						padding-bottom: 5.1vmin;
 					}
 				}
+				@include d($minDesktopWidth){
+					position: relative;
+					padding: 30px 0;
+				}
 		}
 		&-banner{
 			position: absolute;
@@ -42,6 +56,9 @@
 			z-index: -1;
 				img{
 					@include imageCover(center);
+				}
+				@include d($minDesktopWidth){
+					display: none;
 				}
 		}
 }
