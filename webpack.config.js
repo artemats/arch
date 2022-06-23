@@ -99,7 +99,7 @@ module.exports = {
                         options: {
                             name: '[name].[ext]',
                             outputPath: 'video/',
-                            publicPath: '../video/',
+                            publicPath: 'video/',
                             useRelativePath: true,
                             esModule: false
                         }
