@@ -11,6 +11,4 @@ export const switchTopShadow = (status) => {
 		ease: transitionConstants.opacity.ease,
 	});
 
-	console.log('switch top shadow', status);
-
 }

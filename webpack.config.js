@@ -131,7 +131,7 @@ function buildHTML(list) {
         arr.push(
           new HtmlWebpackPlugin({
               filename: `${list[i]}.html`,
-              template: path.resolve(__dirname, 'src/html', `${list[i]}.html.ejs`),
+              template: path.resolve(__dirname, 'src/html', `${list[i]}.html`),
               minify: {
                   collapseWhitespace: false
               },

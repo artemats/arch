@@ -52,6 +52,9 @@ Hide scrollbar
 		@include d($minDesktopWidth){
 			width: 100%;
 		}
+		@media only screen and (max-device-width: 1023px) and (orientation: landscape) {
+			opacity: 0;
+		}
 }
 
 .container{
@@ -167,7 +170,7 @@ Hide scrollbar
 }
 
 img{
-	//transition: opacity .1s var(--opacity-ease);
+	transition: opacity .1s var(--opacity-ease);
 		&[data-src]{
 			opacity: 0;
 		}
@@ -179,5 +182,39 @@ img{
 	}
 	&-item{
 		position: absolute;
+	}
+}
+
+.alert{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: var(--color-black);
+	z-index: 5;
+	color: var(--color-white);
+	display: none;
+		&-box{
+			text-align: center;
+			padding: 15px 50px;
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+				&-icon{
+					height: 54px;
+					margin-bottom: 15px;
+				}
+				&-title{
+					font-size: 18px;
+				}
+		}
+}
+
+#rotate{
+	@media only screen and (max-device-width: 1023px) and (orientation: landscape) {
+		display: block;
 	}
 }

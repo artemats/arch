@@ -31,7 +31,6 @@ export const toggleVideo = () => {
 					if (window.innerWidth >= breakpoints.width.minDesktop) {
 						playVideo(box, player);
 					} else {
-						console.log('play on mobile');
 						player.play();
 						box.classList.add('is-starting');
 						box.classList.add('is-playing');
