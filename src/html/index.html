@@ -28,7 +28,10 @@
 <body class="is-dark">
 <div class="preloader" id="preloader">
 	<div class="preloader-bg" id="preloader-bg">
-		<img src="../images/preload-bg.png" alt="ARCH motorcycle" />
+		<picture>
+			<source type="image/webp" srcset="../images/preload-bg.webp"/>
+			<img src="../images/preload-bg.png" alt="ARCH motorcycle"/>
+		</picture>
 	</div>
 	<div class="preloader-box">
 		<div class="preloader-box-row" id="preloader-row-0">
@@ -503,7 +506,7 @@
 						 data-scroll-repeat="true"
 						 data-scroll-call="homeAboutBanner">
 						<div class="section-banner">
-							<img src="../images/pages/home/about-bg-2.jpg"
+							<img data-src="../images/pages/home/about-bg-2.jpg"
 								 alt="About ARCH Motorcycle"
 								 data-scroll
 								 data-scroll-speed="-5" />
