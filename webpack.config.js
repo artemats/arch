@@ -120,7 +120,7 @@ module.exports = {
             allChunks: true,
             disable: false
         }),
-        ...buildHTML(['index', 'about', 'krgt-1', 'arch-1s', 'method-143', 'ownership', 'contact', 'builds']),
+        ...buildHTML(['index', 'about', 'krgt-1', 'arch-1s', 'method-143', 'ownership', 'contact', 'builds', '404']),
     ],
     // mode: 'production',
     optimization: {
