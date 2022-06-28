@@ -5,6 +5,7 @@ import {switchSlicedText} from "../common/content/switchSlicedText";
 import {switchMotorcycleBg} from "../common/switchMotorcycles";
 import {switchVerticalNav} from "../common/home/switchVerticalNav";
 import {breakpoints} from "../constants/breakpoints";
+import {transitionConstants} from "../constants/transition";
 
 class MotorcycleHome extends Highway.Transition {
 	out({ from, trigger, done }) {
@@ -52,9 +53,9 @@ class MotorcycleHome extends Highway.Transition {
 					opacity: 1,
 				},
 				{
-					duration: 0.5,
 					opacity: 0,
-					ease: Power4.easeOut,
+					duration: transitionConstants.opacity.duration,
+					ease: transitionConstants.opacity.ease,
 					onComplete: done,
 				});
 		}
@@ -107,9 +108,9 @@ class MotorcycleHome extends Highway.Transition {
 					opacity: 0,
 				},
 				{
-					duration: 0.5,
 					opacity: 1,
-					ease: Power4.easeOut,
+					duration: transitionConstants.opacity.duration,
+					ease: transitionConstants.opacity.ease,
 					onComplete: done,
 				});
 		}

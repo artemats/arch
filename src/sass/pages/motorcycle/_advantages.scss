@@ -55,6 +55,14 @@
 						.btn-title{
 							padding-top: 0;
 						}
+						@include hover($minDesktopWidth){
+							&:hover{
+								color: var(--color-red);
+									.btn-icon{
+										transform: rotate(45deg);
+									}
+							}
+						}
 				}
 				@include mh($minHeight){
 					max-width: 18.5vmin;

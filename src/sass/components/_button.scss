@@ -86,13 +86,13 @@
 		@include d($xs) {
 			font-size: 14px;
 		}
-		&:not(.btn-back):not(.btn-next){
+		&:not(.btn-back):not(.btn-next):not(.advantages-nav-link){
 			@include hover($hoverWidth) {
 				&:hover{
 					color: var(--color-white);
-					.btn-icon{
-						transform: rotate(45deg);
-					}
+						.btn-icon{
+							transform: rotate(45deg);
+						}
 				}
 			}
 		}
