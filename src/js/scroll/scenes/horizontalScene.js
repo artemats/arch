@@ -5,6 +5,7 @@ import {switchHeaderNav} from "../../common/switchHeaderNav";
 import {changeZIndex} from "../../common/scrollContainer/changeZIndex";
 import {pauseHomeHeroVideo} from "../../common/home/togglePlayingHomeVideo";
 import {breakpoints} from "../../constants/breakpoints";
+import {switchGrid} from "../../common/grid/switchGrid";
 
 export const horizontalScene = () => {
 
@@ -97,6 +98,24 @@ export const horizontalScene = () => {
 				)
 				.addTo(controller);
 		}
+	}
+
+	/*
+	Videos
+	 */
+	const videos = document.querySelector('#home-videos');
+	if (!!videos) {
+		new ScrollMagic.Scene({
+			triggerElement: videos,
+			triggerHook: 0.5,
+		})
+			.on('enter', () => {
+				switchGrid(false);
+			})
+			.on('leave', () => {
+				switchGrid(true);
+			})
+			.addTo(controller);
 	}
 
 }

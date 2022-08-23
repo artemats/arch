@@ -1,4 +1,4 @@
-import gsap, { TweenLite, TimelineMax } from 'gsap';
+import { TweenLite } from 'gsap';
 import {transitionConstants} from "../../constants/transition";
 import Splide  from "@splidejs/splide";
 

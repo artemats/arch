@@ -22,7 +22,6 @@ class HomeRenderer extends Highway.Renderer {
 			loadHomeHeroContent();
 		}
 		/* end prod */
-		loadVimeoPlayer();
 		enableHorizontalScroll();
 		locoScroll.destroy();
 		changeZIndex();
@@ -35,6 +34,7 @@ class HomeRenderer extends Highway.Renderer {
 		// loadHomeHeroContent();
 		/* end dev */
 		locoScroll.init();
+		loadVimeoPlayer();
 		if (!!document.querySelector('[data-scroll-direction="horizontal"]')) {
 			playVideos();
 			horizontalScene();

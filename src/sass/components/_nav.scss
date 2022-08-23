@@ -123,7 +123,7 @@
 					margin: 0 5px;
 				}
 				&.is-current{
-					color: var(--color-white);
+					color: var(--color-white) !important;
 						.nav-link-row{
 								span{
 									-webkit-text-stroke-color: var(--color-red);

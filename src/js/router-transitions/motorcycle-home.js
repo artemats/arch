@@ -1,5 +1,5 @@
 import Highway from '@dogstudio/highway';
-import Tween, {Power4, TweenLite} from 'gsap';
+import Tween, {TweenLite} from 'gsap';
 import {locoScroll} from "../scroll/locoScroll";
 import {switchSlicedText} from "../common/content/switchSlicedText";
 import {switchMotorcycleBg} from "../common/switchMotorcycles";

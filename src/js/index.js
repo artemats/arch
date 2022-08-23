@@ -14,17 +14,13 @@ import ContactRenderer from "./renderers/contact";
 import BuildsRenderer from "./renderers/builds";
 import {loadImages} from "./common/loadImages";
 import {splittingText} from "./common/splittingText";
-import {toggleAboutTitles} from "./common/home/toggleAboutTitles";
 import {followMouseButton} from "./common/followMouseButton";
-import {playVideos} from "./common/home/playVideos";
-import {preloader} from "./common/preloader";
-import {loadHomeHeroContent} from "./common/home/loadHomeHeroContent";
 import MotorcycleRenderer from "./renderers/motorcycle";
-import {scrollListener} from "./scroll/scrollListener";
 import {ScrollMagicPluginGsap, ScrollMagicPluginIndicator} from "scrollmagic-plugins";
-import {locoScroll} from "./scroll/locoScroll";
 import './common/nav/switchNavOnBurgerClick';
 import {updateBodyHeight} from "./common/updateBodyHeight";
+import {detectCurrentNavLink} from "./common/nav/detectCurrentNavLink";
+import {detectExistPage} from "./common/detectExistPage";
 
 /*
 Preload page
@@ -54,28 +50,16 @@ const H = new Highway.Core({
 });
 
 /*
-Toggle active class on navigation
- */
-// const links = document.querySelectorAll('.nav-link');
-// H.on('NAVIGATE_IN', ({ to, location }) => {
-// 	for (let i = 0; i < links.length; i++) {
-// 		const link = links[i];
-// 		link.classList.remove('is-current');
-// 		if (link.href === location.href) {
-// 			link.classList.add('is-current');
-// 		}
-// 	}
-// });
-
-/*
 Init events listener on scroll
  */
 // scrollListener();
 
 H.on('NAVIGATE_IN', () => {
+	detectCurrentNavLink();
 	loadImages();
 	splittingText();
 	followMouseButton();
+	detectExistPage();
 });
 
 // H.on('NAVIGATE_END', () => {
@@ -86,9 +70,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	loadImages();
 	splittingText();
 	followMouseButton();
+	detectCurrentNavLink();
 
 	// locoScroll.scrollTo('#home-about');
-
 });
 
 ScrollMagicPluginIndicator(ScrollMagic);
@@ -97,3 +81,5 @@ ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);
 window.addEventListener('resize', () => {
 	updateBodyHeight();
 });
+
+detectExistPage();

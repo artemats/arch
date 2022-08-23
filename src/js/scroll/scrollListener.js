@@ -1,6 +1,5 @@
 import {pauseHomeHeroVideo, playHomeHeroVideo} from "../common/home/togglePlayingHomeVideo";
 import {setWhiteColorTheme} from "../common/switchColorTheme";
-import {switchHeaderNav} from "../common/switchHeaderNav";
 import {switchGrid} from "../common/grid/switchGrid";
 import {locoScroll} from "./locoScroll";
 import {changeZIndex} from "../common/scrollContainer/changeZIndex";

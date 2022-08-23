@@ -39,6 +39,7 @@ class MotorcycleRenderer extends Highway.Renderer {
 			Show content
 			 */
 			setTimeout(() => {
+				switchGrid(true, false);
 				showContentOnLoad();
 				showHiddenElements();
 				switchHeaderNav(1);

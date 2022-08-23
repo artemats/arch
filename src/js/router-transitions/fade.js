@@ -32,7 +32,6 @@ class Fade extends Highway.Transition {
 						disableLerp: true,
 						callback: () => {
 							locoScroll.update();
-							console.log('scroll home to start');
 						}
 					});
 				}
