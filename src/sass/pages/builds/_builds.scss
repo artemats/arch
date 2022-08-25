@@ -117,6 +117,9 @@
 				@include m($minDesktopWidth + 1){
 					display: none;
 				}
+				@include d($minDesktopWidth){
+					padding-top: 30px;
+				}
 		}
 		.section{
 				&-nav{

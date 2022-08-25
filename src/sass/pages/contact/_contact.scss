@@ -140,6 +140,6 @@
 			padding-top: 145px;
 		}
 		@include d($xs){
-			padding-top: 25vw;
+			padding-top: calc(25vw + 15px);
 		}
 }
