@@ -7,7 +7,7 @@ export const switchGrid = (status, withHorizontal = true) => {
 	const verticalLines = document.querySelectorAll('.grid-line-vertical');
 	const horizontalLine = document.querySelector('.grid-line-horizontal');
 
-	if (window.innerWidth >= breakpoints.width.minDesktop) {
+	// if (window.innerWidth >= breakpoints.width.minDesktop) {
 
 		for (let i = 0; i < verticalLines.length; i++) {
 			TweenLite.to(verticalLines[i], {
@@ -23,6 +23,6 @@ export const switchGrid = (status, withHorizontal = true) => {
 			ease: transitionConstants.grid.ease,
 		});
 
-	}
+	// }
 
 }

@@ -22,12 +22,21 @@
 				}
 				&.__1{
 					left: 25%;
+						@include d($minDesktopWidth){
+							left: 33.33%;
+						}
 				}
 				&.__2{
 					left: 50%;
+						@include d($minDesktopWidth){
+							left: 66.66%;
+						}
 				}
 				&.__3{
 					left: 75%;
+						@include d($minDesktopWidth){
+							display: none;
+						}
 				}
 				&.__4{
 					left: 0;
@@ -35,9 +44,13 @@
 					width: 0;
 					height: 1px;
 					top: 50%;
+						@include d($minDesktopWidth){
+							display: none;
+						}
 				}
 		}
 		@include d($minDesktopWidth){
-			display: none;
+			//display: none;
+			opacity: .05;
 		}
 }

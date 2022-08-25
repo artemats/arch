@@ -24,7 +24,7 @@ class HomeRenderer extends Highway.Renderer {
 		/* end prod */
 		enableHorizontalScroll();
 		locoScroll.destroy();
-		changeZIndex();
+		changeZIndex(window.innerWidth < breakpoints.width.minDesktop ? 1 : 0);
 		switchTopShadow(window.innerWidth < breakpoints.width.minDesktop);
 		toggleAboutTitles();
 		setWhiteColorTheme(false);

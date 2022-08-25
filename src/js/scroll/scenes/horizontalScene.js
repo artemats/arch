@@ -112,9 +112,9 @@ export const horizontalScene = () => {
 			.on('enter', () => {
 				switchGrid(false);
 			})
-			.on('leave', () => {
-				switchGrid(true);
-			})
+			// .on('leave', () => {
+			// 	switchGrid(true);
+			// })
 			.addTo(controller);
 	}
 
