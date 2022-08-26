@@ -31,6 +31,7 @@ export const moveBuilds = () => {
 					scrollTo: builds[i],
 				});
 				document.body.classList.add('no-scroll');
+				document.getElementsByTagName('html')[0].classList.add('no-scroll');
 			}
 			setTimeout(() => {
 				const {x, y} = builds[i].getBoundingClientRect();
@@ -56,6 +57,7 @@ export const moveBuilds = () => {
 		document.querySelector('.builds-row-item.is-active.is-present').classList.remove('is-present');
 		if (window.innerWidth < breakpoints.width.minDesktop) {
 			document.body.classList.remove('no-scroll');
+			document.getElementsByTagName('html')[0].classList.remove('no-scroll');
 		}
 		setTimeout(() => {
 			Tween.to(document.querySelector('.builds-row-item.is-active .build'), {
