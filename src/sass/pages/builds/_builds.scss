@@ -86,6 +86,9 @@
 											transition-delay: 1s;
 										}
 								}
+								@include d($minDesktopWidth){
+									overflow: hidden;
+								}
 							}
 						}
 						@include d($minDesktopWidth){
