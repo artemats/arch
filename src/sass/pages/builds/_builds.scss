@@ -88,6 +88,8 @@
 								}
 								@include d($minDesktopWidth){
 									overflow: hidden;
+									position: fixed;
+									transform: none !important;
 								}
 							}
 						}
