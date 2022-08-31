@@ -23,19 +23,20 @@
 				&.__1{
 					left: 25%;
 						@include d($minDesktopWidth){
-							left: 33.33%;
+							left: 15px;
 						}
 				}
 				&.__2{
 					left: 50%;
 						@include d($minDesktopWidth){
-							left: 66.66%;
+							opacity: .5;
 						}
 				}
 				&.__3{
 					left: 75%;
 						@include d($minDesktopWidth){
-							display: none;
+							left: auto;
+							right: 15px;
 						}
 				}
 				&.__4{
@@ -51,6 +52,5 @@
 		}
 		@include d($minDesktopWidth){
 			//display: none;
-			opacity: .05;
 		}
 }

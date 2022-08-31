@@ -37,9 +37,9 @@
         @include d($sm){
           font-size: 14px;
         }
-        @include d($xs){
-          font-size: 12px;
-        }
+        //@include d($xs){
+        //  font-size: 12px;
+        //}
     }
     &-button{
       font-size: 12px;

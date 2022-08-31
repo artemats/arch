@@ -10,9 +10,9 @@ body{
 		@include d($minDesktopWidth){
 			font-size: 16px;
 		}
-		@include d($sm){
-			font-size: 14px;
-		}
+		//@include d($sm){
+		//	font-size: 14px;
+		//}
 }
 
 .theme-white{
