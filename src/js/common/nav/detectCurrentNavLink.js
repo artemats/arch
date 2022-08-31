@@ -8,5 +8,12 @@ export const detectCurrentNavLink = () => {
 		if (href === loc) {
 			link.classList.add('is-current');
 		}
+
+		link.addEventListener('click', (e) => {
+			const href = e.target.getAttribute('href');
+			if (!!href && loc === href) {
+				window.location.href = href
+			}
+		});
 	}
 }
