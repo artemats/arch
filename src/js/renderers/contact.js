@@ -18,7 +18,7 @@ class ContactRenderer extends Highway.Renderer {
 		setWhiteColorTheme(false);
 		enableHorizontalScroll();
 		locoScroll.destroy();
-		changeZIndex(2);
+		changeZIndex(1);
 		switchGrid(true);
 		// focusInput();
 		// detectFocusInput();
@@ -41,6 +41,8 @@ class ContactRenderer extends Highway.Renderer {
 			showContentOnLoad();
 			showHiddenElements();
 			switchHeaderNav(1);
+			switchGrid(true);
+			changeZIndex(1);
 		}, 100);
 	}
 }

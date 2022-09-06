@@ -43,6 +43,7 @@ class AboutRenderer extends Highway.Renderer {
 			showContentOnLoad();
 			showHiddenElements();
 			switchHeaderNav(1);
+			switchGrid(true);
 		}, 100);
 	}
 }
