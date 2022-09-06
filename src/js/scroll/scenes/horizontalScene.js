@@ -118,4 +118,22 @@ export const horizontalScene = () => {
 			.addTo(controller);
 	}
 
+	/*
+	Contact Us, scale Inspiration banner
+	 */
+	const inspirationBanner = document.querySelector('.inspiration-banner');
+	if (!!inspirationBanner) {
+		new ScrollMagic.Scene({
+			triggerElement: document.querySelector('#page'),
+			duration: window.innerWidth > breakpoints.width.minDesktop ? window.innerWidth * 2 : window.innerHeight * 2,
+			triggerHook: 0
+		})
+			.setTween(
+				Tween.to(inspirationBanner.querySelector('.section-content-image'), {
+					height: '100vh',
+				})
+			)
+			.addTo(controller)
+	}
+
 }

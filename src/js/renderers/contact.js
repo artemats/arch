@@ -11,6 +11,7 @@ import {detectFocusInput, focusInput} from "../common/contact/focusInput";
 import {initFormCarousel} from "../common/contact/formCarousel";
 import {switchTopShadow} from "../common/switchTopShadow";
 import {switchHeaderNav} from "../common/switchHeaderNav";
+import {horizontalScene} from "../scroll/scenes/horizontalScene";
 
 class ContactRenderer extends Highway.Renderer {
 	onEnter() {
@@ -18,10 +19,10 @@ class ContactRenderer extends Highway.Renderer {
 		enableHorizontalScroll();
 		locoScroll.destroy();
 		changeZIndex(2);
-		switchGrid(false);
-		focusInput();
-		detectFocusInput();
-		initFormCarousel();
+		switchGrid(true);
+		// focusInput();
+		// detectFocusInput();
+		// initFormCarousel();
 		switchTopShadow(false);
 	}
 	onEnterCompleted() {
@@ -31,6 +32,7 @@ class ContactRenderer extends Highway.Renderer {
 		switchHeaderFooterLogo(true);
 		if (!!document.querySelector('[data-scroll-direction="horizontal"]')) {
 			document.body.classList.remove('is-dark');
+			horizontalScene();
 		}
 		/*
 			Show content

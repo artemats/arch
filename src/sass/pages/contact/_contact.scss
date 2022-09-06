@@ -48,6 +48,15 @@
 						[class*=h]{
 							color: var(--color-white);
 						}
+						a{
+							color: var(--color-red);
+							transition: color var(--color-duration) var(--color-ease);
+								@include hover($hoverWidth){
+									&:hover{
+										color: var(--color-white);
+									}
+								}
+						}
 						@include d($minDesktopWidth){
 							position: relative;
 							bottom: 0;
@@ -87,9 +96,29 @@
 		&-form{
 			width: 50vw;
 			height: 100%;
-			padding-top: 22.7vmin;
-			padding-left: 15.7vmin;
+			//padding-top: 22.7vmin;
+			//padding-left: 15.7vmin;
 			background-color: var(--color-black);
+			/*
+			
+			 */
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: flex-start;
+			padding: 50px;
+				&-title{
+					font-size: 3.95vw;
+					transition: color var(--color-duration) var(--color-ease);
+						@include hover($hoverWidth){
+							&:hover{
+								color: var(--color-red);
+							}
+						}
+				}
+				&-subtitle{
+				
+				}
 				&-item{
 					width: 100%;
 					max-width: 35vw;
@@ -97,9 +126,47 @@
 							max-width: 100%;
 						}
 				}
+				&-like{
+					color: var(--color-white);
+					line-height: 1.2em;
+						a{
+							color: var(--color-red);
+						}
+				}
 				.contact-nav-pagination{
 					@include m($minDesktopWidth + 1){
 						display: none;
+					}
+				}
+				.section{
+					&-content{
+						&-box{
+							&.__bottom{
+								@include m($minDesktopWidth + 1){
+									position: absolute;
+									left: 50px;
+									bottom: 50px;
+								}
+							}
+						}
+						&-title{
+							font-size: 2.92vw;
+						}
+						&-description{
+							color: var(--color-grey-100);
+								a{
+									color: var(--color-white);
+									transition: color var(--color-duration) var(--color-ease);
+										@include hover($hoverWidth){
+											&:hover{
+												color: var(--color-red);
+											}
+										}
+								}
+						}
+						&-subtitle{
+							margin-bottom: 1vw;
+						}
 					}
 				}
 				@include d($minDesktopWidth){
