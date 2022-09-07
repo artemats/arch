@@ -71,6 +71,11 @@
 									@include d($md){
 										font-size: 16vmin;
 									}
+									@include hover($hoverWidth){
+										&:hover{
+											color: var(--color-white);
+										}
+									}
 							}
 						}
 						@include mh($minHeight){

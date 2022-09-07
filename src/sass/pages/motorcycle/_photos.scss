@@ -36,7 +36,7 @@
 					overflow: hidden;
 						img{
 							@include imageCover(center);
-							transition: transform .2s ease-out, opacity .2s ease-out;
+							transition: transform .2s linear, opacity .2s linear;
 						}
 				}
 		}

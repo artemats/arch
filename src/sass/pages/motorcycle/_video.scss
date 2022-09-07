@@ -8,7 +8,7 @@
 			width: 564px;
 			height: 377px;
 			overflow: hidden;
-			transition: width .1s ease-out, height .1s ease-out, transform .1s ease-out, opacity .1s ease-out;
+			transition: width .2s linear, height .2s linear, transform .2s linear, opacity .2s linear;
 				img{
 					@include imageCover(center);
 					transition: transform .1s ease-out;
