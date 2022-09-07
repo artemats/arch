@@ -12,6 +12,7 @@ import {initFormCarousel} from "../common/contact/formCarousel";
 import {switchTopShadow} from "../common/switchTopShadow";
 import {switchHeaderNav} from "../common/switchHeaderNav";
 import {horizontalScene} from "../scroll/scenes/horizontalScene";
+import {breakpoints} from "../constants/breakpoints";
 
 class ContactRenderer extends Highway.Renderer {
 	onEnter() {
@@ -43,6 +44,11 @@ class ContactRenderer extends Highway.Renderer {
 			switchHeaderNav(1);
 			switchGrid(true);
 			changeZIndex(1);
+
+			if (window.innerWidth < breakpoints.width.minDesktop) {
+				let vh = window.innerHeight * 0.01;
+				document.documentElement.style.setProperty('--vh', `${vh}px`);
+			}
 		}, 100);
 	}
 }
